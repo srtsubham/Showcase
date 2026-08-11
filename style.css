@@ -1,0 +1,556 @@
+/* Base Section */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body {
+width: 100%;
+background-color: #ebebeb;
+color: #111111;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+overflow-x: hidden;
+background-image: linear-gradient(#d3d3d3 1px, transparent 1px), linear-gradient(90deg, #d3d3d3 1px, transparent 1px);
+background-size: 20px 20px;
+}
+
+html.lenis, html.lenis body {
+height: auto;
+}
+
+.lenis.lenisSmooth {
+scroll-behavior: auto;
+}
+
+.lenis.lenisStopped {
+overflow: hidden;
+}
+
+/* Loader Section */
+.loaderWrapper {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: #050505;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+transition: opacity 0.5s ease;
+}
+
+.loaderBox {
+background-color: #ffffff;
+color: #000000;
+padding: 15px 30px;
+border-radius: 4px;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+/* Top Header Section */
+.topHeader {
+position: absolute;
+top: 1vw;
+left: 1vw;
+right: 1vw;
+background-color: #ffffff;
+padding: 15px 25px;
+border-radius: 6px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.headerLogo {
+background-color: #111111;
+color: #ffffff;
+padding: 5px 8px;
+font-weight: bold;
+border-radius: 4px;
+font-size: 0.9rem;
+}
+
+.headerText {
+font-size: 0.8rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.headerLink {
+text-decoration: none;
+color: #111111;
+font-weight: 600;
+font-size: 0.85rem;
+text-transform: uppercase;
+}
+
+/* Bottom Dock Section */
+.bottomDock {
+position: fixed;
+bottom: 2rem;
+left: 50%;
+transform: translate(-50%, 150%);
+transition: transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
+background-color: #1a1a1a;
+color: #ffffff;
+padding: 12px 24px;
+border-radius: 8px;
+display: flex;
+align-items: center;
+gap: 40px;
+z-index: 1000;
+box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.bottomDock.isVisible {
+transform: translate(-50%, 0);
+}
+
+.dockLogo {
+text-decoration: none;
+color: #ffffff;
+font-weight: 600;
+font-size: 0.9rem;
+letter-spacing: 1px;
+border-right: 1px solid #333333;
+padding-right: 20px;
+}
+
+.dockLinks {
+display: flex;
+gap: 25px;
+}
+
+.dockLink {
+text-decoration: none;
+color: #aaaaaa;
+font-size: 0.85rem;
+text-transform: uppercase;
+transition: color 0.3s;
+}
+
+.dockLink:hover {
+color: #ffffff;
+}
+
+/* Feedback Button */
+.feedbackButton {
+position: fixed;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+background-color: #111111;
+color: #ffffff;
+writing-mode: vertical-rl;
+text-orientation: mixed;
+padding: 20px 10px;
+text-decoration: none;
+font-weight: 700;
+text-transform: uppercase;
+font-size: 0.85rem;
+letter-spacing: 2px;
+z-index: 900;
+}
+
+/* Hero Section */
+.heroSection {
+position: relative;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
+
+.heroPortrait {
+position: absolute;
+bottom: 0;
+z-index: 2;
+width: 45vw;
+display: flex;
+justify-content: center;
+}
+
+.avatarImage {
+width: 100%;
+height: auto;
+object-fit: cover;
+}
+
+.heroMarquee {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+width: 100%;
+display: flex;
+z-index: 1;
+overflow: hidden;
+}
+
+.marqueeGroup {
+display: flex;
+flex-shrink: 0;
+animation: scrollText 15s linear infinite;
+}
+
+.marqueeItem {
+font-size: 22vw;
+font-family: 'Space Mono', monospace;
+white-space: nowrap;
+padding-right: 5vw;
+text-transform: uppercase;
+color: #111111;
+letter-spacing: -0.05em;
+}
+
+/* About Section */
+.aboutSection {
+background-color: #050505;
+color: #ffffff;
+border-radius: 1rem;
+padding: 10rem 4rem;
+position: relative;
+z-index: 2;
+margin: 0 1.5vw;
+}
+
+.aboutWrapper {
+display: grid;
+grid-template-columns: 1fr 1.5fr;
+gap: 4rem;
+max-width: 1200px;
+margin: 0 auto;
+align-items: start;
+}
+
+.aboutTitle {
+font-size: 6rem;
+font-weight: 500;
+overflow: hidden;
+display: flex;
+margin-top: -1rem;
+}
+
+.char {
+display: inline-block;
+opacity: 0;
+}
+
+.c1 { transform: translateY(100%); transition: transform 0.7s ease, opacity 0.7s ease; transition-delay: 0.0s; }
+.c2 { transform: translateY(150%); transition: transform 0.9s ease, opacity 0.9s ease; transition-delay: 0.1s; }
+.c3 { transform: translateY(200%); transition: transform 0.8s ease, opacity 0.8s ease; transition-delay: 0.05s; }
+.c4 { transform: translateY(160%); transition: transform 1.0s ease, opacity 1.0s ease; transition-delay: 0.15s; }
+.c5 { transform: translateY(100%); transition: transform 0.75s ease, opacity 0.75s ease; transition-delay: 0.2s; }
+
+.aboutLeft.isVisible .char {
+transform: translateY(0);
+opacity: 1;
+}
+
+.aboutRight {
+transform: translateY(40px);
+opacity: 0;
+transition: transform 0.8s ease 0.3s, opacity 0.8s ease 0.3s;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.aboutRight.isVisible {
+transform: translateY(0);
+opacity: 1;
+}
+
+.aboutBio {
+font-size: 2.2rem;
+line-height: 1.4;
+font-weight: 400;
+margin-bottom: 4rem;
+letter-spacing: -0.01em;
+}
+
+.bioMuted {
+font-size: 1rem;
+color: #888888;
+text-transform: uppercase;
+vertical-align: middle;
+letter-spacing: 1px;
+margin: 0 0.2rem;
+}
+
+.aboutSubLabel {
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+color: #aaaaaa;
+font-weight: 500;
+margin-bottom: 1.5rem;
+}
+
+.aboutRole {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.roleIcon {
+width: 2.8rem;
+height: 2.8rem;
+background-color: #1a1a1a;
+border-radius: 0.4rem;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.1rem;
+color: #ffffff;
+}
+
+.roleTitle {
+font-weight: 600;
+font-size: 0.95rem;
+margin-bottom: 0.1rem;
+}
+
+.roleCompany {
+color: #888888;
+font-size: 0.85rem;
+}
+
+/* Middle Marquee Section */
+.middleMarquee {
+width: 100%;
+overflow: hidden;
+padding: 3rem 0;
+border-bottom: 1px solid #111111;
+margin-top: 4rem;
+display: flex;
+}
+
+.marqueeGroupSmall {
+display: flex;
+flex-shrink: 0;
+animation: scrollText 15s linear infinite;
+}
+
+.marqueeItemSmall {
+font-size: 6vw;
+font-weight: 500;
+white-space: nowrap;
+padding-right: 3rem;
+text-transform: uppercase;
+flex-shrink: 0;
+letter-spacing: -0.02em;
+}
+
+@keyframes scrollText {
+0% { transform: translateX(0); }
+100% { transform: translateX(-100%); }
+}
+
+/* Work Section */
+.workSection {
+padding: 6rem 4rem;
+min-height: 100vh;
+}
+
+.workHeader {
+margin-bottom: 4rem;
+border-bottom: 1px solid #111111;
+padding-bottom: 2rem;
+}
+
+.sectionTitle {
+font-size: 6vw;
+text-transform: uppercase;
+letter-spacing: -0.02em;
+font-family: 'Space Mono', monospace;
+}
+
+.projectList {
+display: flex;
+flex-direction: column;
+}
+
+.projectItem {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 3rem 1rem;
+border-bottom: 1px solid #cccccc;
+text-decoration: none;
+color: #111111;
+clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+transition: clip-path 0.8s cubic-bezier(0.165, 0.840, 0.440, 1), background-color 0.3s;
+}
+
+.projectItem.isVisible {
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.projectItem:hover {
+background-color: #f5f5f5;
+}
+
+.projectInfo {
+display: flex;
+align-items: center;
+gap: 1.5rem;
+}
+
+.projectName {
+font-size: 2.5rem;
+font-weight: 500;
+}
+
+.projectTags {
+display: flex;
+gap: 0.5rem;
+}
+
+.tagLabel {
+border: 1px solid #111111;
+padding: 0.5rem 1rem;
+border-radius: 0.25rem;
+font-size: 0.75rem;
+text-transform: uppercase;
+font-weight: 700;
+}
+
+/* Bento Section */
+.bentoSection {
+padding: 6rem 4rem;
+}
+
+.bentoGrid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+}
+
+.bentoCard {
+padding: 2rem;
+border-radius: 0.5rem;
+min-height: 25rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+text-decoration: none;
+clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+transition: clip-path 0.8s cubic-bezier(0.165, 0.840, 0.440, 1), transform 0.3s;
+}
+
+.bentoCard.isVisible {
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.bentoCard:hover {
+transform: scale(0.98);
+}
+
+.bentoText {
+font-size: 2rem;
+font-weight: 600;
+text-transform: uppercase;
+}
+
+.bentoLabel {
+font-size: 1rem;
+font-weight: 600;
+align-self: flex-end;
+}
+
+.yellowCard { background-color: #fdff5d; color: #111111; }
+.redCard { background-color: #ff3e3e; color: #ffffff; }
+.greenCard { background-color: #5b8f67; color: #ffffff; }
+
+/* Footer Section */
+.footerComponent {
+padding: 4rem 4rem;
+}
+
+.footerTop {
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #111111;
+padding-bottom: 4rem;
+margin-bottom: 2rem;
+}
+
+.footerTitle {
+font-size: 5vw;
+text-transform: uppercase;
+letter-spacing: -0.02em;
+}
+
+.footerContact {
+background-color: #fdff5d;
+padding: 1rem 2rem;
+border-radius: 0.5rem;
+border: 1px solid #111111;
+text-decoration: none;
+color: #111111;
+font-weight: 700;
+text-transform: uppercase;
+transition: background-color 0.3s;
+}
+
+.footerContact:hover {
+background-color: #e6e84c;
+}
+
+.footerBottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.9rem;
+font-weight: 500;
+}
+
+.footerLinks {
+display: flex;
+gap: 1rem;
+}
+
+.socialLink {
+text-decoration: none;
+color: #111111;
+border: 1px solid #111111;
+padding: 0.5rem 1rem;
+border-radius: 0.25rem;
+transition: background-color 0.3s, color 0.3s;
+}
+
+.socialLink:hover {
+background-color: #111111;
+color: #ffffff;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 991px) {
+.aboutWrapper {
+grid-template-columns: 1fr;
+gap: 3rem;
+}
+.bentoGrid {
+grid-template-columns: 1fr;
+}
+.footerTop {
+flex-direction: column;
+align-items: flex-start;
+gap: 2rem;
+}
+.footerBottom {
+flex-direction: column;
+align-items: flex-start;
+gap: 2rem;
+}
+}
