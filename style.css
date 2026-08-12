@@ -1,4 +1,3 @@
-/* Base Section */
 * {
 margin: 0;
 padding: 0;
@@ -11,8 +10,10 @@ background-color: #ebebeb;
 color: #111111;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 overflow-x: hidden;
-background-image: linear-gradient(#d3d3d3 1px, transparent 1px), linear-gradient(90deg, #d3d3d3 1px, transparent 1px);
-background-size: 20px 20px;
+background-image: linear-gradient(to right, rgba(0,0,0,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.15) 1px, transparent 1px);
+background-size: 8px 8px;
+background-position: center top;
+background-attachment: fixed;
 }
 
 html.lenis, html.lenis body {
@@ -27,7 +28,6 @@ scroll-behavior: auto;
 overflow: hidden;
 }
 
-/* Loader Section */
 .loaderWrapper {
 position: fixed;
 top: 0;
@@ -52,50 +52,61 @@ text-transform: uppercase;
 letter-spacing: 2px;
 }
 
-/* Top Header Section */
 .topHeader {
-position: absolute;
-top: 1vw;
-left: 1vw;
-right: 1vw;
+position: fixed;
+top: 15px;
+left: 15px;
+right: 15px;
 background-color: #ffffff;
-padding: 15px 25px;
+padding: 10px 20px;
 border-radius: 6px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-z-index: 100;
-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+z-index: 10;
+box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.headerLeft {
+display: flex;
+align-items: center;
+gap: 15px;
 }
 
 .headerLogo {
 background-color: #111111;
 color: #ffffff;
-padding: 5px 8px;
+width: 32px;
+height: 32px;
+display: flex;
+justify-content: center;
+align-items: center;
 font-weight: bold;
 border-radius: 4px;
 font-size: 0.9rem;
 }
 
 .headerText {
-font-size: 0.8rem;
-font-weight: 600;
+font-size: 0.75rem;
+font-weight: 500;
 text-transform: uppercase;
-letter-spacing: 1px;
+letter-spacing: 0.5px;
 }
 
 .headerLink {
+display: flex;
+align-items: center;
+gap: 8px;
 text-decoration: none;
 color: #111111;
 font-weight: 600;
-font-size: 0.85rem;
+font-size: 0.75rem;
 text-transform: uppercase;
 }
 
-/* Bottom Dock Section */
 .bottomDock {
 position: fixed;
-bottom: 2rem;
+bottom: 20px;
 left: 50%;
 transform: translate(-50%, 150%);
 transition: transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
@@ -141,33 +152,88 @@ transition: color 0.3s;
 color: #ffffff;
 }
 
-/* Feedback Button */
 .feedbackButton {
 position: fixed;
 right: 0;
 top: 50%;
-transform: translateY(-50%);
-background-color: #111111;
+background-color: #050505;
 color: #ffffff;
+width: 40px;
+height: 120px;
+display: flex;
+align-items: center;
+justify-content: center;
 writing-mode: vertical-rl;
-text-orientation: mixed;
-padding: 20px 10px;
+transform: translateY(-50%) rotate(180deg);
 text-decoration: none;
 font-weight: 700;
-text-transform: uppercase;
-font-size: 0.85rem;
+font-size: 12px;
 letter-spacing: 2px;
 z-index: 900;
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
 }
 
-/* Hero Section */
 .heroSection {
-position: relative;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
 height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
 overflow: hidden;
+z-index: 1;
+}
+
+.scrollDown {
+position: absolute;
+bottom: 20px;
+left: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 0.7rem;
+font-weight: 600;
+text-transform: uppercase;
+z-index: 10;
+}
+
+.scrollBox {
+width: 24px;
+height: 24px;
+border: 2px solid #111111;
+border-radius: 4px;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
+
+.scrollArrow {
+width: 14px;
+height: 14px;
+animation: arrowDrop 1.5s infinite ease-in-out;
+}
+
+@keyframes arrowDrop {
+0% { transform: translateY(-15px); opacity: 0; }
+50% { opacity: 1; }
+100% { transform: translateY(15px); opacity: 0; }
+}
+
+.copyrightLabel {
+position: absolute;
+bottom: 20px;
+right: 20px;
+background-color: #ffffff;
+padding: 6px 12px;
+border-radius: 4px;
+font-size: 0.7rem;
+font-weight: 600;
+z-index: 10;
+box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 
 .heroPortrait {
@@ -195,10 +261,17 @@ z-index: 1;
 overflow: hidden;
 }
 
+.marqueeTrack {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+width: max-content;
+animation: scrollText 15s linear infinite;
+}
+
 .marqueeGroup {
 display: flex;
 flex-shrink: 0;
-animation: scrollText 15s linear infinite;
 }
 
 .marqueeItem {
@@ -208,31 +281,31 @@ white-space: nowrap;
 padding-right: 5vw;
 text-transform: uppercase;
 color: #111111;
+flex-shrink: 0;
 letter-spacing: -0.05em;
 }
 
-/* About Section */
 .aboutSection {
 background-color: #050505;
 color: #ffffff;
-border-radius: 1rem;
-padding: 10rem 4rem;
+width: 100%;
+padding: 8rem 4rem;
 position: relative;
-z-index: 2;
-margin: 0 1.5vw;
+z-index: 20;
+margin-top: 100vh;
 }
 
 .aboutWrapper {
 display: grid;
 grid-template-columns: 1fr 1.5fr;
 gap: 4rem;
-max-width: 1200px;
+max-width: 1100px;
 margin: 0 auto;
 align-items: start;
 }
 
 .aboutTitle {
-font-size: 6rem;
+font-size: 5rem;
 font-weight: 500;
 overflow: hidden;
 display: flex;
@@ -262,6 +335,7 @@ transition: transform 0.8s ease 0.3s, opacity 0.8s ease 0.3s;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
+padding-right: 2rem;
 }
 
 .aboutRight.isVisible {
@@ -270,15 +344,16 @@ opacity: 1;
 }
 
 .aboutBio {
-font-size: 2.2rem;
-line-height: 1.4;
+font-size: 1.5rem;
+line-height: 1.5;
 font-weight: 400;
-margin-bottom: 4rem;
+margin-bottom: 3rem;
+max-width: 800px;
 letter-spacing: -0.01em;
 }
 
 .bioMuted {
-font-size: 1rem;
+font-size: 0.85rem;
 color: #888888;
 text-transform: uppercase;
 vertical-align: middle;
@@ -287,7 +362,7 @@ margin: 0 0.2rem;
 }
 
 .aboutSubLabel {
-font-size: 0.75rem;
+font-size: 0.7rem;
 text-transform: uppercase;
 letter-spacing: 0.8px;
 color: #aaaaaa;
@@ -324,13 +399,14 @@ color: #888888;
 font-size: 0.85rem;
 }
 
-/* Middle Marquee Section */
 .middleMarquee {
+position: relative;
+z-index: 20;
 width: 100%;
 overflow: hidden;
 padding: 3rem 0;
 border-bottom: 1px solid #111111;
-margin-top: 4rem;
+background-color: #ffffff;
 display: flex;
 }
 
@@ -355,10 +431,12 @@ letter-spacing: -0.02em;
 100% { transform: translateX(-100%); }
 }
 
-/* Work Section */
 .workSection {
+position: relative;
+z-index: 20;
 padding: 6rem 4rem;
 min-height: 100vh;
+background-color: #ffffff;
 }
 
 .workHeader {
@@ -424,9 +502,11 @@ text-transform: uppercase;
 font-weight: 700;
 }
 
-/* Bento Section */
 .bentoSection {
+position: relative;
+z-index: 20;
 padding: 6rem 4rem;
+background-color: #ebebeb;
 }
 
 .bentoGrid {
@@ -471,9 +551,11 @@ align-self: flex-end;
 .redCard { background-color: #ff3e3e; color: #ffffff; }
 .greenCard { background-color: #5b8f67; color: #ffffff; }
 
-/* Footer Section */
 .footerComponent {
+position: relative;
+z-index: 20;
 padding: 4rem 4rem;
+background-color: #ffffff;
 }
 
 .footerTop {
@@ -534,7 +616,6 @@ background-color: #111111;
 color: #ffffff;
 }
 
-/* Responsiveness */
 @media screen and (max-width: 991px) {
 .aboutWrapper {
 grid-template-columns: 1fr;

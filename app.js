@@ -1,4 +1,3 @@
-/* Scroll & Observer Execution */
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof Lenis !== 'undefined') {
         const c = new Lenis({
@@ -11,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(d);
         }
         requestAnimationFrame(d);
-    } else {
-        console.warn('Lenis missing. Native scroll active.');
     }
 
     const f = document.querySelectorAll('.projectItem, .bentoCard, .animTarget');
@@ -41,14 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(l, 1000);
     l();
 
-    /* Dock Visibility Trigger */
     const o = document.getElementById('bottomDock');
-    const p = document.getElementById('heroSection');
     
     window.addEventListener('scroll', () => {
-        if (!o || !p) return;
-        const q = p.offsetHeight;
-        if (window.scrollY > q * 0.8) {
+        if (!o) return;
+        if (window.scrollY > 5) {
             o.classList.add('isVisible');
         } else {
             o.classList.remove('isVisible');
