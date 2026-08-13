@@ -9,82 +9,122 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let b = 0;
     if (a) {
-        a.on('scroll', (eventObj) => {
-            b = eventObj.velocity;
+        a.on('scroll', (e) => {
+            b = e.velocity;
         });
     }
 
-    const c = document.querySelector('.middleMarquee .marqueeTrackSync');
-    const d = document.querySelector('.middleMarquee');
-    const e = document.querySelectorAll('.scrollSyncCard');
-    const m = document.querySelector('.bentoSection');
+    const ts = document.querySelectorAll('.marqueeTrackSync');
+    const bnrs = document.querySelectorAll('.middleMarquee');
+    const crds = document.querySelectorAll('.scrollSyncCard');
+    const bs = document.querySelector('.bentoSection');
+    
+    const pi = document.querySelectorAll('.scrollInteractive');
+    const pp = document.createElement('div');
+    pp.className = 'projectPreview';
+    const pim = document.createElement('img');
+    pim.className = 'previewImage';
+    pim.src = 'assets/images/avatar.avif';
+    pp.appendChild(pim);
+    document.body.appendChild(pp);
 
     let f = 0;
 
     function g(h) {
         if (a) a.raf(h);
 
-        f -= 0.04 + (b * 0.015);
+        f -= 0.02 + (b * 0.01);
         if (f <= -50) f += 50;
         if (f > 0) f -= 50;
-        if (c) c.style.transform = `translateX(${f}%)`;
+        
+        ts.forEach(t => t.style.transform = `translateX(${f}%)`);
 
-        const i = window.innerHeight;
+        const wh = window.innerHeight;
 
-        if (d) {
-            const j = d.getBoundingClientRect();
-            let k = (i - j.top + 100) / (j.height + 200);
-            k = Math.max(0, Math.min(1, k));
-            const l = (1 - k) * 100;
-            d.style.clipPath = `inset(${l}% 0 0 0 round 4px)`;
+        if (bnrs[0]) {
+            const r1 = bnrs[0].getBoundingClientRect();
+            let p1 = (r1.top - 250) / (wh - 250);
+            p1 = Math.max(0, Math.min(1, p1));
+            bnrs[0].style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
+        }
+        
+        if (bnrs[1]) {
+            const r2 = bnrs[1].getBoundingClientRect();
+            let p2 = r2.top / wh;
+            p2 = Math.max(0, Math.min(1, p2));
+            bnrs[1].style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
 
-        if (m) {
-            const n = m.getBoundingClientRect();
-            let o = (i - n.top + 150) / (i * 0.8);
-            o = Math.max(0, Math.min(1, o));
-            const p = o * 100;
-            e.forEach((q) => {
-                q.style.clipPath = `polygon(0 0, ${p}% 0, ${p}% 100%, 0 100%)`;
+        if (bs) {
+            const r = bs.getBoundingClientRect();
+            let p = (wh - r.top + 150) / (wh * 0.8);
+            p = Math.max(0, Math.min(1, p));
+            crds.forEach((crd) => {
+                crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
             });
+        }
+        
+        let cItem = null;
+        let mDist = Infinity;
+        pi.forEach(p => {
+            const r = p.getBoundingClientRect();
+            const d = Math.abs((r.top + r.height/2) - wh/2);
+            if(d < mDist) {
+                mDist = d;
+                cItem = p;
+            }
+        });
+        
+        pi.forEach(p => {
+            if(p === cItem && mDist < 150) {
+                p.classList.add('isActive');
+            } else {
+                p.classList.remove('isActive');
+            }
+        });
+        
+        if (mDist < 150) {
+            pp.classList.add('isVisible');
+        } else {
+            pp.classList.remove('isVisible');
         }
 
         requestAnimationFrame(g);
     }
     requestAnimationFrame(g);
 
-    const w = document.querySelectorAll('.animTarget');
-    const x = new IntersectionObserver((y) => {
-        y.forEach((z) => {
-            if (z.isIntersecting) {
-                z.target.classList.add('isVisible');
+    const ee = document.querySelectorAll('.animTarget');
+    const ff = new IntersectionObserver((gg) => {
+        gg.forEach((hh) => {
+            if (hh.isIntersecting) {
+                hh.target.classList.add('isVisible');
             } else {
-                z.target.classList.remove('isVisible');
+                hh.target.classList.remove('isVisible');
             }
         });
     }, { threshold: 0.1 });
 
-    w.forEach((z) => {
-        x.observe(z);
+    ee.forEach((hh) => {
+        ff.observe(hh);
     });
 
-    const r = document.getElementById('clockDisplay');
-    function s() {
-        const t = new Date();
-        const u = t.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-        if (r) r.textContent = u;
+    const ii = document.getElementById('clockDisplay');
+    function jj() {
+        const kk = new Date();
+        const ll = kk.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
+        if (ii) ii.textContent = ll;
     }
     
-    setInterval(s, 1000);
-    s();
+    setInterval(jj, 1000);
+    jj();
 
-    const v = document.getElementById('bottomDock');
+    const mm = document.getElementById('bottomDock');
     window.addEventListener('scroll', () => {
-        if (!v) return;
+        if (!mm) return;
         if (window.scrollY > 5) {
-            v.classList.add('isVisible');
+            mm.classList.add('isVisible');
         } else {
-            v.classList.remove('isVisible');
+            mm.classList.remove('isVisible');
         }
     });
 });
