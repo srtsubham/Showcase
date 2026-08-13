@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const ts = document.querySelectorAll('.marqueeTrackSync');
-    const bnrs = document.querySelectorAll('.middleMarquee');
+    const b1 = document.querySelector('.marqueeWrapper:not(.invertedWrapper) .middleMarquee');
+    const b2 = document.querySelector('.invertedWrapper .middleMarquee');
     const crds = document.querySelectorAll('.scrollSyncCard');
     const bs = document.querySelector('.bentoSection');
     
@@ -27,6 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
     pim.src = 'assets/images/avatar.avif';
     pp.appendChild(pim);
     document.body.appendChild(pp);
+
+    const pSec = document.getElementById('pingSection');
+    const pFol = document.getElementById('cursorFollower');
+
+    let pMouseX = 0, pMouseY = 0;
+    let pCurrX = 0, pCurrY = 0;
+    let pHover = false;
+
+    if (pSec && pFol) {
+        pSec.addEventListener('mousemove', (e) => {
+            const r = pSec.getBoundingClientRect();
+            pMouseX = e.clientX - r.left;
+            pMouseY = e.clientY - r.top;
+        });
+        pSec.addEventListener('mouseenter', (e) => {
+            const r = pSec.getBoundingClientRect();
+            pCurrX = e.clientX - r.left;
+            pCurrY = e.clientY - r.top;
+            pMouseX = pCurrX;
+            pMouseY = pCurrY;
+            pHover = true;
+            pFol.style.opacity = '1';
+        });
+        pSec.addEventListener('mouseleave', () => {
+            pHover = false;
+            pFol.style.opacity = '0';
+        });
+    }
 
     let f = 0;
 
@@ -41,18 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const wh = window.innerHeight;
 
-        if (bnrs[0]) {
-            const r1 = bnrs[0].getBoundingClientRect();
+        if (b1) {
+            const r1 = b1.getBoundingClientRect();
             let p1 = (r1.top - 250) / (wh - 250);
             p1 = Math.max(0, Math.min(1, p1));
-            bnrs[0].style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
+            b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
         
-        if (bnrs[1]) {
-            const r2 = bnrs[1].getBoundingClientRect();
+        if (b2) {
+            const r2 = b2.getBoundingClientRect();
             let p2 = r2.top / wh;
             p2 = Math.max(0, Math.min(1, p2));
-            bnrs[1].style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
+            b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
 
         if (bs) {
@@ -87,6 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
             pp.classList.add('isVisible');
         } else {
             pp.classList.remove('isVisible');
+        }
+
+        if (pHover && pFol) {
+            pCurrX += (pMouseX - pCurrX) * 0.08;
+            pCurrY += (pMouseY - pCurrY) * 0.08;
+            pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
         }
 
         requestAnimationFrame(g);

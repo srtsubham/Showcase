@@ -132,8 +132,6 @@ transform: translate(-50%, 0);
 .dockLogo {
 text-decoration: none;
 color: #ffffff;
-border-right: 1px solid rgba(255,255,255,0.2);
-padding-right: 20px;
 display: flex;
 align-items: center;
 }
@@ -159,22 +157,40 @@ color: #ffffff;
 position: fixed;
 right: 0;
 top: 50%;
+transform: translateY(-50%);
 background-color: #050505;
 color: #ffffff;
-width: 40px;
-height: 120px;
+width: 44px;
 display: flex;
+flex-direction: column;
 align-items: center;
-justify-content: center;
-writing-mode: vertical-rl;
-transform: translateY(-50%) rotate(180deg);
+justify-content: flex-start;
+padding: 16px 0;
 text-decoration: none;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: 2px;
 z-index: 900;
-border-top-right-radius: 4px;
-border-bottom-right-radius: 4px;
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+}
+
+.feedbackLogo {
+font-weight: 800;
+font-size: 14px;
+margin-bottom: 24px;
+}
+
+.feedbackText {
+writing-mode: vertical-rl;
+transform: rotate(180deg);
+font-weight: 600;
+font-size: 11px;
+letter-spacing: 2px;
+color: #aaaaaa;
+text-transform: uppercase;
+transition: color 0.3s;
+}
+
+.feedbackButton:hover .feedbackText {
+color: #ffffff;
 }
 
 .heroSection {
@@ -345,15 +361,6 @@ will-change: transform, opacity;
 .c4 { transition-delay: 0.25s; }
 .c5 { transition-delay: 0.10s; }
 
-.p1 { transition-delay: 0.12s; }
-.p2 { transition-delay: 0.05s; }
-.p3 { transition-delay: 0.18s; }
-.p4 { transition-delay: 0.08s; }
-.p5 { transition-delay: 0.22s; }
-.p6 { transition-delay: 0.15s; }
-.p7 { transition-delay: 0.02s; }
-.p8 { transition-delay: 0.25s; }
-
 .animTarget.isVisible .char {
 transform: translateY(0);
 opacity: 1;
@@ -480,7 +487,7 @@ color: #111111;
 .workSection {
 position: relative;
 z-index: 20;
-padding: 2rem 1rem 4rem;
+padding: 2rem 1rem 0;
 background-color: #ffffff;
 }
 
@@ -625,8 +632,8 @@ position: fixed;
 top: 50%;
 left: 60%;
 transform: translate(-50%, -50%) scale(0.95);
-width: 340px;
-height: 460px;
+width: 240px;
+height: 340px;
 background-color: #ffffff;
 border-radius: 8px;
 overflow: hidden;
@@ -650,7 +657,7 @@ object-fit: cover;
 
 .invertedWrapper {
 background-color: #ffffff;
-padding: 0 1rem;
+padding: 4rem 1rem 0;
 }
 
 .invertedMarquee {
@@ -844,10 +851,101 @@ transform: translateY(0);
 .delay5 { transition-delay: 1.0s; }
 .delay6 { transition-delay: 1.2s; }
 
+.pingSectionWrapper {
+position: relative;
+z-index: 20;
+background-color: #ffffff;
+padding: 0 0 6rem 4rem;
+width: 100%;
+}
+
+.pingSection {
+position: relative;
+width: 100%;
+min-height: 90vh;
+background-color: #050505;
+background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+background-size: 8px 8px;
+background-position: center top;
+border-radius: 2.5rem 0 0 2.5rem;
+padding: 6rem 4rem;
+display: flex;
+align-items: center;
+overflow: hidden;
+z-index: 20;
+cursor: auto;
+opacity: 0;
+transform: translateX(-40px);
+transition: opacity 0.8s cubic-bezier(0.165, 0.840, 0.440, 1), transform 0.8s cubic-bezier(0.165, 0.840, 0.440, 1);
+}
+
+.pingSection.isVisible {
+opacity: 1;
+transform: translateX(0);
+}
+
+.pingTitle {
+font-size: 6vw;
+line-height: 1.3;
+color: #ffffff;
+font-family: 'Space Mono', monospace;
+font-weight: 400;
+}
+
+.pingLine {
+display: inline-block;
+opacity: 0;
+transform: translateX(-40px);
+transition: opacity 0.8s cubic-bezier(0.165, 0.840, 0.440, 1), transform 0.8s cubic-bezier(0.165, 0.840, 0.440, 1);
+}
+
+.pingLine.isVisible {
+opacity: 1;
+transform: translateX(0);
+}
+
+.pingLogoBadge {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background-color: #007aff;
+color: #ffffff;
+width: 6vw;
+height: 6vw;
+border-radius: 8px;
+font-size: 2.5vw;
+font-weight: 700;
+vertical-align: middle;
+margin: 0 0.5rem;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+letter-spacing: normal;
+}
+
+.cursorFollower {
+position: absolute;
+top: 0;
+left: 0;
+width: 120px;
+height: 60px;
+background-color: #fdff5d;
+color: #111111;
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: 700;
+font-size: 0.9rem;
+text-transform: uppercase;
+border-radius: 8px;
+pointer-events: none;
+opacity: 0;
+z-index: 100;
+transition: opacity 0.3s ease;
+}
+
 .footerComponent {
 position: relative;
 z-index: 20;
-padding: 4rem 1rem;
+padding: 2rem 1rem 4rem;
 background-color: #ffffff;
 }
 
@@ -921,11 +1019,6 @@ flex-direction: column;
 .projectsSubHeader {
 grid-template-columns: 1fr 1fr;
 }
-.footerTop {
-flex-direction: column;
-align-items: flex-start;
-gap: 2rem;
-}
 .footerBottom {
 flex-direction: column;
 align-items: flex-start;
@@ -933,5 +1026,21 @@ gap: 2rem;
 }
 .projectPreview {
 display: none;
+}
+.pingSectionWrapper {
+padding: 0 0 4rem 1rem;
+}
+.pingSection {
+padding: 4rem 2rem;
+border-radius: 1.5rem 0 0 1.5rem;
+min-height: 70vh;
+}
+.pingTitle {
+font-size: 8vw;
+}
+.pingLogoBadge {
+width: 8vw;
+height: 8vw;
+font-size: 3.5vw;
 }
 }
