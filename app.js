@@ -43,40 +43,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    const twText = ["CREATIVE DEVELOPER,", "AI SYSTEMS ENGINEER,", "FULL STACK DEVELOPER,", "DEVOPS ASSOCIATE,"];
-    let twIndex = 0;
-    let twCharIndex = 0;
-    let twIsDeleting = false;
-    const twEl = document.getElementById('typewriter');
+    const ta = ["CREATIVE DEVELOPER,", "AI SYSTEMS ENGINEER,", "FULL STACK DEVELOPER,", "DEVOPS ASSOCIATE,"];
+    let tb = 0;
+    let tc = ta[0].length;
+    let td = true;
+    const te = document.getElementById('typewriter');
 
-    function type() {
-        if (!twEl) return;
-        const current = twText[twIndex];
-        if (twIsDeleting) {
-            twCharIndex--;
+    function tf() {
+        if (!te) return;
+        const tg = ta[tb];
+        if (td) {
+            tc--;
         } else {
-            twCharIndex++;
+            tc++;
         }
 
-        twEl.innerHTML = current.substring(0, twCharIndex) + '<span class="twCursor"></span>';
+        te.innerHTML = tg.substring(0, tc) + '<span class="twCursor"></span>';
 
-        let typeSpeed = 100;
-        if (twIsDeleting) typeSpeed /= 2;
+        let th = 100;
+        if (td) th /= 2;
 
-        if (!twIsDeleting && twCharIndex === current.length) {
-            typeSpeed = 2000;
-            twIsDeleting = true;
-        } else if (twIsDeleting && twCharIndex === 0) {
-            twIsDeleting = false;
-            twIndex = (twIndex + 1) % twText.length;
-            typeSpeed = 500;
+        if (!td && tc === tg.length) {
+            th = 2000;
+            td = true;
+        } else if (td && tc === 0) {
+            td = false;
+            tb = (tb + 1) % ta.length;
+            th = 500;
         }
 
-        setTimeout(type, typeSpeed);
+        setTimeout(tf, th);
     }
 
-    if (twEl) {
-        type();
+    if (te) {
+        setTimeout(tf, 2000);
     }
 
     const pSec = document.getElementById('pingSection');
@@ -110,9 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let f = 0;
-    
-    const heroTrackEl = document.querySelector('.heroMarquee .marqueeTrack');
-    let heroPos = 0;
 
     function g(h) {
         if (a) a.raf(h);
@@ -122,12 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (f > 0) f -= 50;
         
         ts.forEach(t => t.style.transform = `translateX(${f}%)`);
-        
-        if (heroTrackEl) {
-            heroPos -= 0.08;
-            if (heroPos <= -50) heroPos += 50;
-            heroTrackEl.style.transform = `translate3d(${heroPos}%, 0, 0)`;
-        }
 
         const wh = window.innerHeight;
 
