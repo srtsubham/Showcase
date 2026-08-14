@@ -165,6 +165,23 @@ font-size: 0.75rem;
 font-weight: 500;
 text-transform: uppercase;
 letter-spacing: 0.5px;
+display: flex;
+align-items: center;
+}
+
+.twCursor {
+display: inline-block;
+width: 2px;
+height: 0.85em;
+background-color: #111111;
+margin-left: 2px;
+vertical-align: middle;
+animation: blinkTw 0.75s step-end infinite;
+}
+
+@keyframes blinkTw {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
 }
 
 .headerLink {
@@ -374,13 +391,19 @@ display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
 width: max-content;
-animation: scrollTextHero 10s linear infinite;
 will-change: transform;
+transform-style: preserve-3d;
+backface-visibility: hidden;
+perspective: 1000px;
 }
 
 .marqueeGroup {
 display: flex;
 flex-shrink: 0;
+will-change: transform;
+transform-style: preserve-3d;
+backface-visibility: hidden;
+perspective: 1000px;
 }
 
 .marqueeItem {
@@ -393,11 +416,8 @@ color: #111111;
 flex-shrink: 0;
 letter-spacing: -0.05em;
 display: inline-block;
-}
-
-@keyframes scrollTextHero {
-0% { transform: translateX(0); }
-100% { transform: translateX(-50%); }
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
 }
 
 .aboutSection {
@@ -475,6 +495,8 @@ font-weight: 400;
 margin-bottom: 3rem;
 max-width: 800px;
 letter-spacing: -0.01em;
+text-align: justify;
+text-justify: inter-word;
 }
 
 .bioMuted {
@@ -1063,12 +1085,11 @@ transition: all 0.3s cubic-bezier(0.165, 0.840, 0.440, 1);
 text-transform: uppercase;
 letter-spacing: 1px;
 z-index: 10;
-opacity: 0;
+top: -100px;
 }
 
 .cursorFollower:hover .mailNowBtn {
-opacity: 1;
-transform: scale(1);
+top: 45px;
 }
 
 .cursorFollower:hover {
@@ -1102,7 +1123,7 @@ gap: 6rem;
 .honoursLeft {
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
+justify-content: space-between;
 min-width: 0;
 }
 
@@ -1115,6 +1136,8 @@ opacity: 0;
 transform: translateY(40px);
 transition: transform 0.8s ease, opacity 0.8s ease;
 margin-top: 0;
+text-align: justify;
+text-justify: inter-word;
 }
 
 .quoteAuthor {
@@ -1125,7 +1148,7 @@ color: #888888;
 .honoursMarquee {
 width: 100%;
 overflow: hidden;
-margin-top: 4rem;
+margin-top: auto;
 display: flex;
 }
 
@@ -1190,11 +1213,17 @@ transition: transform 0.8s ease, opacity 0.8s ease;
 padding-top: 0;
 }
 
+.honoursItem:last-child {
+padding-bottom: 0;
+}
+
 .honoursDesc {
 font-size: 0.95rem;
 line-height: 1.6;
 opacity: 0.9;
 max-width: 100%;
+text-align: justify;
+text-justify: inter-word;
 }
 
 .honoursMetaRow {
@@ -1257,12 +1286,12 @@ margin-bottom: 4rem;
 }
 
 .footerBigName {
-font-size: 5.8vw;
-font-family: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
+font-size: 4vw;
+font-family: 'Georgia', 'Times New Roman', serif;
 color: #111111;
 border: 2px solid #111111;
 border-radius: 12px;
-padding: 1.5rem 3rem;
+padding: 2.5rem 0.5rem;
 text-transform: uppercase;
 white-space: nowrap;
 font-weight: 700;
@@ -1410,6 +1439,10 @@ font-size: 2rem;
 width: 140px;
 height: 50px;
 font-size: 0.9rem;
+top: -80px;
+}
+.cursorFollower:hover .mailNowBtn {
+top: 25px;
 }
 .honoursSection {
 padding: 6rem 2rem;
@@ -1422,8 +1455,8 @@ align-items: flex-start;
 padding: 4rem 1rem 0;
 }
 .footerBigName {
-font-size: 8vw;
-padding: 1rem 2rem;
+font-size: 5.5vw;
+padding: 1.5rem 0.5rem;
 }
 .footerInfo {
 margin-left: 0;

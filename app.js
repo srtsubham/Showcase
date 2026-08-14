@@ -42,6 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
             pnl.classList.remove('isVisible'); 
         });
     }
+    
+    const twText = ["CREATIVE DEVELOPER,", "AI SYSTEMS ENGINEER,", "FULL STACK DEVELOPER,", "DEVOPS ASSOCIATE,"];
+    let twIndex = 0;
+    let twCharIndex = 0;
+    let twIsDeleting = false;
+    const twEl = document.getElementById('typewriter');
+
+    function type() {
+        if (!twEl) return;
+        const current = twText[twIndex];
+        if (twIsDeleting) {
+            twCharIndex--;
+        } else {
+            twCharIndex++;
+        }
+
+        twEl.innerHTML = current.substring(0, twCharIndex) + '<span class="twCursor"></span>';
+
+        let typeSpeed = 100;
+        if (twIsDeleting) typeSpeed /= 2;
+
+        if (!twIsDeleting && twCharIndex === current.length) {
+            typeSpeed = 2000;
+            twIsDeleting = true;
+        } else if (twIsDeleting && twCharIndex === 0) {
+            twIsDeleting = false;
+            twIndex = (twIndex + 1) % twText.length;
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    if (twEl) {
+        type();
+    }
 
     const pSec = document.getElementById('pingSection');
     const pFol = document.getElementById('cursorFollower');
@@ -74,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let f = 0;
+    
+    const heroTrackEl = document.querySelector('.heroMarquee .marqueeTrack');
+    let heroPos = 0;
 
     function g(h) {
         if (a) a.raf(h);
@@ -83,6 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (f > 0) f -= 50;
         
         ts.forEach(t => t.style.transform = `translateX(${f}%)`);
+        
+        if (heroTrackEl) {
+            heroPos -= 0.08;
+            if (heroPos <= -50) heroPos += 50;
+            heroTrackEl.style.transform = `translate3d(${heroPos}%, 0, 0)`;
+        }
 
         const wh = window.innerHeight;
 
