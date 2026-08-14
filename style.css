@@ -375,6 +375,7 @@ flex-direction: row;
 flex-wrap: nowrap;
 width: max-content;
 animation: scrollTextHero 10s linear infinite;
+will-change: transform;
 }
 
 .marqueeGroup {
@@ -383,14 +384,14 @@ flex-shrink: 0;
 }
 
 .marqueeItem {
-font-size: 22vw;
-font-family: 'Harrington', cursive, sans-serif;
+font-size: 44vw;
+font-family: 'Space Mono', monospace;
 white-space: nowrap;
 padding-right: 5vw;
-text-transform: none;
+text-transform: uppercase;
 color: #111111;
 flex-shrink: 0;
-letter-spacing: normal;
+letter-spacing: -0.05em;
 display: inline-block;
 }
 
@@ -955,7 +956,7 @@ color: #ffffff;
 background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
 background-size: 8px 8px;
 background-position: center top;
-border-radius: 0.5rem 0 0 0.5rem;
+border-radius: 2.5rem 0 0 2.5rem;
 padding: 8rem 4rem;
 display: flex;
 align-items: center;
@@ -1047,7 +1048,7 @@ transition: opacity 0.3s ease;
 .mailNowBtn {
 position: absolute;
 width: 230px;
-height: 40px;
+height: 80px;
 background-color: #050505;
 color: #ffffff;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -1056,13 +1057,13 @@ font-weight: 700;
 display: flex;
 justify-content: center;
 align-items: center;
-border-radius: 16px;
-opacity: 0;
+border-radius: 24px;
 transform: scale(0.8);
 transition: all 0.3s cubic-bezier(0.165, 0.840, 0.440, 1);
 text-transform: uppercase;
 letter-spacing: 1px;
 z-index: 10;
+opacity: 0;
 }
 
 .cursorFollower:hover .mailNowBtn {
@@ -1256,13 +1257,13 @@ margin-bottom: 4rem;
 }
 
 .footerBigName {
-font-size: 7vw;
-font-family: 'Bradley Hand ITC', 'Bradley Hand', cursive;
+font-size: 5.8vw;
+font-family: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
 color: #111111;
 border: 2px solid #111111;
 border-radius: 12px;
 padding: 1.5rem 3rem;
-text-transform: none;
+text-transform: uppercase;
 white-space: nowrap;
 font-weight: 700;
 background-color: #ffffff;
@@ -1270,6 +1271,7 @@ text-align: center;
 line-height: 1.2;
 display: block;
 width: 100%;
+overflow: hidden;
 }
 
 .footerBottomGrid {
@@ -1312,11 +1314,36 @@ text-transform: uppercase;
 display: flex;
 justify-content: space-between;
 align-items: center;
-transition: background-color 0.3s, color 0.3s;
+position: relative;
+overflow: hidden;
+background-color: transparent;
 }
 
-.gridLink:hover {
+.gridLink::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 background-color: #111111;
+transform-origin: top;
+transform: scaleY(0);
+transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
+z-index: 1;
+}
+
+.gridLink:hover::before {
+transform: scaleY(1);
+}
+
+.gridLinkText, .gridLinkArrow {
+position: relative;
+z-index: 2;
+transition: color 0.4s ease;
+}
+
+.gridLink:hover .gridLinkText, .gridLink:hover .gridLinkArrow {
 color: #ffffff;
 }
 
@@ -1361,7 +1388,7 @@ padding: 1.5rem 0 1.5rem 1rem;
 }
 .pingSection {
 padding: 4rem 2rem;
-border-radius: 0.5rem 0 0 0.5rem;
+border-radius: 2.5rem 0 0 2.5rem;
 min-height: calc(100vh - 3rem);
 }
 .pingTitle {
@@ -1381,7 +1408,7 @@ font-size: 2rem;
 }
 .mailNowBtn {
 width: 140px;
-height: 36px;
+height: 50px;
 font-size: 0.9rem;
 }
 .honoursSection {
