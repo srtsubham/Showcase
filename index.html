@@ -29,14 +29,37 @@ setTimeout(b, 2000);
 
 <div class="mainWrapper">
 
+<div class="linkTreePanel" id="linkTreePanel">
+    <a href="#" class="treeLinkItem">
+        <span class="treeLinkText">Instagram</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a href="#" class="treeLinkItem">
+        <span class="treeLinkText">Webflow</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a href="#" class="treeLinkItem">
+        <span class="treeLinkText">My course</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a href="#" class="treeLinkItem">
+        <span class="treeLinkText">Twitter</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <button class="treeCloseBtn" id="closeTreeBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+</div>
+
 <header class="topHeader">
 <div class="headerLeft">
 <div class="headerLogo">SR.</div>
 <div class="headerText">CREATIVE DEVELOPER, DESIGNING SYSTEM ARCHITECTURE & AI INTEGRATIONS.</div>
 </div>
-<a href="#" class="headerLink">
+<a href="#" class="headerLink" id="openTreeBtn">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M12 2L3 14h6v8h6v-8h6L12 2z"/>
+<path d="M12 2L5 10h3l-3 7h14l-3-7h3L12 2z"/>
+<path d="M12 17v5"/>
 </svg>
 LINK TREE
 </a>
@@ -78,12 +101,12 @@ LINK TREE
 <div class="heroMarquee">
 <div class="marqueeTrack">
 <div class="marqueeGroup">
-<span class="marqueeItem">DEVELOPER</span>
-<span class="marqueeItem">DEVELOPER</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
 </div>
 <div class="marqueeGroup" aria-hidden="true">
-<span class="marqueeItem">DEVELOPER</span>
-<span class="marqueeItem">DEVELOPER</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
 </div>
 </div>
 </div>
@@ -300,30 +323,87 @@ CONTACT FOR DETAILS
 <section class="pingSectionWrapper">
 <div class="pingSection animTarget" id="pingSection">
 <h2 class="pingTitle">
-<span class="pingLine animTarget delay1">ALL YOU NEED IS</span><br>
-<span class="pingLine animTarget delay2">A <span class="pingLogoBadge">SR.</span> DEVELOPER</span><br>
-<span class="pingLine animTarget delay3">SITE ↗</span>
+<span class="pingLine animTarget pingDelay1">ALL YOU NEED IS</span><br>
+<span class="pingLine animTarget pingDelay2">A <span class="pingLogoBadge">SR.</span> DEVELOPER</span><br>
+<span class="pingLine animTarget pingDelay3">SITE ↗</span>
 </h2>
-<div class="cursorFollower" id="cursorFollower">PING ME!</div>
+<a href="#" class="cursorFollower" id="cursorFollower">
+    <span class="pingText">Ping Me!</span>
+    <div class="mailNowBtn">MAIL NOW &rarr;</div>
+</a>
+</div>
+</section>
+
+<section class="honoursSectionWrapper">
+<div class="honoursSection">
+<div class="honoursWrapper">
+<div class="honoursLeft">
+<h3 class="honoursQuote animTarget translateUp">It only serves to show what sort of person a man must be who can't even get testimonials. No, if a man brings references, it proves nothing. If he can't, it proves a great deal. <br><br><span class="quoteAuthor">— Joseph Pulitzer</span></h3>
+<div class="honoursMarquee">
+<div class="honoursMarqueeTrack">
+<div class="honoursMarqueeGroup">
+<span class="honoursMarqueeItem">HONOURS & AWARDS <div class="honoursAvatar"></div></span>
+</div>
+<div class="honoursMarqueeGroup" aria-hidden="true">
+<span class="honoursMarqueeItem">HONOURS & AWARDS <div class="honoursAvatar"></div></span>
+</div>
+</div>
+</div>
+</div>
+<div class="honoursRight">
+<div class="honoursItem animTarget translateUp delay1">
+<p class="honoursDesc">Manuscript titled "AI Prediction Model on Extreme Weather Events" accepted for publication. Ambaram Sentinel demonstrates specialized capability in predictive analysis and data science.</p>
+<div class="honoursMetaRow">
+<div class="honoursMeta">
+<span class="honoursAuthor">IJFMR Journal</span>
+<span class="honoursRole">Published Author</span>
+</div>
+<div class="honoursIcon">IJ</div>
+</div>
+</div>
+<div class="honoursItem animTarget translateUp delay2">
+<p class="honoursDesc">Successfully navigated agile methodologies and full-stack system integrations. The program cemented core technical competencies and software engineering execution at an enterprise level.</p>
+<div class="honoursMetaRow">
+<div class="honoursMeta">
+<span class="honoursAuthor">JPMorgan Chase & Co.</span>
+<span class="honoursRole">Software Engineering Simulation</span>
+</div>
+<div class="honoursIcon">JP</div>
+</div>
+</div>
+<div class="honoursItem animTarget translateUp delay3">
+<p class="honoursDesc">Certified in Java Programming Fundamentals. Gained foundational backend system logic necessary for engineering the core structures of LipiScript and Kydel ASM.</p>
+<div class="honoursMetaRow">
+<div class="honoursMeta">
+<span class="honoursAuthor">Infosys Springboard</span>
+<span class="honoursRole">Credential Validation</span>
+</div>
+<div class="honoursIcon">IS</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 
 <footer class="footerComponent">
-<div class="footerTop">
-<h2 class="footerTitle">ALL YOU NEED IS A DEVELOPER</h2>
-<a href="#" class="footerContact">CATCH ME</a>
+<div class="footerBigNameWrapper">
+<div class="footerBigName">Somya Ranjan Tripathi</div>
 </div>
-<div class="footerBottom">
-<div class="footerTime">
+<div class="footerBottomGrid">
+<div class="footerInfo">
 <p>Made with love in Lucknow, India.</p>
 <p class="timeDisplay">Local time — <span id="clockDisplay"></span></p>
 </div>
-<div class="footerLinks">
-<a href="#" class="socialLink">GitHub ↗️</a>
-<a href="#" class="socialLink">LinkedIn ↗️</a>
-<a href="#" class="socialLink">Twitter ↗️</a>
+<div class="footerLinksGrid">
+<a href="#" class="gridLink"><span>Instagram</span> ↗</a>
+<a href="#" class="gridLink"><span>GitHub</span> ↗</a>
+<a href="#" class="gridLink"><span>LinkedIn</span> ↗</a>
+<a href="#" class="gridLink"><span>Twitter</span> ↗</a>
 </div>
 </div>
+<div class="footerCopyright">© 2026 SOMYA TRIPATHY. ALL RIGHTS RESERVED.</div>
+<div class="dockSpacer"></div>
 </footer>
 </div>
 

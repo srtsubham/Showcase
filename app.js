@@ -29,31 +29,47 @@ document.addEventListener('DOMContentLoaded', () => {
     pp.appendChild(pim);
     document.body.appendChild(pp);
 
+    const lBtn = document.getElementById('openTreeBtn');
+    const cBtn = document.getElementById('closeTreeBtn');
+    const pnl = document.getElementById('linkTreePanel');
+    
+    if (lBtn && cBtn && pnl) {
+        lBtn.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            pnl.classList.add('isVisible'); 
+        });
+        cBtn.addEventListener('click', () => { 
+            pnl.classList.remove('isVisible'); 
+        });
+    }
+
     const pSec = document.getElementById('pingSection');
     const pFol = document.getElementById('cursorFollower');
 
     let pMouseX = 0, pMouseY = 0;
     let pCurrX = 0, pCurrY = 0;
-    let pHover = false;
+    let pInit = false;
 
     if (pSec && pFol) {
-        pSec.addEventListener('mousemove', (e) => {
+        setTimeout(() => {
             const r = pSec.getBoundingClientRect();
-            pMouseX = e.clientX - r.left;
-            pMouseY = e.clientY - r.top;
-        });
-        pSec.addEventListener('mouseenter', (e) => {
-            const r = pSec.getBoundingClientRect();
-            pCurrX = e.clientX - r.left;
-            pCurrY = e.clientY - r.top;
+            pCurrX = r.width / 2;
+            pCurrY = r.height / 2;
             pMouseX = pCurrX;
             pMouseY = pCurrY;
-            pHover = true;
-            pFol.style.opacity = '1';
-        });
-        pSec.addEventListener('mouseleave', () => {
-            pHover = false;
-            pFol.style.opacity = '0';
+            pInit = true;
+        }, 100);
+
+        window.addEventListener('mousemove', (e) => {
+            const r = pSec.getBoundingClientRect();
+            let tX = e.clientX - r.left;
+            let tY = e.clientY - r.top;
+
+            const w = pFol.offsetWidth || 300;
+            const h = pFol.offsetHeight || 170;
+
+            pMouseX = Math.max(w/2, Math.min(tX, r.width - w/2));
+            pMouseY = Math.max(h/2, Math.min(tY, r.height - h/2));
         });
     }
 
@@ -118,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
             pp.classList.remove('isVisible');
         }
 
-        if (pHover && pFol) {
-            pCurrX += (pMouseX - pCurrX) * 0.08;
-            pCurrY += (pMouseY - pCurrY) * 0.08;
+        if (pSec && pFol && pInit) {
+            pCurrX += (pMouseX - pCurrX) * 0.015;
+            pCurrY += (pMouseY - pCurrY) * 0.015;
             pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
         }
 
