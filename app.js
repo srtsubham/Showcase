@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             smooth: true
         });
-    }
+    } // Version 3.12
 
     let b = 0;
     if (a) {
