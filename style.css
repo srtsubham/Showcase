@@ -384,6 +384,8 @@ width: 100%;
 display: flex;
 z-index: 1;
 overflow: hidden;
+pointer-events: none;
+contain: paint layout;
 }
 
 .marqueeTrack {
@@ -392,12 +394,16 @@ flex-direction: row;
 flex-wrap: nowrap;
 width: max-content;
 will-change: transform;
-animation: scrollTextHero 15s linear infinite;
+animation: scrollTextHero 30s linear infinite;
+transform: translate3d(0, 0, 0);
+backface-visibility: hidden;
 }
 
 .marqueeGroup {
 display: flex;
 flex-shrink: 0;
+transform: translate3d(0, 0, 0);
+backface-visibility: hidden;
 }
 
 .marqueeItem {
@@ -410,11 +416,10 @@ color: #111111;
 flex-shrink: 0;
 letter-spacing: -0.05em;
 display: inline-block;
+text-rendering: optimizeSpeed;
 -webkit-font-smoothing: antialiased;
--webkit-text-stroke: 1px rgba(0,0,0,0.01);
-text-rendering: optimizeLegibility;
 transform: translateZ(0);
-will-change: transform;
+backface-visibility: hidden;
 }
 
 @keyframes scrollTextHero {
@@ -1196,7 +1201,7 @@ height: 60px;
 background-color: #ffffff;
 border-radius: 8px;
 margin-left: 2rem;
-background-image: url('assets/images/avatar.avif');
+background-image: url('assets/images/avatar.png');
 background-size: cover;
 background-position: center;
 }

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             smooth: true
         });
-    } // Version 3.14
+    }
 
     let b = 0;
     if (a) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pp.className = 'projectPreview';
     const pim = document.createElement('img');
     pim.className = 'previewImage';
-    pim.src = 'assets/images/avatar.avif';
+    pim.src = 'assets/images/avatar.png';
     pp.appendChild(pim);
     document.body.appendChild(pp);
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             pMouseX = Math.max(w/2, Math.min(tX, r.width - w/2));
             pMouseY = Math.max(h/2, Math.min(tY, r.height - h/2));
-        });
+        }); //Version 3.26
     }
 
     let f = 0;
