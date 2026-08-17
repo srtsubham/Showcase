@@ -389,11 +389,11 @@ transform: scale(1.02) translateY(-10px);
 }
 
 @keyframes whiteOutlineMove {
-0% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.4)) drop-shadow(0px 4px 10px rgba(255,255,255,0.8)); }
-25% { filter: drop-shadow(4px 0px 0px rgba(255,255,255,0.8)) drop-shadow(-4px 0px 10px rgba(255,255,255,0.4)); }
-50% { filter: drop-shadow(0px 4px 0px rgba(255,255,255,0.4)) drop-shadow(0px -4px 10px rgba(255,255,255,0.8)); }
-75% { filter: drop-shadow(-4px 0px 0px rgba(255,255,255,0.8)) drop-shadow(4px 0px 10px rgba(255,255,255,0.4)); }
-100% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.4)) drop-shadow(0px 4px 10px rgba(255,255,255,0.8)); }
+0% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.8)) drop-shadow(0px 4px 15px rgba(255,255,255,1)) drop-shadow(0px 0px 30px rgba(255,255,255,0.6)); }
+25% { filter: drop-shadow(4px 0px 0px rgba(255,255,255,1)) drop-shadow(-4px 0px 15px rgba(255,255,255,0.8)) drop-shadow(0px 0px 30px rgba(255,255,255,0.6)); }
+50% { filter: drop-shadow(0px 4px 0px rgba(255,255,255,0.8)) drop-shadow(0px -4px 15px rgba(255,255,255,1)) drop-shadow(0px 0px 30px rgba(255,255,255,0.6)); }
+75% { filter: drop-shadow(-4px 0px 0px rgba(255,255,255,1)) drop-shadow(4px 0px 15px rgba(255,255,255,0.8)) drop-shadow(0px 0px 30px rgba(255,255,255,0.6)); }
+100% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.8)) drop-shadow(0px 4px 15px rgba(255,255,255,1)) drop-shadow(0px 0px 30px rgba(255,255,255,0.6)); }
 }
 
 .expPopup {
@@ -416,13 +416,13 @@ text-align: left;
 
 .expLeft {
 top: 35%;
-left: 5%;
+left: -15%;
 transform: translateX(-30px);
 }
 
 .expRight {
 top: 60%;
-right: 5%;
+right: -15%;
 transform: translateX(30px);
 }
 
@@ -453,7 +453,7 @@ right: 100%;
 
 .heroPortrait:hover .expLeft::after,
 .heroPortrait:hover .expRight::after {
-width: 6vw;
+width: 14vw;
 }
 
 .expPopup::before {
@@ -470,11 +470,11 @@ transition: opacity 0.2s ease 0.6s;
 }
 
 .expLeft::before {
-left: calc(100% + 6vw);
+left: calc(100% + 14vw);
 }
 
 .expRight::before {
-right: calc(100% + 6vw);
+right: calc(100% + 14vw);
 }
 
 .heroPortrait:hover .expPopup::before {
@@ -1462,6 +1462,7 @@ line-height: 1.2;
 display: block;
 width: 100%;
 overflow: hidden;
+letter-spacing: -0.01em;
 }
 
 .footerBottomGrid {
@@ -1600,6 +1601,10 @@ font-size: 2rem;
 width: 140px;
 height: 50px;
 font-size: 0.9rem;
+top: -80px;
+}
+.cursorFollower:hover .mailNowBtn {
+top: 25px;
 }
 .honoursSection {
 padding: 6rem 2rem;
