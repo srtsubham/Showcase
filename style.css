@@ -365,15 +365,82 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 position: absolute;
 bottom: 0;
 z-index: 2;
-width: 45vw;
+width: 56vw;
 display: flex;
 justify-content: center;
+cursor: pointer;
 }
 
 .avatarImage {
 width: 100%;
 height: auto;
 object-fit: cover;
+transition: filter 0.4s ease, transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
+filter: drop-shadow(0px 0px 0px transparent);
+position: relative;
+z-index: 5;
+}
+
+.heroPortrait:hover .avatarImage {
+animation: tealOutlineMove 2.5s linear infinite;
+transform: scale(1.02) translateY(-10px);
+}
+
+@keyframes tealOutlineMove {
+0% { filter: drop-shadow(0px -4px 0px #008080) drop-shadow(0px 4px 10px #00e5ff); }
+25% { filter: drop-shadow(4px 0px 0px #00e5ff) drop-shadow(-4px 0px 10px #008080); }
+50% { filter: drop-shadow(0px 4px 0px #008080) drop-shadow(0px -4px 10px #00e5ff); }
+75% { filter: drop-shadow(-4px 0px 0px #00e5ff) drop-shadow(4px 0px 10px #008080); }
+100% { filter: drop-shadow(0px -4px 0px #008080) drop-shadow(0px 4px 10px #00e5ff); }
+}
+
+.expPopup {
+position: absolute;
+background: rgba(17, 17, 17, 0.65);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border: 1px solid rgba(0, 229, 255, 0.4);
+color: #ffffff;
+padding: 1.2rem 1.5rem;
+border-radius: 8px;
+opacity: 0;
+pointer-events: none;
+transition: all 0.5s cubic-bezier(0.165, 0.840, 0.440, 1);
+z-index: 10;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+white-space: nowrap;
+}
+
+.expLeft {
+top: 35%;
+left: -15%;
+transform: translateX(30px);
+}
+
+.expRight {
+bottom: 25%;
+right: -15%;
+transform: translateX(-30px);
+text-align: right;
+}
+
+.heroPortrait:hover .expPopup {
+opacity: 1;
+transform: translateX(0);
+}
+
+.expTitle {
+font-size: 0.9rem;
+font-weight: 700;
+color: #00e5ff;
+text-transform: uppercase;
+margin-bottom: 0.2rem;
+}
+
+.expSub {
+font-size: 0.75rem;
+color: #aaaaaa;
+font-family: 'Space Mono', monospace;
 }
 
 .heroMarquee {
@@ -1319,6 +1386,7 @@ line-height: 1.2;
 display: block;
 width: 100%;
 overflow: hidden;
+letter-spacing: -0.01em;
 }
 
 .footerBottomGrid {
@@ -1469,7 +1537,7 @@ align-items: flex-start;
 padding: 4rem 1rem 0;
 }
 .footerBigName {
-font-size: 5.5vw;
+font-size: 8.5vw;
 padding: 1.5rem 0.5rem;
 }
 .footerInfo {

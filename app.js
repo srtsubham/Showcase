@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             pMouseX = Math.max(w/2, Math.min(tX, r.width - w/2));
             pMouseY = Math.max(h/2, Math.min(tY, r.height - h/2));
-        }); //Version 3.26
+        });
     }
 
     let f = 0;
