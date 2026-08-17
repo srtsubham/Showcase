@@ -374,7 +374,9 @@ cursor: pointer;
 .avatarImage {
 width: 100%;
 height: auto;
-object-fit: cover;
+max-height: 85vh;
+object-fit: contain;
+object-position: bottom;
 transition: filter 0.4s ease, transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
 filter: drop-shadow(0px 0px 0px transparent);
 position: relative;
@@ -382,65 +384,139 @@ z-index: 5;
 }
 
 .heroPortrait:hover .avatarImage {
-animation: tealOutlineMove 2.5s linear infinite;
+animation: whiteOutlineMove 2.5s linear infinite;
 transform: scale(1.02) translateY(-10px);
 }
 
-@keyframes tealOutlineMove {
-0% { filter: drop-shadow(0px -4px 0px #008080) drop-shadow(0px 4px 10px #00e5ff); }
-25% { filter: drop-shadow(4px 0px 0px #00e5ff) drop-shadow(-4px 0px 10px #008080); }
-50% { filter: drop-shadow(0px 4px 0px #008080) drop-shadow(0px -4px 10px #00e5ff); }
-75% { filter: drop-shadow(-4px 0px 0px #00e5ff) drop-shadow(4px 0px 10px #008080); }
-100% { filter: drop-shadow(0px -4px 0px #008080) drop-shadow(0px 4px 10px #00e5ff); }
+@keyframes whiteOutlineMove {
+0% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.4)) drop-shadow(0px 4px 10px rgba(255,255,255,0.8)); }
+25% { filter: drop-shadow(4px 0px 0px rgba(255,255,255,0.8)) drop-shadow(-4px 0px 10px rgba(255,255,255,0.4)); }
+50% { filter: drop-shadow(0px 4px 0px rgba(255,255,255,0.4)) drop-shadow(0px -4px 10px rgba(255,255,255,0.8)); }
+75% { filter: drop-shadow(-4px 0px 0px rgba(255,255,255,0.8)) drop-shadow(4px 0px 10px rgba(255,255,255,0.4)); }
+100% { filter: drop-shadow(0px -4px 0px rgba(255,255,255,0.4)) drop-shadow(0px 4px 10px rgba(255,255,255,0.8)); }
 }
 
 .expPopup {
 position: absolute;
-background: rgba(17, 17, 17, 0.65);
+background: rgba(17, 17, 17, 0.85);
 backdrop-filter: blur(15px);
 -webkit-backdrop-filter: blur(15px);
-border: 1px solid rgba(0, 229, 255, 0.4);
+border: 1px solid rgba(255, 255, 255, 0.3);
 color: #ffffff;
-padding: 1.2rem 1.5rem;
+padding: 1.5rem;
 border-radius: 8px;
 opacity: 0;
 pointer-events: none;
 transition: all 0.5s cubic-bezier(0.165, 0.840, 0.440, 1);
 z-index: 10;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-white-space: nowrap;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+width: 280px;
+text-align: left;
 }
 
 .expLeft {
 top: 35%;
-left: -15%;
-transform: translateX(30px);
+left: 5%;
+transform: translateX(-30px);
 }
 
 .expRight {
-bottom: 25%;
-right: -15%;
-transform: translateX(-30px);
-text-align: right;
+top: 60%;
+right: 5%;
+transform: translateX(30px);
 }
 
-.heroPortrait:hover .expPopup {
-opacity: 1;
+.heroPortrait:hover .expLeft, 
+.heroPortrait:hover .expRight {
 transform: translateX(0);
+opacity: 1;
+}
+
+.expPopup::after {
+content: '';
+position: absolute;
+top: 25px;
+width: 0;
+height: 1px;
+background-color: #ffffff;
+transition: width 0.6s cubic-bezier(0.165, 0.840, 0.440, 1) 0.1s;
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.expLeft::after {
+left: 100%;
+}
+
+.expRight::after {
+right: 100%;
+}
+
+.heroPortrait:hover .expLeft::after,
+.heroPortrait:hover .expRight::after {
+width: 6vw;
+}
+
+.expPopup::before {
+content: '';
+position: absolute;
+top: 22px;
+width: 6px;
+height: 6px;
+background-color: #ffffff;
+border-radius: 50%;
+box-shadow: 0 0 8px #ffffff;
+opacity: 0;
+transition: opacity 0.2s ease 0.6s;
+}
+
+.expLeft::before {
+left: calc(100% + 6vw);
+}
+
+.expRight::before {
+right: calc(100% + 6vw);
+}
+
+.heroPortrait:hover .expPopup::before {
+opacity: 1;
 }
 
 .expTitle {
-font-size: 0.9rem;
+font-size: 1.1rem;
 font-weight: 700;
-color: #00e5ff;
+color: #ffffff;
 text-transform: uppercase;
-margin-bottom: 0.2rem;
+margin-bottom: 0.3rem;
 }
 
 .expSub {
-font-size: 0.75rem;
+font-size: 0.8rem;
 color: #aaaaaa;
 font-family: 'Space Mono', monospace;
+margin-bottom: 1rem;
+}
+
+.expList {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.expList li {
+font-size: 0.8rem;
+color: #cccccc;
+margin-bottom: 0.5rem;
+padding-left: 1.2rem;
+position: relative;
+line-height: 1.4;
+}
+
+.expList li::before {
+content: '→';
+position: absolute;
+left: 0;
+color: #ffffff;
+font-weight: bold;
 }
 
 .heroMarquee {
@@ -1386,7 +1462,6 @@ line-height: 1.2;
 display: block;
 width: 100%;
 overflow: hidden;
-letter-spacing: -0.01em;
 }
 
 .footerBottomGrid {
