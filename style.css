@@ -2,6 +2,11 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+cursor: url('assets/mycursor.png'), auto !important;
+}
+
+a, button, input, textarea, .projectItem, .node, .cookieBtn, .dockLink, .contactBtn, .treeLinkItem, .mailNowBtn, .cursorFollower, .treeBtnText, .headerLink, .feedbackButton, .modalCloseBtn, a *, button * {
+cursor: url('assets/linkcursor.png'), pointer !important;
 }
 
 html, body {
@@ -239,7 +244,6 @@ text-transform: uppercase;
 flex-shrink: 0;
 }
 
-/* Cookie Banner */
 .cookieBanner {
 position: fixed;
 top: 75px; 
@@ -283,7 +287,6 @@ border-radius: 4px;
 font-size: 0.7rem;
 font-weight: 700;
 text-transform: uppercase;
-cursor: pointer;
 transition: all 0.3s ease;
 }
 
@@ -481,7 +484,6 @@ z-index: 2;
 width: 56vw;
 display: flex;
 justify-content: center;
-cursor: pointer;
 }
 
 .avatarImage {
@@ -810,7 +812,6 @@ color: #888888;
 font-size: 0.85rem;
 }
 
-/* Timeline Components */
 .eduDivider {
 grid-column: 1 / -1;
 width: 100%;
@@ -880,7 +881,6 @@ align-items: center;
 transform: translate(-50%, -20px);
 opacity: 0;
 transition: opacity 0.6s ease, transform 0.6s ease;
-cursor: pointer;
 }
 
 .timelineWrapper.isVisible .node {
