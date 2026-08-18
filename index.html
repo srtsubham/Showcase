@@ -133,6 +133,15 @@ LINK TREE
 </a>
 </header>
 
+<!-- Cookie Tracking Banner -->
+<div class="cookieBanner" id="cookieBanner">
+    <div class="cookieText">This site utilizes granular cookies to track behavior and improve system architecture. Proceed?</div>
+    <div class="cookieBtns">
+        <button class="cookieBtn accept" id="acceptCookies">Accept</button>
+        <button class="cookieBtn decline" id="declineCookies">Decline</button>
+    </div>
+</div>
+
 <nav class="bottomDock" id="bottomDock">
 <a href="index.html" class="dockLogo">
 <div class="headerLogo">SR.</div>
@@ -350,7 +359,6 @@ LINK TREE
 </div>
 
 <div class="projectList">
-<!-- Example: Add your preview image path to data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image1.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -369,7 +377,6 @@ GITHUB LINK
 </a>
 </div>
 
-<!-- Example: Add your preview image path to data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image2.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -388,7 +395,6 @@ GITHUB LINK
 </a>
 </div>
 
-<!-- Example: Add your preview image path to data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image3.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -407,7 +413,6 @@ GITHUB LINK
 </a>
 </div>
 
-<!-- Example: Add your preview image path to data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image4.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -597,11 +602,11 @@ GITHUB LINK
 
 <!-- Modal Overlay for Contact -->
 <div class="modalOverlay" id="contactModal">
-    <div class="modalBox">
+    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
         <button class="modalCloseBtn" onclick="closeModal('contactModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
-        <h3 class="modalTitle">Get in Touch</h3>
+        <h3 class="modalTitle">Open a line.</h3>
         <form class="modalForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
             <p style="display: none;">
                 <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -618,11 +623,11 @@ GITHUB LINK
 
 <!-- Modal Overlay for Feedback -->
 <div class="modalOverlay" id="feedbackModal">
-    <div class="modalBox">
+    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
         <button class="modalCloseBtn" onclick="closeModal('feedbackModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
-        <h3 class="modalTitle">Feedback</h3>
+        <h3 class="modalTitle">System Feedback.</h3>
         <form class="modalForm" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="feedbackForm">
             <p style="display: none;">
                 <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -630,7 +635,10 @@ GITHUB LINK
             <input type="hidden" name="form-name" value="feedback">
             <input type="text" name="name" class="modalInput" placeholder="Name (Optional)">
             <input type="email" name="email" class="modalInput" placeholder="Email (Optional)">
-            <textarea name="feedback_text" class="modalInput" placeholder="How can I improve?" rows="4" required></textarea>
+            <input type="text" name="comforting" class="modalInput" placeholder="What felt most comforting here?" required>
+            <input type="text" name="discomforting" class="modalInput" placeholder="What caused friction or discomfort?" required>
+            <textarea name="direct_message" class="modalInput" placeholder="Any direct message? (Optional)" rows="2"></textarea>
+            <textarea name="feedback_text" class="modalInput" placeholder="Overall, how can I improve the architecture?" rows="3" required></textarea>
             <button type="submit" class="modalSubmitBtn">Submit Feedback</button>
         </form>
     </div>
