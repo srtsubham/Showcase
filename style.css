@@ -239,6 +239,7 @@ text-transform: uppercase;
 flex-shrink: 0;
 }
 
+/* Cookie Banner */
 .cookieBanner {
 position: fixed;
 top: 75px; 
@@ -809,6 +810,7 @@ color: #888888;
 font-size: 0.85rem;
 }
 
+/* Timeline Components */
 .eduDivider {
 grid-column: 1 / -1;
 width: 100%;
@@ -838,15 +840,8 @@ font-size: 3.5rem;
 .timelineContainer {
 grid-column: 1 / -1;
 width: 100%;
-overflow-x: auto;
-overflow-y: visible;
-scrollbar-width: none;
--ms-overflow-style: none;
+overflow: visible;
 padding: 20px 0;
-}
-
-.timelineContainer::-webkit-scrollbar {
-display: none;
 }
 
 .timelineWrapper {
@@ -855,7 +850,6 @@ width: calc(100% - 100px);
 margin: 4rem auto 0;
 height: 160px;
 padding: 0;
-min-width: 650px;
 }
 
 .waveSvg {
@@ -962,11 +956,11 @@ pointer-events: none;
 transition: all 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
 z-index: 10;
 box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5);
-width: 220px;
+width: 240px;
 text-align: left;
 }
 
-.nodePopup .expTitle { font-size: 0.95rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 0.3rem; }
+.nodePopup .expTitle { font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 0.3rem; }
 .nodePopup .expSub { font-size: 0.75rem; color: #aaaaaa; font-family: 'Space Mono', monospace; margin-bottom: 0.8rem; }
 .nodePopup .expList { list-style: none; padding: 0; margin: 0; }
 .nodePopup .expList li { font-size: 0.75rem; color: #cccccc; margin-bottom: 0.4rem; padding-left: 1.2rem; position: relative; line-height: 1.4; }

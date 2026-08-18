@@ -35,6 +35,7 @@ function b() {
 window.addEventListener('load', b);
 setTimeout(b, 2000);
 
+// Modal Logic
 function openModal(e, modalId) {
     if (e) e.preventDefault();
     document.getElementById(modalId).classList.add('isActive');
@@ -43,6 +44,7 @@ function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('isActive');
 }
 
+// Secure Netlify AJAX Handling
 document.addEventListener("DOMContentLoaded", () => {
     const forms = [
         { id: 'contactForm', modalId: 'contactModal', successMsg: 'Success! Your message has been received.' },
@@ -77,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Repeating Scroll Animation Observer
     const repeatObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -358,6 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <div class="projectList">
+<!-- Place your custom image filename directly in data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image1.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -376,6 +380,7 @@ GITHUB LINK
 </a>
 </div>
 
+<!-- Place your custom image filename directly in data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image2.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -394,6 +399,7 @@ GITHUB LINK
 </a>
 </div>
 
+<!-- Place your custom image filename directly in data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image3.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -412,6 +418,7 @@ GITHUB LINK
 </a>
 </div>
 
+<!-- Place your custom image filename directly in data-preview -->
 <div class="projectItem scrollInteractive" data-preview="assets/image4.png">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
@@ -600,7 +607,7 @@ GITHUB LINK
 </div>
 
 <div class="modalOverlay" id="contactModal">
-    <div class="modalBox">
+    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
         <button class="modalCloseBtn" onclick="closeModal('contactModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
@@ -620,7 +627,7 @@ GITHUB LINK
 </div>
 
 <div class="modalOverlay" id="feedbackModal">
-    <div class="modalBox">
+    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
         <button class="modalCloseBtn" onclick="closeModal('feedbackModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
