@@ -77,6 +77,19 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
+
+    // Repeating Scroll Animation Observer
+    const repeatObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('isVisible');
+            } else {
+                entry.target.classList.remove('isVisible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animRepeat').forEach(el => repeatObserver.observe(el));
 });
 </script>
 
@@ -150,7 +163,7 @@ LINK TREE
 <div class="copyrightLabel">©️2026</div>
 
 <div class="heroPortrait">
-<img src="assets/images/avatar.png" alt="Avatar" class="avatarImage">
+<img src="assets/avatar.png" alt="Avatar" class="avatarImage">
 <div class="expPopup expLeft">
     <div class="expTitle">AI & ML Intern</div>
     <div class="expSub">YBI Foundation</div>
@@ -185,14 +198,14 @@ LINK TREE
 
 <section class="aboutSection" id="aboutSection">
 <div class="aboutWrapper">
-<div class="aboutLeft animTarget">
+<div class="aboutLeft animTarget animRepeat">
 <h2 class="aboutTitle">
 <div class="clipWrapper">
 <span class="char c1">A</span><span class="char c2">b</span><span class="char c3">o</span><span class="char c4">u</span><span class="char c5">t</span>
 </div>
 </h2>
 </div>
-<div class="aboutRight animTarget">
+<div class="aboutRight animTarget animRepeat">
 <p class="aboutBio">A dedicated software engineer <span class="bioMuted">(HE/HIM)</span> with a passion for system architecture and AI. Utilizing Java, Kotlin, and Python to create robust, production-grade pieces that come to life on the internet. Currently residing in Lucknow, operating on dynamic problem-solving and ready to take on any engineering challenge.</p>
 <div class="aboutSubLabel">BUILDING AT THE CROSSROADS OF AI — INFRASTRUCTURE — SECURITY.</div>
 <div class="aboutRole">
@@ -203,6 +216,48 @@ LINK TREE
 </div>
 </div>
 </div>
+
+<div class="eduDivider animRepeat"></div>
+
+<div class="educationTitleWrapper animTarget animRepeat">
+    <h2 class="aboutTitle educationTitle">
+        <div class="clipWrapper">
+            <span class="char c1">E</span><span class="char c2">d</span><span class="char c3">u</span><span class="char c4">c</span><span class="char c5">a</span><span class="char c1">t</span><span class="char c2">i</span><span class="char c3">o</span><span class="char c4">n</span>
+        </div>
+    </h2>
+</div>
+
+<!-- Glowy Dynamic Timeline -->
+<div class="timelineWrapper animRepeat">
+    <svg class="waveSvg" viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <path d="M 20 90 C 110 90, 110 30, 200 30 C 290 30, 290 90, 380 90 C 470 90, 470 30, 560 30 C 650 30, 650 90, 740 90 C 830 90, 830 30, 920 30" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" style="filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));" />
+    </svg>
+    <div class="node n1">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelDown">10th<br><span class="nodeSub">CBSE</span></div>
+    </div>
+    <div class="node n2">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelUp">12th<br><span class="nodeSub">DPS '23</span></div>
+    </div>
+    <div class="node n3">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelDown">Year I<br><span class="nodeSub">B.Tech CSE (Aug '23)</span></div>
+    </div>
+    <div class="node n4">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelUp">Year II<br><span class="nodeSub">'24</span></div>
+    </div>
+    <div class="node n5">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelDown">Year III<br><span class="nodeSub">'25</span></div>
+    </div>
+    <div class="node n6 active">
+        <div class="glowDot"></div>
+        <div class="nodeLabel labelUp" style="color: #00ffff;">Year IV<br><span class="nodeSub" style="color: rgba(0, 255, 255, 0.8);">Current ('26)</span></div>
+    </div>
+</div>
+
 </div>
 </section>
 
