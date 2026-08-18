@@ -472,10 +472,11 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Get in Touch</h3>
-        <form class="modalForm" onsubmit="event.preventDefault(); closeModal('contactModal');">
-            <input type="text" class="modalInput" placeholder="Name" required>
-            <input type="email" class="modalInput" placeholder="Email" required>
-            <textarea class="modalInput" placeholder="Message" rows="4" required></textarea>
+        <form class="modalForm" name="contact" method="POST" data-netlify="true" action="/">
+            <input type="text" name="name" class="modalInput" placeholder="Name" required>
+            <input type="email" name="email" class="modalInput" placeholder="Email" required>
+            <input type="tel" name="phone" class="modalInput" placeholder="Phone (Optional)">
+            <textarea name="message" class="modalInput" placeholder="Message" rows="4" required></textarea>
             <button type="submit" class="modalSubmitBtn">Send Message</button>
         </form>
     </div>
@@ -488,9 +489,10 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Feedback</h3>
-        <form class="modalForm" onsubmit="event.preventDefault(); closeModal('feedbackModal');">
-            <input type="text" class="modalInput" placeholder="Name (Optional)">
-            <textarea class="modalInput" placeholder="How can I improve?" rows="4" required></textarea>
+        <form class="modalForm" name="feedback" method="POST" data-netlify="true" action="/">
+            <input type="text" name="name" class="modalInput" placeholder="Name (Optional)">
+            <input type="email" name="email" class="modalInput" placeholder="Email (Optional)">
+            <textarea name="feedback_text" class="modalInput" placeholder="How can I improve?" rows="4" required></textarea>
             <button type="submit" class="modalSubmitBtn">Submit Feedback</button>
         </form>
     </div>
