@@ -763,9 +763,9 @@ font-size: 3.5rem;
 .timelineWrapper {
 grid-column: 1 / -1;
 position: relative;
-width: 100%;
+width: calc(100% - 100px); 
+margin: 4rem auto 0;
 height: 160px;
-margin-top: 4rem;
 padding: 0;
 }
 
@@ -1967,6 +1967,7 @@ padding: 2rem;
 .timelineWrapper {
 margin-top: 4rem;
 height: 120px;
+width: calc(100% - 40px);
 }
 .nodeLabel {
 font-size: 0.8rem;
