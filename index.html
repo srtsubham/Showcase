@@ -43,26 +43,41 @@ function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('isActive');
 }
 
-// Netlify Background Form Submission (AJAX)
-function submitNetlifyForm(e, modalId) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    
-    fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-        alert('Success! Your message has been received.');
-        form.reset();
-        closeModal(modalId);
-    })
-    .catch((error) => {
-        alert('Something went wrong. Please try again later.');
+// Secure Netlify AJAX Handling
+document.addEventListener("DOMContentLoaded", () => {
+    const forms = [
+        { id: 'contactForm', modalId: 'contactModal', successMsg: 'Success! Your message has been received.' },
+        { id: 'feedbackForm', modalId: 'feedbackModal', successMsg: 'Success! Your feedback has been received.' }
+    ];
+
+    forms.forEach(f => {
+        const formElement = document.getElementById(f.id);
+        if (formElement) {
+            formElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert(f.successMsg);
+                        this.reset();
+                        closeModal(f.modalId);
+                    } else {
+                        alert('Server received the request but returned an error. Make sure the form is deployed correctly on Netlify.');
+                    }
+                })
+                .catch((error) => {
+                    alert('Something went wrong checking the connection. Please try again later.');
+                });
+            });
+        }
     });
-}
+});
 </script>
 
 <div class="mainWrapper">
@@ -493,7 +508,10 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Get in Touch</h3>
-        <form class="modalForm" name="contact" method="POST" data-netlify="true" onsubmit="submitNetlifyForm(event, 'contactModal')">
+        <form class="modalForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+            <p style="display: none;">
+                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <input type="hidden" name="form-name" value="contact">
             <input type="text" name="name" class="modalInput" placeholder="Name" required>
             <input type="email" name="email" class="modalInput" placeholder="Email" required>
@@ -511,7 +529,10 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Feedback</h3>
-        <form class="modalForm" name="feedback" method="POST" data-netlify="true" onsubmit="submitNetlifyForm(event, 'feedbackModal')">
+        <form class="modalForm" name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="feedbackForm">
+            <p style="display: none;">
+                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <input type="hidden" name="form-name" value="feedback">
             <input type="text" name="name" class="modalInput" placeholder="Name (Optional)">
             <input type="email" name="email" class="modalInput" placeholder="Email (Optional)">
