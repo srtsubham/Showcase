@@ -239,7 +239,6 @@ text-transform: uppercase;
 flex-shrink: 0;
 }
 
-/* Cookie Banner */
 .cookieBanner {
 position: fixed;
 top: 75px; 
@@ -810,7 +809,6 @@ color: #888888;
 font-size: 0.85rem;
 }
 
-/* Timeline */
 .eduDivider {
 grid-column: 1 / -1;
 width: 100%;
@@ -1871,7 +1869,6 @@ height: 100px;
 width: 100%;
 }
 
-/* Modals */
 .modalOverlay {
 position: fixed;
 top: 0;
@@ -1984,178 +1981,4 @@ transition: opacity 0.3s, transform 0.3s;
 .modalSubmitBtn:hover {
 opacity: 0.9;
 transform: translateY(-2px);
-}
-
-/* Responsive Mobile Breakpoints */
-@media screen and (max-width: 991px) {
-.topHeader {
-padding: 8px 12px;
-}
-.headerSubtext {
-display: none;
-}
-.treeBtnText {
-display: inline-block;
-}
-.cookieBanner {
-top: 70px;
-right: 10px;
-left: 10px;
-width: auto;
-max-width: none;
-}
-.linkTreePanel {
-flex-direction: column;
-}
-.treeCloseBtn {
-width: 100%;
-padding: 12px;
-}
-.aboutSection {
-padding: 8rem 1.5rem 10rem;
-border-top-left-radius: 1.5rem;
-border-top-right-radius: 1.5rem;
-}
-.aboutWrapper, .honoursWrapper, .footerBottomGrid {
-grid-template-columns: 1fr;
-gap: 2.5rem;
-}
-.aboutTitle {
-font-size: 3.5rem;
-}
-.aboutBio {
-font-size: 1.15rem;
-margin-bottom: 2rem;
-}
-.educationTitle {
-font-size: 2.5rem;
-}
-.timelineWrapper {
-width: 100%;
-margin: 2rem auto 0;
-}
-.nodeLabel {
-font-size: 0.75rem;
-}
-.nodeSub {
-font-size: 0.6rem;
-}
-.nodePopup {
-width: 180px;
-padding: 1rem;
-}
-.nodePopup .expTitle {
-font-size: 0.85rem;
-}
-.nodePopup .expSub {
-font-size: 0.7rem;
-}
-.bentoGrid {
-display: flex;
-flex-direction: column;
-}
-.bentoCard {
-min-height: 20rem;
-padding: 1.5rem;
-}
-.projectsSubHeader {
-grid-template-columns: 1fr 1fr;
-gap: 1.5rem;
-padding: 1.5rem 0;
-}
-.projectItem {
-padding: 2rem 0;
-flex-direction: column;
-align-items: flex-start;
-gap: 1rem;
-}
-.projectName {
-font-size: 1.8rem;
-}
-.contactBtn {
-align-self: flex-start;
-}
-.projectPreview {
-display: none;
-}
-.pingSectionWrapper {
-padding: 1rem 0 1rem 0.5rem;
-}
-.pingSection {
-padding: 4rem 1.5rem;
-border-radius: 1.5rem 0 0 1.5rem;
-min-height: 70vh;
-}
-.pingTitle {
-font-size: 7.5vw;
-}
-.pingLogoBadge {
-width: 7.5vw;
-height: 7.5vw;
-font-size: 3vw;
-}
-.cursorFollower {
-width: 200px;
-height: 110px;
-}
-.pingText {
-font-size: 2.6rem;
-}
-.mailNowBtn {
-width: 160px;
-height: 55px;
-font-size: 0.9rem;
-}
-.honoursSection {
-padding: 6rem 1.5rem 5rem;
-border-radius: 0 0 1.5rem 1.5rem;
-}
-.honoursQuote {
-font-size: 1.4rem;
-}
-.honoursItem {
-padding: 2rem 0;
-}
-.footerComponent {
-padding: 4rem 1.5rem 0;
-}
-.footerBigName {
-font-size: 11vw;
-padding: 1.5rem 0;
-}
-.footerInfo {
-font-size: 1.2rem;
-gap: 1rem;
-}
-.timeDisplay {
-font-size: 2.2rem;
-}
-.footerLinksGrid {
-grid-template-columns: 1fr;
-}
-.modalBox {
-padding: 2rem 1.5rem;
-width: 95%;
-}
-.bottomDock {
-gap: 15px;
-padding: 8px 16px;
-width: calc(100% - 30px);
-justify-content: space-between;
-}
-.dockLinks {
-gap: 12px;
-}
-.dockLink {
-font-size: 0.75rem;
-}
-.heroPortrait {
-width: 85vw;
-}
-.expPopup {
-display: none;
-}
-.feedbackButton {
-display: none;
-}
 }
