@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyPortfolio</title>
+<title>Portfolio | Somya Ranjan Tripathi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Pacifico&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +16,14 @@
 </div>
 
 <script>
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+}
+
 const a = document.getElementById('loaderWrapper');
 function b() {
 if (a && a.style.display !== 'none') {
@@ -30,20 +38,20 @@ setTimeout(b, 2000);
 <div class="mainWrapper">
 
 <div class="linkTreePanel" id="linkTreePanel">
-    <a href="#" class="treeLinkItem">
-        <span class="treeLinkText">Instagram</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
-    </a>
-    <a href="#" class="treeLinkItem">
+    <a href="https://www.linkedin.com/in/srtsubham/" target="_blank" class="treeLinkItem">
         <span class="treeLinkText">LinkedIn</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
-    <a href="#" class="treeLinkItem">
+    <a href="https://github.com/srtsubham" target="_blank" class="treeLinkItem">
         <span class="treeLinkText">Github</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
-    <a href="#" class="treeLinkItem">
-        <span class="treeLinkText">Twitter</span>
+    <a href="contact.html" class="treeLinkItem">
+        <span class="treeLinkText">Contact</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a href="feedback.html" class="treeLinkItem">
+        <span class="treeLinkText">Feedback</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
     <button class="treeCloseBtn" id="closeTreeBtn">
@@ -53,7 +61,7 @@ setTimeout(b, 2000);
 
 <header class="topHeader">
 <div class="headerLeft">
-<div class="headerLogo">SR.</div>
+<a href="https://github.com/srtsubham/Showcase" target="_blank" class="headerLogo" style="text-decoration: none;">SR.</a>
 <div class="headerText">
     <span id="typewriter">CREATIVE DEVELOPER,</span><span style="white-space: pre;"> DESIGNING SYSTEM ARCHITECTURE & AI INTEGRATIONS.</span>
 </div>
@@ -68,14 +76,14 @@ LINK TREE
 </header>
 
 <nav class="bottomDock" id="bottomDock">
-<a href="#" class="dockLogo">
+<a href="index.html" class="dockLogo">
 <div class="headerLogo">SR.</div>
 </a>
 <div class="dockLinks">
-<a href="#" class="dockLink">About</a>
-<a href="#" class="dockLink">Work</a>
-<a href="#" class="dockLink">Products</a>
-<a href="#" class="dockLink">Contact</a>
+<a href="#aboutSection" class="dockLink">About</a>
+<a href="#pingSection" class="dockLink">Mail</a>
+<a href="#projectsSection" class="dockLink">Projects</a>
+<a href="contact.html" class="dockLink">Contact</a>
 </div>
 </nav>
 
@@ -119,18 +127,18 @@ LINK TREE
 <div class="heroMarquee">
 <div class="marqueeTrack">
 <div class="marqueeGroup">
-<span class="marqueeItem">SOMYA RANJAN TRIPATHI</span>
-<span class="marqueeItem">SOMYA RANJAN TRIPATHI</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
 </div>
 <div class="marqueeGroup" aria-hidden="true">
-<span class="marqueeItem">SOMYA RANJAN TRIPATHI</span>
-<span class="marqueeItem">SOMYA RANJAN TRIPATHI</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
+<span class="marqueeItem">Somya Ranjan Tripathi</span>
 </div>
 </div>
 </div>
 </section>
 
-<section class="aboutSection">
+<section class="aboutSection" id="aboutSection">
 <div class="aboutWrapper">
 <div class="aboutLeft animTarget">
 <h2 class="aboutTitle">
@@ -168,7 +176,7 @@ LINK TREE
 </div>
 </section>
 
-<section class="workSection">
+<section class="workSection" id="projectsSection">
 <div class="workHeader">
 <h2 class="sectionTitle animTarget">
 <svg class="titleArrow" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -207,7 +215,8 @@ LINK TREE
 </div>
 
 <div class="projectList">
-<a href="#" class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive">
+<a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
@@ -218,13 +227,14 @@ LINK TREE
 <span class="projectDash">—</span>
 <span class="projectDesc">Security, Python</span>
 </div>
-<div class="contactBtn">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg>
-CONTACT FOR DETAILS
-</div>
+<a href="https://github.com/srtsubham" target="_blank" class="contactBtn">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+GITHUB LINK
 </a>
+</div>
 
-<a href="#" class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive">
+<a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
@@ -235,13 +245,14 @@ CONTACT FOR DETAILS
 <span class="projectDash">—</span>
 <span class="projectDesc">Java, Kotlin</span>
 </div>
-<div class="contactBtn">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg>
-CONTACT FOR DETAILS
-</div>
+<a href="https://github.com/srtsubham" target="_blank" class="contactBtn">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+GITHUB LINK
 </a>
+</div>
 
-<a href="#" class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive">
+<a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
@@ -252,11 +263,11 @@ CONTACT FOR DETAILS
 <span class="projectDash">—</span>
 <span class="projectDesc">AI, Infrastructure</span>
 </div>
-<div class="contactBtn">
-<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg>
-CONTACT FOR DETAILS
-</div>
+<a href="https://github.com/srtsubham" target="_blank" class="contactBtn">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+GITHUB LINK
 </a>
+</div>
 </div>
 </section>
 
@@ -338,8 +349,8 @@ CONTACT FOR DETAILS
 </div>
 </section>
 
-<section class="pingSectionWrapper">
-<div class="pingSection animTarget" id="pingSection">
+<section class="pingSectionWrapper" id="pingSection">
+<div class="pingSection animTarget">
 <h2 class="pingTitle">
 <span class="pingLine animTarget pingDelay1">ALL YOU NEED IS</span><br>
 <span class="pingLine animTarget pingDelay2">A <span class="pingLogoBadge">SR.</span> DEVELOPER</span><br>
@@ -406,7 +417,9 @@ CONTACT FOR DETAILS
 
 <footer class="footerComponent">
 <div class="footerBigNameWrapper">
+<a href="index.html" style="text-decoration: none; color: inherit; width: 100%;">
 <div class="footerBigName">Somya Ranjan Tripathi</div>
+</a>
 </div>
 <div class="footerBottomGrid">
 <div class="footerInfo">
@@ -414,10 +427,10 @@ CONTACT FOR DETAILS
 <p class="timeDisplay">Local time — <span id="clockDisplay"></span></p>
 </div>
 <div class="footerLinksGrid">
-<a href="#" class="gridLink"><span class="gridLinkText">Instagram</span> <span class="gridLinkArrow">↗</span></a>
-<a href="#" class="gridLink"><span class="gridLinkText">GitHub</span> <span class="gridLinkArrow">↗</span></a>
-<a href="#" class="gridLink"><span class="gridLinkText">LinkedIn</span> <span class="gridLinkArrow">↗</span></a>
-<a href="#" class="gridLink"><span class="gridLinkText">Twitter</span> <span class="gridLinkArrow">↗</span></a>
+<a href="https://www.linkedin.com/in/srtsubham/" target="_blank" class="gridLink"><span class="gridLinkText">LinkedIn</span> <span class="gridLinkArrow">↗</span></a>
+<a href="https://github.com/srtsubham" target="_blank" class="gridLink"><span class="gridLinkText">GitHub</span> <span class="gridLinkArrow">↗</span></a>
+<a href="contact.html" class="gridLink"><span class="gridLinkText">Contact</span> <span class="gridLinkArrow">↗</span></a>
+<a href="feedback.html" class="gridLink"><span class="gridLinkText">Feedback</span> <span class="gridLinkArrow">↗</span></a>
 </div>
 </div>
 <div class="footerCopyright">© 2026 SOMYA TRIPATHY. ALL RIGHTS RESERVED.</div>
