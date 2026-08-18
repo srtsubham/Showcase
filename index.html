@@ -26,13 +26,22 @@ if (window.location.hash) {
 
 const a = document.getElementById('loaderWrapper');
 function b() {
-if (a && a.style.display !== 'none') {
-a.style.opacity = '0';
-setTimeout(() => { a.style.display = 'none'; }, 500);
-}
+    if (a && a.style.display !== 'none') {
+        a.style.opacity = '0';
+        setTimeout(() => { a.style.display = 'none'; }, 500);
+    }
 }
 window.addEventListener('load', b);
 setTimeout(b, 2000);
+
+// Modal Logic
+function openModal(e, modalId) {
+    if (e) e.preventDefault();
+    document.getElementById(modalId).classList.add('isActive');
+}
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('isActive');
+}
 </script>
 
 <div class="mainWrapper">
@@ -46,11 +55,11 @@ setTimeout(b, 2000);
         <span class="treeLinkText">Github</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
-    <a href="contact.html" class="treeLinkItem">
+    <a href="#" onclick="openModal(event, 'contactModal')" class="treeLinkItem">
         <span class="treeLinkText">Contact</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
-    <a href="feedback.html" class="treeLinkItem">
+    <a href="#" onclick="openModal(event, 'feedbackModal')" class="treeLinkItem">
         <span class="treeLinkText">Feedback</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="treeLinkArrow"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
@@ -83,7 +92,7 @@ LINK TREE
 <a href="#aboutSection" class="dockLink">About</a>
 <a href="#pingSection" class="dockLink">Mail</a>
 <a href="#projectsSection" class="dockLink">Projects</a>
-<a href="contact.html" class="dockLink">Contact</a>
+<a href="#" onclick="openModal(event, 'contactModal')" class="dockLink">Contact</a>
 </div>
 </nav>
 
@@ -107,16 +116,16 @@ LINK TREE
 <div class="heroPortrait">
 <img src="assets/images/avatar.png" alt="Avatar" class="avatarImage">
 <div class="expPopup expLeft">
-    <div class="expTitle">Lead Engineer</div>
-    <div class="expSub">LipiScript & Kydel ASM</div>
+    <div class="expTitle">AI & ML Intern</div>
+    <div class="expSub">YBI Foundation</div>
     <ul class="expList">
         <li>Architected GST & MSME product platform.</li>
         <li>Deployed Java backend & Kotlin ecosystem.</li>
     </ul>
 </div>
 <div class="expPopup expRight">
-    <div class="expTitle">Software Engineering</div>
-    <div class="expSub">JPMorgan Chase & Co.</div>
+    <div class="expTitle">Cloud Computing Intern (AWS)</div>
+    <div class="expSub">GRAStech</div>
     <ul class="expList">
         <li>Executed enterprise full-stack integrations.</li>
         <li>Navigated agile software methodologies.</li>
@@ -165,12 +174,12 @@ LINK TREE
 <div class="middleMarquee">
 <div class="marqueeTrackSync">
 <div class="marqueeGroupSmall">
-<span class="marqueeItemSmall">ENGINEERING EXECUTION SUPER PROJECTS </span>
-<span class="marqueeItemSmall">ENGINEERING EXECUTION SUPER PROJECTS </span>
+<span class="marqueeItemSmall">TURNING BLUEPRINTS INTO BATTLEGROUNDS.🔥 </span>
+<span class="marqueeItemSmall">TURNING BLUEPRINTS INTO BATTLEGROUNDS.🔥 </span>
 </div>
 <div class="marqueeGroupSmall" aria-hidden="true">
-<span class="marqueeItemSmall">ENGINEERING EXECUTION SUPER PROJECTS </span>
-<span class="marqueeItemSmall">ENGINEERING EXECUTION SUPER PROJECTS </span>
+<span class="marqueeItemSmall">TURNING BLUEPRINTS INTO BATTLEGROUNDS.🔥 </span>
+<span class="marqueeItemSmall">TURNING BLUEPRINTS INTO BATTLEGROUNDS.🔥 </span>
 </div>
 </div>
 </div>
@@ -221,9 +230,9 @@ LINK TREE
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
 <div class="badgeDivider"></div>
-<span>P</span>
+<span>CS</span>
 </div>
-<h3 class="projectName">Kydel ASM</h3>
+<h3 class="projectName">CampusSync</h3>
 <span class="projectDash">—</span>
 <span class="projectDesc">Security, Python</span>
 </div>
@@ -239,9 +248,9 @@ GITHUB LINK
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
 <div class="badgeDivider"></div>
-<span>W</span>
+<span>LB</span>
 </div>
-<h3 class="projectName">LipiScript</h3>
+<h3 class="projectName">LekhaBit</h3>
 <span class="projectDash">—</span>
 <span class="projectDesc">Java, Kotlin</span>
 </div>
@@ -257,9 +266,27 @@ GITHUB LINK
 <div class="projectBadge">
 <svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
 <div class="badgeDivider"></div>
-<span>A</span>
+<span>AS</span>
 </div>
-<h3 class="projectName">Phaerox GI</h3>
+<h3 class="projectName">Ambaram Sentinel</h3>
+<span class="projectDash">—</span>
+<span class="projectDesc">Java, Kotlin</span>
+</div>
+<a href="https://github.com/srtsubham" target="_blank" class="contactBtn">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+GITHUB LINK
+</a>
+</div>
+
+<div class="projectItem scrollInteractive">
+<a href="index.html" class="projectMainLink"></a>
+<div class="projectInfo">
+<div class="projectBadge">
+<svg class="treeIcon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 14h6v8h6v-8h6L12 2z"/></svg>
+<div class="badgeDivider"></div>
+<span>AP</span>
+</div>
+<h3 class="projectName">AI Philosophy</h3>
 <span class="projectDash">—</span>
 <span class="projectDesc">AI, Infrastructure</span>
 </div>
@@ -429,13 +456,44 @@ GITHUB LINK
 <div class="footerLinksGrid">
 <a href="https://www.linkedin.com/in/srtsubham/" target="_blank" class="gridLink"><span class="gridLinkText">LinkedIn</span> <span class="gridLinkArrow">↗</span></a>
 <a href="https://github.com/srtsubham" target="_blank" class="gridLink"><span class="gridLinkText">GitHub</span> <span class="gridLinkArrow">↗</span></a>
-<a href="contact.html" class="gridLink"><span class="gridLinkText">Contact</span> <span class="gridLinkArrow">↗</span></a>
-<a href="feedback.html" class="gridLink"><span class="gridLinkText">Feedback</span> <span class="gridLinkArrow">↗</span></a>
+<a href="#" onclick="openModal(event, 'contactModal')" class="gridLink"><span class="gridLinkText">Contact</span> <span class="gridLinkArrow">↗</span></a>
+<a href="#" onclick="openModal(event, 'feedbackModal')" class="gridLink"><span class="gridLinkText">Feedback</span> <span class="gridLinkArrow">↗</span></a>
 </div>
 </div>
 <div class="footerCopyright">© 2026 SOMYA TRIPATHY. ALL RIGHTS RESERVED.</div>
 <div class="dockSpacer"></div>
 </footer>
+</div>
+
+<!-- Modal Overlay for Contact -->
+<div class="modalOverlay" id="contactModal">
+    <div class="modalBox">
+        <button class="modalCloseBtn" onclick="closeModal('contactModal')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <h3 class="modalTitle">Get in Touch</h3>
+        <form class="modalForm" onsubmit="event.preventDefault(); closeModal('contactModal');">
+            <input type="text" class="modalInput" placeholder="Name" required>
+            <input type="email" class="modalInput" placeholder="Email" required>
+            <textarea class="modalInput" placeholder="Message" rows="4" required></textarea>
+            <button type="submit" class="modalSubmitBtn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Overlay for Feedback -->
+<div class="modalOverlay" id="feedbackModal">
+    <div class="modalBox">
+        <button class="modalCloseBtn" onclick="closeModal('feedbackModal')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <h3 class="modalTitle">Feedback</h3>
+        <form class="modalForm" onsubmit="event.preventDefault(); closeModal('feedbackModal');">
+            <input type="text" class="modalInput" placeholder="Name (Optional)">
+            <textarea class="modalInput" placeholder="How can I improve?" rows="4" required></textarea>
+            <button type="submit" class="modalSubmitBtn">Submit Feedback</button>
+        </form>
+    </div>
 </div>
 
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
