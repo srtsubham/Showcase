@@ -60,7 +60,7 @@ padding: 10px;
 border-radius: 6px;
 display: flex;
 gap: 10px;
-z-index: 11;
+z-index: 1100;
 box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 transform: translateY(-150%);
 transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
@@ -147,6 +147,7 @@ box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 display: flex;
 align-items: center;
 gap: 15px;
+min-width: 0;
 }
 
 .headerLogo {
@@ -162,6 +163,7 @@ border-radius: 4px;
 font-size: 0.9rem;
 position: relative;
 transition: color 0.3s ease;
+flex-shrink: 0;
 }
 
 .headerLogo:hover {
@@ -202,6 +204,12 @@ text-transform: uppercase;
 letter-spacing: 0.5px;
 display: flex;
 align-items: center;
+overflow: hidden;
+white-space: nowrap;
+}
+
+.headerSubtext {
+white-space: pre;
 }
 
 .twCursor {
@@ -228,24 +236,27 @@ color: #111111;
 font-weight: 600;
 font-size: 0.75rem;
 text-transform: uppercase;
+flex-shrink: 0;
 }
 
-/* Cookie Banner Styles */
+/* Cookie Banner */
 .cookieBanner {
 position: fixed;
-top: 80px; 
+top: 75px; 
 right: 15px;
 background-color: #ffffff;
-padding: 15px 20px;
+padding: 14px 18px;
 border-radius: 6px;
 display: flex;
 flex-direction: column;
 gap: 12px;
 z-index: 1000;
-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-width: 300px;
-transform: translateX(120%);
+box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+width: 320px;
+max-width: calc(100vw - 30px);
+transform: translateX(130%);
 transition: transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
+border: 1px solid rgba(0,0,0,0.06);
 }
 
 .cookieBanner.isVisible {
@@ -301,7 +312,7 @@ position: fixed;
 bottom: 20px;
 left: 50%;
 transform: translate(-50%, 150%);
-background-color: rgba(26, 26, 26, 0.65);
+background-color: rgba(26, 26, 26, 0.75);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
 color: #ffffff;
@@ -317,8 +328,8 @@ transition: transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1), padding 0.3s ea
 }
 
 .bottomDock:hover {
-background-color: rgba(26, 26, 26, 0.9);
-padding: 14px 24px;
+background-color: rgba(26, 26, 26, 0.95);
+padding: 12px 24px;
 }
 
 .bottomDock.isVisible {
@@ -799,7 +810,7 @@ color: #888888;
 font-size: 0.85rem;
 }
 
-/* Timeline Components */
+/* Timeline */
 .eduDivider {
 grid-column: 1 / -1;
 width: 100%;
@@ -826,13 +837,27 @@ margin-bottom: -3rem;
 font-size: 3.5rem;
 }
 
-.timelineWrapper {
+.timelineContainer {
 grid-column: 1 / -1;
+width: 100%;
+overflow-x: auto;
+overflow-y: visible;
+scrollbar-width: none;
+-ms-overflow-style: none;
+padding: 20px 0;
+}
+
+.timelineContainer::-webkit-scrollbar {
+display: none;
+}
+
+.timelineWrapper {
 position: relative;
 width: calc(100% - 100px); 
 margin: 4rem auto 0;
 height: 160px;
 padding: 0;
+min-width: 650px;
 }
 
 .waveSvg {
@@ -927,26 +952,26 @@ letter-spacing: 0.5px;
 
 .nodePopup {
 position: absolute;
-background: rgba(17, 17, 17, 0.85);
+background: rgba(17, 17, 17, 0.92);
 backdrop-filter: blur(15px);
 -webkit-backdrop-filter: blur(15px);
 border: 1px solid rgba(255, 255, 255, 0.8);
 color: #ffffff;
-padding: 1.5rem;
+padding: 1.2rem 1.4rem;
 border-radius: 8px;
 opacity: 0;
 pointer-events: none;
 transition: all 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
 z-index: 10;
 box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5);
-width: 240px;
+width: 220px;
 text-align: left;
 }
 
-.nodePopup .expTitle { font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 0.3rem; }
-.nodePopup .expSub { font-size: 0.75rem; color: #aaaaaa; font-family: 'Space Mono', monospace; margin-bottom: 1rem; }
+.nodePopup .expTitle { font-size: 0.95rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 0.3rem; }
+.nodePopup .expSub { font-size: 0.75rem; color: #aaaaaa; font-family: 'Space Mono', monospace; margin-bottom: 0.8rem; }
 .nodePopup .expList { list-style: none; padding: 0; margin: 0; }
-.nodePopup .expList li { font-size: 0.75rem; color: #cccccc; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; line-height: 1.4; }
+.nodePopup .expList li { font-size: 0.75rem; color: #cccccc; margin-bottom: 0.4rem; padding-left: 1.2rem; position: relative; line-height: 1.4; }
 .nodePopup .expList li::before { content: '→'; position: absolute; left: 0; color: #ffffff; font-weight: bold; }
 
 .popupUp { bottom: 35px; left: 50%; transform: translateX(-50%) translateY(20px); }
@@ -1739,7 +1764,6 @@ width: 100%;
 margin-bottom: 4rem;
 }
 
-/* EDIT SIZE AND PADDING HERE */
 .footerBigName {
 font-size: 8vw;
 font-family: 'Great Vibes', cursive;
@@ -1883,6 +1907,8 @@ transform: translateY(30px) scale(0.95);
 transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
 border: 1px solid rgba(255,255,255,0.1);
 box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.15);
+max-height: 90vh;
+overflow-y: auto;
 }
 
 .modalOverlay.isActive .modalBox {
@@ -1960,73 +1986,24 @@ opacity: 0.9;
 transform: translateY(-2px);
 }
 
-/* Cookie Banner Styles */
-.cookieBanner {
-position: fixed;
-top: 80px; 
-right: 15px;
-background-color: #ffffff;
-padding: 15px 20px;
-border-radius: 6px;
-display: flex;
-flex-direction: column;
-gap: 12px;
-z-index: 1000;
-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-width: 300px;
-transform: translateX(120%);
-transition: transform 0.6s cubic-bezier(0.165, 0.840, 0.440, 1);
-}
-
-.cookieBanner.isVisible {
-transform: translateX(0);
-}
-
-.cookieText {
-font-size: 0.75rem;
-font-weight: 600;
-text-transform: uppercase;
-line-height: 1.4;
-color: #111111;
-}
-
-.cookieBtns {
-display: flex;
-gap: 10px;
-}
-
-.cookieBtn {
-flex: 1;
-padding: 8px 0;
-border-radius: 4px;
-font-size: 0.7rem;
-font-weight: 700;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.cookieBtn.accept {
-background-color: #111111;
-color: #ffffff;
-border: 1px solid #111111;
-}
-
-.cookieBtn.accept:hover {
-background-color: #333333;
-}
-
-.cookieBtn.decline {
-background-color: transparent;
-color: #111111;
-border: 1px solid #cccccc;
-}
-
-.cookieBtn.decline:hover {
-border-color: #111111;
-}
-
+/* Responsive Mobile Breakpoints */
 @media screen and (max-width: 991px) {
+.topHeader {
+padding: 8px 12px;
+}
+.headerSubtext {
+display: none;
+}
+.treeBtnText {
+display: inline-block;
+}
+.cookieBanner {
+top: 70px;
+right: 10px;
+left: 10px;
+width: auto;
+max-width: none;
+}
 .linkTreePanel {
 flex-direction: column;
 }
@@ -2034,347 +2011,151 @@ flex-direction: column;
 width: 100%;
 padding: 12px;
 }
+.aboutSection {
+padding: 8rem 1.5rem 10rem;
+border-top-left-radius: 1.5rem;
+border-top-right-radius: 1.5rem;
+}
 .aboutWrapper, .honoursWrapper, .footerBottomGrid {
 grid-template-columns: 1fr;
-gap: 3rem;
+gap: 2.5rem;
+}
+.aboutTitle {
+font-size: 3.5rem;
+}
+.aboutBio {
+font-size: 1.15rem;
+margin-bottom: 2rem;
+}
+.educationTitle {
+font-size: 2.5rem;
+}
+.timelineWrapper {
+width: 100%;
+margin: 2rem auto 0;
+}
+.nodeLabel {
+font-size: 0.75rem;
+}
+.nodeSub {
+font-size: 0.6rem;
+}
+.nodePopup {
+width: 180px;
+padding: 1rem;
+}
+.nodePopup .expTitle {
+font-size: 0.85rem;
+}
+.nodePopup .expSub {
+font-size: 0.7rem;
 }
 .bentoGrid {
 display: flex;
 flex-direction: column;
 }
+.bentoCard {
+min-height: 20rem;
+padding: 1.5rem;
+}
 .projectsSubHeader {
 grid-template-columns: 1fr 1fr;
+gap: 1.5rem;
+padding: 1.5rem 0;
+}
+.projectItem {
+padding: 2rem 0;
+flex-direction: column;
+align-items: flex-start;
+gap: 1rem;
+}
+.projectName {
+font-size: 1.8rem;
+}
+.contactBtn {
+align-self: flex-start;
 }
 .projectPreview {
 display: none;
 }
 .pingSectionWrapper {
-padding: 1.5rem 0 1.5rem 1rem;
+padding: 1rem 0 1rem 0.5rem;
 }
 .pingSection {
-padding: 4rem 2rem;
+padding: 4rem 1.5rem;
 border-radius: 1.5rem 0 0 1.5rem;
-min-height: calc(100vh - 3rem);
+min-height: 70vh;
 }
 .pingTitle {
-font-size: 8vw;
+font-size: 7.5vw;
 }
 .pingLogoBadge {
-width: 8vw;
-height: 8vw;
-font-size: 3.5vw;
+width: 7.5vw;
+height: 7.5vw;
+font-size: 3vw;
 }
 .cursorFollower {
-width: 180px;
-height: 100px;
+width: 200px;
+height: 110px;
 }
 .pingText {
-font-size: 2.5rem;
+font-size: 2.6rem;
 }
 .mailNowBtn {
-width: 140px;
-height: 50px;
+width: 160px;
+height: 55px;
 font-size: 0.9rem;
 }
 .honoursSection {
-padding: 6rem 2rem;
+padding: 6rem 1.5rem 5rem;
+border-radius: 0 0 1.5rem 1.5rem;
+}
+.honoursQuote {
+font-size: 1.4rem;
 }
 .honoursItem {
-flex-direction: column;
-align-items: flex-start;
-}
-.footerComponent {
-padding: 4rem 1rem 0;
-}
-.footerBigName {
-font-size: 10vw;
 padding: 2rem 0;
 }
+.footerComponent {
+padding: 4rem 1.5rem 0;
+}
+.footerBigName {
+font-size: 11vw;
+padding: 1.5rem 0;
+}
 .footerInfo {
-margin-left: 0;
+font-size: 1.2rem;
+gap: 1rem;
+}
+.timeDisplay {
+font-size: 2.2rem;
+}
+.footerLinksGrid {
+grid-template-columns: 1fr;
 }
 .modalBox {
-padding: 2rem;
+padding: 2rem 1.5rem;
+width: 95%;
 }
-.timelineWrapper {
-margin-top: 4rem;
-height: 120px;
-width: calc(100% - 40px);
+.bottomDock {
+gap: 15px;
+padding: 8px 16px;
+width: calc(100% - 30px);
+justify-content: space-between;
 }
-.nodeLabel {
-font-size: 0.8rem;
+.dockLinks {
+gap: 12px;
 }
-.nodeSub {
-font-size: 0.65rem;
+.dockLink {
+font-size: 0.75rem;
 }
-.waveSvg {
-height: 120px;
+.heroPortrait {
+width: 85vw;
 }
-.labelDown { top: 28px; }
-.labelUp { bottom: 28px; }
-.n1 .popupUp { transform: translateX(0) translateY(20px); }
-.n1:hover .popupUp { transform: translateX(0) translateY(0); }
-.n6 .popupDown { transform: translateX(0) translateY(-20px); }
-.n6:hover .popupDown { transform: translateX(0) translateY(0); }
+.expPopup {
+display: none;
 }
-
-app.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    let a = null;
-    if (typeof Lenis !== 'undefined') {
-        a = new Lenis({
-            duration: 1.5,
-            smooth: true
-        });
-    }
-
-    let b = 0;
-    if (a) {
-        a.on('scroll', (e) => {
-            b = e.velocity;
-        });
-    }
-
-    const ts = document.querySelectorAll('.marqueeTrackSync');
-    const b1 = document.querySelector('.marqueeWrapper:not(.invertedWrapper) .middleMarquee');
-    const b2 = document.querySelector('.invertedWrapper .middleMarquee');
-    const crds = document.querySelectorAll('.scrollSyncCard');
-    const bs = document.querySelector('.bentoSection');
-    
-    const pi = document.querySelectorAll('.scrollInteractive');
-    const pp = document.createElement('div');
-    pp.className = 'projectPreview';
-    const pim = document.createElement('img');
-    pim.className = 'previewImage';
-    pim.src = 'assets/avatar.png';
-    pp.appendChild(pim);
-    document.body.appendChild(pp);
-
-    const lBtn = document.getElementById('openTreeBtn');
-    const cBtn = document.getElementById('closeTreeBtn');
-    const pnl = document.getElementById('linkTreePanel');
-    
-    if (lBtn && cBtn && pnl) {
-        lBtn.addEventListener('click', (e) => { 
-            e.preventDefault(); 
-            pnl.classList.add('isVisible'); 
-        });
-        cBtn.addEventListener('click', () => { 
-            pnl.classList.remove('isVisible'); 
-        });
-    }
-    
-    const ta = ["CREATIVE DEVELOPER,", "AI SYSTEMS ENGINEER,", "FULL STACK DEVELOPER,", "DEVOPS ASSOCIATE,"];
-    let tb = 0;
-    let tc = ta[0].length;
-    let td = true;
-    const te = document.getElementById('typewriter');
-
-    function tf() {
-        if (!te) return;
-        const tg = ta[tb];
-        if (td) {
-            tc--;
-        } else {
-            tc++;
-        }
-
-        te.innerHTML = tg.substring(0, tc) + '<span class="twCursor"></span>';
-
-        let th = 100;
-        if (td) th /= 2;
-
-        if (!td && tc === tg.length) {
-            th = 2000;
-            td = true;
-        } else if (td && tc === 0) {
-            td = false;
-            tb = (tb + 1) % ta.length;
-            th = 500;
-        }
-
-        setTimeout(tf, th);
-    }
-
-    if (te) {
-        setTimeout(tf, 2000);
-    }
-
-    const pSec = document.getElementById('pingSection');
-    const pFol = document.getElementById('cursorFollower');
-
-    let pMouseX = 0, pMouseY = 0;
-    let pCurrX = 0, pCurrY = 0;
-    let pInit = false;
-
-    if (pSec && pFol) {
-        setTimeout(() => {
-            const r = pSec.getBoundingClientRect();
-            pCurrX = r.width / 2;
-            pCurrY = r.height / 2;
-            pMouseX = pCurrX;
-            pMouseY = pCurrY;
-            pInit = true;
-        }, 100);
-
-        window.addEventListener('mousemove', (e) => {
-            const r = pSec.getBoundingClientRect();
-            let tX = e.clientX - r.left;
-            let tY = e.clientY - r.top;
-
-            const w = pFol.offsetWidth || 300;
-            const h = pFol.offsetHeight || 170;
-
-            pMouseX = Math.max(w/2, Math.min(tX, r.width - w/2));
-            pMouseY = Math.max(h/2, Math.min(tY, r.height - h/2));
-        });
-    }
-
-    let f = 0;
-
-    function g(h) {
-        if (a) a.raf(h);
-
-        f -= 0.02 + (b * 0.01);
-        if (f <= -50) f += 50;
-        if (f > 0) f -= 50;
-        
-        ts.forEach(t => t.style.transform = `translateX(${f}%)`);
-
-        const wh = window.innerHeight;
-
-        if (b1) {
-            const r1 = b1.getBoundingClientRect();
-            let p1 = (r1.top - 250) / (wh - 250);
-            p1 = Math.max(0, Math.min(1, p1));
-            b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
-        }
-        
-        if (b2) {
-            const r2 = b2.getBoundingClientRect();
-            let p2 = r2.top / wh;
-            p2 = Math.max(0, Math.min(1, p2));
-            b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
-        }
-
-        if (bs) {
-            const r = bs.getBoundingClientRect();
-            let p = (wh - r.top + 150) / (wh * 0.8);
-            p = Math.max(0, Math.min(1, p));
-            crds.forEach((crd) => {
-                crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
-            });
-        }
-        
-        let cItem = null;
-        let mDist = Infinity;
-        pi.forEach(p => {
-            const r = p.getBoundingClientRect();
-            const d = Math.abs((r.top + r.height/2) - wh/2);
-            if(d < mDist) {
-                mDist = d;
-                cItem = p;
-            }
-        });
-        
-        pi.forEach(p => {
-            if(p === cItem && mDist < 150) {
-                p.classList.add('isActive');
-                const pLink = p.getAttribute('data-preview');
-                if(pLink) pim.src = pLink;
-            } else {
-                p.classList.remove('isActive');
-            }
-        });
-        
-        if (mDist < 150) {
-            pp.classList.add('isVisible');
-        } else {
-            pp.classList.remove('isVisible');
-        }
-
-        if (pSec && pFol && pInit) {
-            pCurrX += (pMouseX - pCurrX) * 0.015;
-            pCurrY += (pMouseY - pCurrY) * 0.015;
-            pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
-        }
-
-        requestAnimationFrame(g);
-    }
-    requestAnimationFrame(g);
-
-    const ee = document.querySelectorAll('.animTarget');
-    const ff = new IntersectionObserver((gg) => {
-        gg.forEach((hh) => {
-            if (hh.isIntersecting) {
-                hh.target.classList.add('isVisible');
-            } else {
-                hh.target.classList.remove('isVisible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    ee.forEach((hh) => {
-        ff.observe(hh);
-    });
-
-    const ii = document.getElementById('clockDisplay');
-    function jj() {
-        const kk = new Date();
-        const ll = kk.toLocaleTimeString('en-US', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' });
-        if (ii) ii.textContent = ll;
-    }
-    
-    setInterval(jj, 1000);
-    jj();
-
-    const mm = document.getElementById('bottomDock');
-    window.addEventListener('scroll', () => {
-        if (!mm) return;
-        if (window.scrollY > 5) {
-            mm.classList.add('isVisible');
-        } else {
-            mm.classList.remove('isVisible');
-        }
-    });
-
-    // Cookie Logic Implementation
-    const cookieBanner = document.getElementById('cookieBanner');
-    const acceptBtn = document.getElementById('acceptCookies');
-    const declineBtn = document.getElementById('declineCookies');
-
-    function initAnalytics() {
-        console.log("Analytics initiated.");
-        // const script = document.createElement('script');
-        // script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR_MEASUREMENT_ID';
-        // script.async = true;
-        // document.head.appendChild(script);
-        // window.dataLayer = window.dataLayer || [];
-        // function gtag(){dataLayer.push(arguments);}
-        // gtag('js', new Date());
-        // gtag('config', 'YOUR_MEASUREMENT_ID');
-    }
-
-    if (cookieBanner && acceptBtn && declineBtn) {
-        const consent = localStorage.getItem('sr_cookie_consent');
-        if (!consent) {
-            setTimeout(() => {
-                cookieBanner.classList.add('isVisible');
-            }, 2500);
-        } else if (consent === 'accepted') {
-            initAnalytics();
-        }
-
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('sr_cookie_consent', 'accepted');
-            cookieBanner.classList.remove('isVisible');
-            initAnalytics();
-        });
-
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('sr_cookie_consent', 'declined');
-            cookieBanner.classList.remove('isVisible');
-        });
-    }
-});
+.feedbackButton {
+display: none;
+}
+}

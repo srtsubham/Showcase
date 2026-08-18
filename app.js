@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let a = null;
     if (typeof Lenis !== 'undefined') {
         a = new Lenis({
-            duration: 1.5,
+            duration: 1.2,
             smooth: true
         });
     }
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pp.className = 'projectPreview';
     const pim = document.createElement('img');
     pim.className = 'previewImage';
-    pim.src = 'assets/images/avatar.png';
+    pim.src = 'assets/avatar.png';
     pp.appendChild(pim);
     document.body.appendChild(pp);
 
@@ -145,29 +145,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        let cItem = null;
-        let mDist = Infinity;
-        pi.forEach(p => {
-            const r = p.getBoundingClientRect();
-            const d = Math.abs((r.top + r.height/2) - wh/2);
-            if(d < mDist) {
-                mDist = d;
-                cItem = p;
-            }
-        });
-        
-        pi.forEach(p => {
-            if(p === cItem && mDist < 150) {
-                p.classList.add('isActive');
+        if (window.innerWidth > 991) {
+            let cItem = null;
+            let mDist = Infinity;
+            pi.forEach(p => {
+                const r = p.getBoundingClientRect();
+                const d = Math.abs((r.top + r.height/2) - wh/2);
+                if(d < mDist) {
+                    mDist = d;
+                    cItem = p;
+                }
+            });
+            
+            pi.forEach(p => {
+                if(p === cItem && mDist < 150) {
+                    p.classList.add('isActive');
+                    const pLink = p.getAttribute('data-preview');
+                    if(pLink) pim.src = pLink;
+                } else {
+                    p.classList.remove('isActive');
+                }
+            });
+            
+            if (mDist < 150) {
+                pp.classList.add('isVisible');
             } else {
-                p.classList.remove('isActive');
+                pp.classList.remove('isVisible');
             }
-        });
-        
-        if (mDist < 150) {
-            pp.classList.add('isVisible');
-        } else {
-            pp.classList.remove('isVisible');
         }
 
         if (pSec && pFol && pInit) {
@@ -214,4 +218,46 @@ document.addEventListener('DOMContentLoaded', () => {
             mm.classList.remove('isVisible');
         }
     });
+
+    // Analytics Initialization
+        function initAnalytics() {
+            const gaId = 'G-4VZZ4PWG3K'; 
+            if (gaId && gaId !== 'YOUR_GA_MEASUREMENT_ID') {
+                const script = document.createElement('script');
+                script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+                script.async = true;
+                document.head.appendChild(script);
+    
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', gaId);
+            }
+        }
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    if (cookieBanner && acceptBtn && declineBtn) {
+        const consent = localStorage.getItem('sr_cookie_consent');
+        if (!consent) {
+            setTimeout(() => {
+                cookieBanner.classList.add('isVisible');
+            }, 2000);
+        } else if (consent === 'accepted') {
+            initAnalytics();
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('sr_cookie_consent', 'accepted');
+            cookieBanner.classList.remove('isVisible');
+            initAnalytics();
+        });
+
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('sr_cookie_consent', 'declined');
+            cookieBanner.classList.remove('isVisible');
+        });
+    }
 });

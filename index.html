@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Portfolio | Somya Ranjan Tripathi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,6 @@ function b() {
 window.addEventListener('load', b);
 setTimeout(b, 2000);
 
-// Modal Logic
 function openModal(e, modalId) {
     if (e) e.preventDefault();
     document.getElementById(modalId).classList.add('isActive');
@@ -43,7 +42,6 @@ function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('isActive');
 }
 
-// Secure Netlify AJAX Handling
 document.addEventListener("DOMContentLoaded", () => {
     const forms = [
         { id: 'contactForm', modalId: 'contactModal', successMsg: 'Success! Your message has been received.' },
@@ -78,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Repeating Scroll Animation Observer
     const repeatObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -121,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="headerLeft">
 <a href="https://github.com/srtsubham/Showcase" target="_blank" class="headerLogo" style="text-decoration: none;">SR.</a>
 <div class="headerText">
-    <span id="typewriter">CREATIVE DEVELOPER,</span><span style="white-space: pre;"> DESIGNING SYSTEM ARCHITECTURE & AI INTEGRATIONS.</span>
+    <span id="typewriter">CREATIVE DEVELOPER,</span><span class="headerSubtext"> DESIGNING SYSTEM ARCHITECTURE & AI INTEGRATIONS.</span>
 </div>
 </div>
 <a href="#" class="headerLink" id="openTreeBtn">
@@ -129,11 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
 <path d="M12 2L5 10h3l-3 7h14l-3-7h3L12 2z"/>
 <path d="M12 17v5"/>
 </svg>
-LINK TREE
+<span class="treeBtnText">LINK TREE</span>
 </a>
 </header>
 
-<!-- Cookie Tracking Banner -->
 <div class="cookieBanner" id="cookieBanner">
     <div class="cookieText">This site utilizes granular cookies to track behavior and improve system architecture. Proceed?</div>
     <div class="cookieBtns">
@@ -236,6 +232,7 @@ LINK TREE
     </h2>
 </div>
 
+<div class="timelineContainer">
 <div class="timelineWrapper animTarget animRepeat">
     <svg class="waveSvg" viewBox="0 0 1000 160" preserveAspectRatio="none">
         <path d="M 0 120 C 100 120, 100 40, 200 40 C 300 40, 300 120, 400 120 C 500 120, 500 40, 600 40 C 700 40, 700 120, 800 120 C 900 120, 900 40, 1000 40" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" style="filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));" />
@@ -300,6 +297,7 @@ LINK TREE
             <ul class="expList"><li>BBD University, Lucknow</li><li>Current (2026)</li></ul>
         </div>
     </div>
+</div>
 </div>
 
 </div>
@@ -600,9 +598,8 @@ GITHUB LINK
 </footer>
 </div>
 
-<!-- Modal Overlay for Contact -->
 <div class="modalOverlay" id="contactModal">
-    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modalBox">
         <button class="modalCloseBtn" onclick="closeModal('contactModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
@@ -621,9 +618,8 @@ GITHUB LINK
     </div>
 </div>
 
-<!-- Modal Overlay for Feedback -->
 <div class="modalOverlay" id="feedbackModal">
-    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modalBox">
         <button class="modalCloseBtn" onclick="closeModal('feedbackModal')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
