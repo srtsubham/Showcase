@@ -42,6 +42,27 @@ function openModal(e, modalId) {
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('isActive');
 }
+
+// Netlify Background Form Submission (AJAX)
+function submitNetlifyForm(e, modalId) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        alert('Success! Your message has been received.');
+        form.reset();
+        closeModal(modalId);
+    })
+    .catch((error) => {
+        alert('Something went wrong. Please try again later.');
+    });
+}
 </script>
 
 <div class="mainWrapper">
@@ -472,7 +493,8 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Get in Touch</h3>
-        <form class="modalForm" name="contact" method="POST" data-netlify="true" action="/">
+        <form class="modalForm" name="contact" method="POST" data-netlify="true" onsubmit="submitNetlifyForm(event, 'contactModal')">
+            <input type="hidden" name="form-name" value="contact">
             <input type="text" name="name" class="modalInput" placeholder="Name" required>
             <input type="email" name="email" class="modalInput" placeholder="Email" required>
             <input type="tel" name="phone" class="modalInput" placeholder="Phone (Optional)">
@@ -489,7 +511,8 @@ GITHUB LINK
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <h3 class="modalTitle">Feedback</h3>
-        <form class="modalForm" name="feedback" method="POST" data-netlify="true" action="/">
+        <form class="modalForm" name="feedback" method="POST" data-netlify="true" onsubmit="submitNetlifyForm(event, 'feedbackModal')">
+            <input type="hidden" name="form-name" value="feedback">
             <input type="text" name="name" class="modalInput" placeholder="Name (Optional)">
             <input type="email" name="email" class="modalInput" placeholder="Email (Optional)">
             <textarea name="feedback_text" class="modalInput" placeholder="How can I improve?" rows="4" required></textarea>
