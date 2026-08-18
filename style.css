@@ -751,7 +751,8 @@ transform: scaleX(1);
 
 .educationTitleWrapper {
 grid-column: 1 / -1;
-text-align: center;
+display: flex;
+justify-content: center;
 margin-bottom: -3rem; 
 }
 
@@ -796,6 +797,7 @@ align-items: center;
 transform: translate(-50%, -20px);
 opacity: 0;
 transition: opacity 0.6s ease, transform 0.6s ease;
+cursor: pointer;
 }
 
 .timelineWrapper.isVisible .node {
@@ -810,12 +812,12 @@ transform: translate(-50%, -50%);
 .timelineWrapper.isVisible .n5 { transition-delay: 1.3s; }
 .timelineWrapper.isVisible .n6 { transition-delay: 1.6s; }
 
-.n1 { left: 2%; top: 75%; }
+.n1 { left: 0%; top: 75%; }
 .n2 { left: 20%; top: 25%; }
-.n3 { left: 38%; top: 75%; }
-.n4 { left: 56%; top: 25%; }
-.n5 { left: 74%; top: 75%; }
-.n6 { left: 92%; top: 25%; }
+.n3 { left: 40%; top: 75%; }
+.n4 { left: 60%; top: 25%; }
+.n5 { left: 80%; top: 75%; }
+.n6 { left: 100%; top: 25%; }
 
 .glowDot {
 width: 18px;
@@ -856,6 +858,39 @@ letter-spacing: 0.5px;
 
 .labelDown { top: 32px; }
 .labelUp { bottom: 32px; }
+
+.nodePopup {
+position: absolute;
+background: rgba(17, 17, 17, 0.85);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 0.8);
+color: #ffffff;
+padding: 1.5rem;
+border-radius: 8px;
+opacity: 0;
+pointer-events: none;
+transition: all 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
+z-index: 10;
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5);
+width: 240px;
+text-align: left;
+}
+
+.nodePopup .expTitle { font-size: 1rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 0.3rem; }
+.nodePopup .expSub { font-size: 0.75rem; color: #aaaaaa; font-family: 'Space Mono', monospace; margin-bottom: 1rem; }
+.nodePopup .expList { list-style: none; padding: 0; margin: 0; }
+.nodePopup .expList li { font-size: 0.75rem; color: #cccccc; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; line-height: 1.4; }
+.nodePopup .expList li::before { content: '→'; position: absolute; left: 0; color: #ffffff; font-weight: bold; }
+
+.popupUp { bottom: 35px; left: 50%; transform: translateX(-50%) translateY(20px); }
+.popupDown { top: 35px; left: 50%; transform: translateX(-50%) translateY(-20px); }
+
+.node:hover .popupUp { opacity: 1; transform: translateX(-50%) translateY(0); }
+.node:hover .popupDown { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.popupCyan { border-color: rgba(0, 255, 255, 0.8); box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.5); }
+.node.active:hover .popupCyan { opacity: 1; } 
 
 .marqueeWrapper {
 position: relative;

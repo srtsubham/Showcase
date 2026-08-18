@@ -217,7 +217,7 @@ LINK TREE
 </div>
 </div>
 
-<div class="eduDivider animRepeat"></div>
+<div class="eduDivider animTarget animRepeat"></div>
 
 <div class="educationTitleWrapper animTarget animRepeat">
     <h2 class="aboutTitle educationTitle">
@@ -227,34 +227,69 @@ LINK TREE
     </h2>
 </div>
 
-<!-- Glowy Dynamic Timeline -->
-<div class="timelineWrapper animRepeat">
-    <svg class="waveSvg" viewBox="0 0 1000 120" preserveAspectRatio="none">
-        <path d="M 20 90 C 110 90, 110 30, 200 30 C 290 30, 290 90, 380 90 C 470 90, 470 30, 560 30 C 650 30, 650 90, 740 90 C 830 90, 830 30, 920 30" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" style="filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));" />
+<div class="timelineWrapper animTarget animRepeat">
+    <svg class="waveSvg" viewBox="0 0 1000 160" preserveAspectRatio="none">
+        <path d="M 0 120 C 100 120, 100 40, 200 40 C 300 40, 300 120, 400 120 C 500 120, 500 40, 600 40 C 700 40, 700 120, 800 120 C 900 120, 900 40, 1000 40" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" style="filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));" />
     </svg>
+    
     <div class="node n1">
         <div class="glowDot"></div>
         <div class="nodeLabel labelDown">10th<br><span class="nodeSub">CBSE</span></div>
+        <div class="nodePopup popupUp">
+            <div class="expTitle">10th Grade</div>
+            <div class="expSub">CBSE Board</div>
+            <ul class="expList"><li>Passout 2021</li></ul>
+        </div>
     </div>
+    
     <div class="node n2">
         <div class="glowDot"></div>
         <div class="nodeLabel labelUp">12th<br><span class="nodeSub">DPS '23</span></div>
+        <div class="nodePopup popupDown">
+            <div class="expTitle">12th Grade</div>
+            <div class="expSub">Delhi Public School</div>
+            <ul class="expList"><li>Passout 2023</li></ul>
+        </div>
     </div>
+    
     <div class="node n3">
         <div class="glowDot"></div>
         <div class="nodeLabel labelDown">Year I<br><span class="nodeSub">B.Tech CSE (Aug '23)</span></div>
+        <div class="nodePopup popupUp">
+            <div class="expTitle">First Year</div>
+            <div class="expSub">B.Tech CSE</div>
+            <ul class="expList"><li>BBD University, Lucknow</li><li>August 2023</li></ul>
+        </div>
     </div>
+    
     <div class="node n4">
         <div class="glowDot"></div>
         <div class="nodeLabel labelUp">Year II<br><span class="nodeSub">'24</span></div>
+        <div class="nodePopup popupDown">
+            <div class="expTitle">Second Year</div>
+            <div class="expSub">B.Tech CSE</div>
+            <ul class="expList"><li>BBD University, Lucknow</li><li>2024</li></ul>
+        </div>
     </div>
+    
     <div class="node n5">
         <div class="glowDot"></div>
         <div class="nodeLabel labelDown">Year III<br><span class="nodeSub">'25</span></div>
+        <div class="nodePopup popupUp">
+            <div class="expTitle">Third Year</div>
+            <div class="expSub">B.Tech CSE</div>
+            <ul class="expList"><li>BBD University, Lucknow</li><li>2025</li></ul>
+        </div>
     </div>
+    
     <div class="node n6 active">
         <div class="glowDot"></div>
         <div class="nodeLabel labelUp" style="color: #00ffff;">Year IV<br><span class="nodeSub" style="color: rgba(0, 255, 255, 0.8);">Current ('26)</span></div>
+        <div class="nodePopup popupDown popupCyan">
+            <div class="expTitle" style="color: #00ffff;">Fourth Year</div>
+            <div class="expSub" style="color: rgba(0, 255, 255, 0.8);">B.Tech CSE</div>
+            <ul class="expList"><li>BBD University, Lucknow</li><li>Current (2026)</li></ul>
+        </div>
     </div>
 </div>
 
@@ -315,7 +350,7 @@ LINK TREE
 </div>
 
 <div class="projectList">
-<div class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive" data-preview="assets/preview1.jpg">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
@@ -333,7 +368,7 @@ GITHUB LINK
 </a>
 </div>
 
-<div class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive" data-preview="assets/preview2.jpg">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
@@ -351,7 +386,7 @@ GITHUB LINK
 </a>
 </div>
 
-<div class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive" data-preview="assets/preview3.jpg">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
@@ -369,7 +404,7 @@ GITHUB LINK
 </a>
 </div>
 
-<div class="projectItem scrollInteractive">
+<div class="projectItem scrollInteractive" data-preview="assets/preview4.jpg">
 <a href="index.html" class="projectMainLink"></a>
 <div class="projectInfo">
 <div class="projectBadge">
