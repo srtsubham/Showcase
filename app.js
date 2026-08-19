@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let a = null;
     if (typeof Lenis !== 'undefined') {
         a = new Lenis({
-            duration: 1.2,
-            smooth: true
+            lerp: 0.05,
+            wheelMultiplier: 2.5,
+            smoothWheel: true
         });
     }
 
@@ -219,21 +220,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Analytics Initialization
-        function initAnalytics() {
-            const gaId = 'G-4VZZ4PWG3K'; 
-            if (gaId && gaId !== 'YOUR_GA_MEASUREMENT_ID') {
-                const script = document.createElement('script');
-                script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-                script.async = true;
-                document.head.appendChild(script);
-    
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', gaId);
-            }
+    function initAnalytics() {
+        const gaId = 'G-4VZZ4PWG3K'; 
+        if (gaId && gaId !== 'YOUR_GA_MEASUREMENT_ID') {
+            const script = document.createElement('script');
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+            script.async = true;
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId);
         }
+    }
 
     const cookieBanner = document.getElementById('cookieBanner');
     const acceptBtn = document.getElementById('acceptCookies');

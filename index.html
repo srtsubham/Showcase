@@ -25,15 +25,15 @@ if (window.location.hash) {
     history.replaceState(null, null, window.location.pathname);
 }
 
-const a = document.getElementById('loaderWrapper');
-function b() {
-    if (a && a.style.display !== 'none') {
-        a.style.opacity = '0';
-        setTimeout(() => { a.style.display = 'none'; }, 500);
+function removeLoader() {
+    const loader = document.getElementById('loaderWrapper');
+    if (loader && loader.style.display !== 'none') {
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 500);
     }
 }
-window.addEventListener('load', b);
-setTimeout(b, 2000);
+window.addEventListener('load', removeLoader);
+setTimeout(removeLoader, 2000);
 
 function openModal(e, modalId) {
     if (e) e.preventDefault();
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         alert('Server received the request but returned an error. Make sure the form is deployed correctly on Netlify.');
                     }
                 })
-                .catch((error) => {
+                .catch(() => {
                     alert('Something went wrong checking the connection. Please try again later.');
                 });
             });
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="roleIcon">⚲</div>
 <div class="roleDetails">
 <div class="roleTitle">AI System Engineer | Full Stack Developer | DevOps Associate</div>
-<div class="roleCompany">Engineered 15+ technical architectures, including 3 production-grade enterprise models.</div>
+<div class="roleCompany">Engineered 15+ technical architectures & 3 enterprise models.</div>
 </div>
 </div>
 </div>
@@ -630,7 +630,7 @@ GITHUB LINK
                 <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
             </p>
             <input type="hidden" name="form-name" value="feedback">
-            <input type="text" name="name" class="modalInput" placeholder="Name (Optional)">
+            <input type="text" name="name" class="modalInput" placeholder="Name" required>
             <input type="email" name="email" class="modalInput" placeholder="Email (Optional)">
             <input type="text" name="comforting" class="modalInput" placeholder="What felt most comforting here?" required>
             <input type="text" name="discomforting" class="modalInput" placeholder="What caused friction or discomfort?" required>
