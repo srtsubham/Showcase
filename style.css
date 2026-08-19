@@ -1861,6 +1861,21 @@ transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
 z-index: 1;
 }
 
+.gridLink:nth-child(1)::before {
+background: linear-gradient(135deg, #0077b5 0%, #004471 100%);
+}
+
+.gridLink:nth-child(2)::before {
+background: linear-gradient(135deg, #3a3a3a 0%, #111111 100%);
+}
+
+.gridLink:nth-child(3)::before {
+background: linear-gradient(135deg, #4a5d23 0%, #2b331f 100%);
+}
+
+.gridLink:nth-child(4)::before {
+background: linear-gradient(135deg, #c72c2c 0%, #7a1313 100%);
+}
 .gridLink:hover::before {
 transform: scaleY(1);
 }
