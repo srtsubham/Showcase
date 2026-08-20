@@ -2017,3 +2017,20 @@ transition: opacity 0.3s, transform 0.3s;
 opacity: 0.9;
 transform: translateY(-2px);
 }
+
+.projectDetailsStack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+}
+
+.projectTools {
+    display: block;
+    font-size: 0.75rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 0;
+}
