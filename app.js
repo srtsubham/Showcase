@@ -261,3 +261,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const credentialLedger = {
+    'cardOne': {
+        title: 'SYSTEM ARCHITECTURE',
+        certs: [
+            { name: 'Java Programming Fundamentals', issuer: 'BY INFOSYS SPRINGBOARD', link: 'https://linkedin.com' },
+            { name: 'Core Backend System Logic', issuer: 'BY FREECODECAMP', link: '' }
+        ]
+    },
+    'cardTwo': {
+        title: 'MACHINE LEARNING',
+        certs: [
+            { name: 'Model Context Protocol Engineering', issuer: 'BY ANTHROPIC', link: 'https://linkedin.com' },
+            { name: 'Fundamentals of Deep Learning', issuer: 'BY NVIDIA', link: '' }
+        ]
+    },
+    'cardThree': {
+        title: 'CLOUD INFRASTRUCTURE',
+        certs: [
+            { name: 'AWS Cloud Essentials', issuer: 'BY AWS', link: 'https://linkedin.com' }
+        ]
+    },
+    'cardFour': {
+        title: 'AI ETHICS & LOGIC',
+        certs: [
+            { name: 'AI Safety and Alignment', issuer: 'BY ANTHROPIC', link: '' }
+        ]
+    },
+    'cardFive': {
+        title: 'SPECIALIZED METRICS',
+        certs: [
+            { name: 'AI Prediction Model on Extreme Weather', issuer: 'BY IJFMR JOURNAL', link: 'https://linkedin.com' }
+        ]
+    }
+};
+
+window.openCertModal = function(e, cardId) {
+    if (e) e.preventDefault();
+    const data = credentialLedger[cardId];
+    if (!data) return;
+
+    document.getElementById('certModalTitle').innerText = data.title;
+    
+    const listContainer = document.getElementById('certModalList');
+    listContainer.innerHTML = '';
+
+    data.certs.forEach(cert => {
+        const li = document.createElement('li');
+        li.className = 'certItem';
+        
+        let linkHtml = cert.link ? `<a href="${cert.link}" target="_blank" class="certLink">VERIFY ↗</a>` : '';
+
+        li.innerHTML = `
+            <div class="certDetails">
+                <span class="certName">${cert.name}</span>
+                <span class="certIssuer">${cert.issuer}</span>
+            </div>
+            ${linkHtml}
+        `;
+        listContainer.appendChild(li);
+    });
+
+    document.getElementById('certModal').classList.add('isActive');
+};

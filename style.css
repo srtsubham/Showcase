@@ -2038,11 +2038,105 @@ transform: translateY(-2px);
 
 html, body {
     -ms-overflow-style: none;  
-    scrollbar-width: none;     
+    scrollbar-width: none;     /* Firefox */
 }
 
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
     display: none !important;
+}
+
+.certDivider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 2rem;
+}
+
+.certList {
+    list-style-type: decimal;
+    padding-left: 0;
+    margin-left: 0;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.certList li::marker {
+    color: #888888;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.certItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.certItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.certDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-left: 0;
+}
+
+.certName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.certIssuer {
+    font-size: 0.75rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Space Mono', monospace;
+}
+
+.certLink {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #00ffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #00ffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    flex-shrink: 0;
+}
+
+.certLink:hover {
+    background-color: #00ffff;
+    color: #111111;
+}
+
+#certModal .modalBox {
+    width: 80vw;
+    height: 80vh;
+    max-width: none;
+    padding: 4rem;
+}
+
+.modalBox::-webkit-scrollbar {
+    display: none !important;
+}
+
+.modalBox {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

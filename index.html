@@ -598,7 +598,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <section class="bentoSection">
 <div class="bentoGrid">
-<a href="#" class="bentoCard cardOne scrollSyncCard">
+
+<a href="#" class="bentoCard cardOne scrollSyncCard" onclick="openCertModal(event, 'cardOne')">
 <div class="cardTop">EXPLORE ARCHITECTURE ↗️</div>
 <div class="cardMiddle">
 <div class="bentoText">System Architecture</div>
@@ -609,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </a>
 
-<a href="#" class="bentoCard cardTwo scrollSyncCard">
+<a href="#" class="bentoCard cardTwo scrollSyncCard" onclick="openCertModal(event, 'cardTwo')">
 <div class="cardTop">INTEGRATE OPERATIONS ↗️</div>
 <div class="cardMiddle">
 <div class="bentoText">Machine Learning</div>
@@ -620,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </a>
 
-<a href="#" class="bentoCard cardThree scrollSyncCard">
+<a href="#" class="bentoCard cardThree scrollSyncCard" onclick="openCertModal(event, 'cardThree')">
 <div class="cardTop">CENTRALIZED HUB ↗️</div>
 <div class="cardMiddleTags">
 <span class="cardTag">#DEVELOPER</span>
@@ -629,7 +630,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="cardBottomLarge">Hub.</div>
 </a>
 
-<a href="#" class="bentoCard cardFour scrollSyncCard">
+<a href="#" class="bentoCard cardFour scrollSyncCard" onclick="openCertModal(event, 'cardFour')">
 <div class="cardTop">AI ETHICS & LOGIC ↗️</div>
 <div class="cardMiddleTags">
 <span class="cardTag">#PHILOSOPHY</span>
@@ -638,11 +639,12 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="cardBottomLarge">Learn.</div>
 </a>
 
-<a href="#" class="bentoCard cardFive scrollSyncCard">
+<a href="#" class="bentoCard cardFive scrollSyncCard" onclick="openCertModal(event, 'cardFive')">
 <div class="cardTop">WEATHER MODEL ↗</div>
 <div class="cardMiddleBox">1X PUBLISHED JOURNAL</div>
 <div class="cardBottomLarge">Ambaram.</div>
 </a>
+
 </div>
 </section>
 
@@ -787,6 +789,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <textarea name="feedback_text" class="modalInput" placeholder="Overall, how can I improve the architecture?" rows="3" required></textarea>
             <button type="submit" class="modalSubmitBtn">Submit Feedback</button>
         </form>
+    </div>
+</div>
+
+<div class="modalOverlay" id="certModal">
+    <div class="modalBox" style="max-height: 90vh; overflow-y: auto;">
+        <button class="modalCloseBtn" onclick="closeModal('certModal')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <h3 class="modalTitle" id="certModalTitle">Title</h3>
+        <div class="certDivider"></div>
+        <ol class="certList" id="certModalList">
+           
+        </ol>
     </div>
 </div>
 
