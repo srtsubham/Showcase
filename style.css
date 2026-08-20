@@ -32,27 +32,92 @@ overflow: hidden;
 }
 
 .loaderWrapper {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: #050505;
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 9999;
-transition: opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+}
+
+.loaderBackgroundMarquee {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100vw;
+    transform: translateY(-50%);
+    display: flex;
+    overflow: hidden;
+    opacity: 0.12; 
+    filter: blur(8px); 
+    pointer-events: none;
+    z-index: 1;
+}
+
+.loaderMarqueeTrack {
+    display: flex;
+    flex-shrink: 0;
+    white-space: nowrap;
+    animation: scrollLoaderMarquee 30s linear infinite;
+}
+
+.loaderMarqueeItem {
+    font-size: 128vw;
+    font-family: 'Great Vibes', cursive;
+    color: #ffffff;
+    font-weight: 400;
+    padding-right: 5vw;
+    text-transform: none;
+    letter-spacing: normal;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+@keyframes scrollLoaderMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 .loaderBox {
-background-color: #ffffff;
-color: #000000;
-padding: 15px 30px;
-border-radius: 4px;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 2px;
+    background-color: #ffffff;
+    color: #111111;
+    padding: 28px 56px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    z-index: 2; 
+    box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+}
+
+.loaderText {
+    font-size: 1.7rem;
+}
+
+.loaderDot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff3e3e;
+    animation: dotColorProgression 2s linear forwards;
+}
+
+@keyframes dotColorProgression {
+    0%   { background-color: #ff3e3e; box-shadow: 0 0 16px rgba(255, 62, 62, 0.6); }
+    33%  { background-color: #ff9f0a; box-shadow: 0 0 16px rgba(255, 159, 10, 0.6); }
+    66%  { background-color: #ffd60a; box-shadow: 0 0 16px rgba(255, 214, 10, 0.6); }
+    100% { background-color: #32d74b; box-shadow: 0 0 16px rgba(50, 215, 75, 0.6); }
 }
 
 .linkTreePanel {
