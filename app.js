@@ -325,3 +325,38 @@ window.openCertModal = function(e, cardId) {
 
     document.getElementById('certModal').classList.add('isActive');
 };
+
+function deployFooterReveal() {
+    const footer = document.querySelector('.footerComponent');
+    const finalSection = document.querySelector('.honoursSectionWrapper');
+    
+    if (footer && finalSection) {
+        
+        const footerHeight = footer.offsetHeight;
+        
+        
+        finalSection.style.marginBottom = `${footerHeight}px`;
+    }
+}
+
+window.addEventListener('load', deployFooterReveal);
+window.addEventListener('resize', deployFooterReveal);
+
+setTimeout(deployFooterReveal, 500);
+
+
+
+window.addEventListener('scroll', () => {
+    const fixedFooter = document.querySelector('.footerComponent');
+    if (fixedFooter) {
+        
+        if (window.scrollY < window.innerHeight * 1.1) {
+            fixedFooter.style.opacity = '0';
+            fixedFooter.style.visibility = 'hidden';
+        } else {
+            
+            fixedFooter.style.opacity = '1';
+            fixedFooter.style.visibility = 'visible';
+        }
+    }
+});
