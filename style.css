@@ -76,7 +76,7 @@ will-change: transform;
 .loaderMarqueeItem {
 font-size: 144vw;
 font-family: 'Great Vibes', cursive;
-color: rgba(255, 255, 255, 0.04);
+color: rgba(255, 255, 255, 0.08);
 font-weight: 400;
 padding-right: 5vw;
 text-transform: none;
