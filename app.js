@@ -30,24 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const im = new Map();
         let ca = null;
     
-        pi.forEach(p => {
-            const u = p.getAttribute('data-preview');
-            if (u) {
-                const i = document.createElement('img');
-                i.className = 'previewImage';
-                i.src = u;
-                i.style.opacity = '0';
-                i.style.position = 'absolute';
-                i.style.top = '0';
-                i.style.left = '0';
-                i.style.width = '100%';
-                i.style.height = '100%';
-                i.style.objectFit = 'cover';
-                i.style.transition = 'opacity 0.2s ease';
-                pp.appendChild(i);
-                im.set(p, i);
-            }
-        });
+        setTimeout(() => {
+            pi.forEach(p => {
+                const u = p.getAttribute('data-preview');
+                if (u) {
+                    const i = document.createElement('img');
+                    i.className = 'previewImage';
+                    i.src = u;
+                    i.style.opacity = '0';
+                    i.style.position = 'absolute';
+                    i.style.top = '0';
+                    i.style.left = '0';
+                    i.style.width = '100%';
+                    i.style.height = '100%';
+                    i.style.objectFit = 'cover';
+                    i.style.transition = 'opacity 0.2s ease';
+                    pp.appendChild(i);
+                    im.set(p, i);
+                }
+            });
+        }, 1200);
 
     const lBtn = document.getElementById('openTreeBtn');
     const cBtn = document.getElementById('closeTreeBtn');
