@@ -267,13 +267,13 @@ const credentialLedger = {
     cardOne: {
         title: 'FOUNDATIONAL LOGIC',
         certs: [
-            { name: 'Python Backend Developer', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'Python Backend Developer', issuer: 'BY FREECODECAMP', link: 'https://www.freecodecamp.org/certification/subh_sr/python-v9' },
             { name: 'Relational Database', issuer: 'BY FREECODECAMP', link: 'index.html' },
             { name: 'A2 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
             { name: 'Responsive Web Design', issuer: 'BY FREECODECAMP', link: 'index.html' },
             { name: 'B1 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
             { name: 'JavaScript Developer Full Course', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'Career Essentials in Software Development', issuer: 'BY MICROSOFT AND LINKEDIN', link: 'index.html' }
+            { name: 'Career Essentials in Software Development', issuer: 'BY MICROSOFT AND LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/f5a78db61d38521853f26bd7251d55b1c9b724d0f89484b4acec3aa860927aa4' }
         ]
     },
     cardTwo: {
