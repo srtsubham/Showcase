@@ -183,8 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (isD) {
+            const trackingZone = wh * 0.55;
+            
             pi.forEach(p => {
-                if(p === cItem && mDist < 200) {
+                if(p === cItem && mDist < trackingZone) {
                     p.classList.add('isActive');
                     const ti = im.get(p);
                     if (ca !== ti) {
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            if (mDist < 200) {
+            if (mDist < trackingZone) {
                 pp.classList.add('isVisible');
             } else {
                 pp.classList.remove('isVisible');
