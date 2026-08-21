@@ -30,24 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const im = new Map();
     let ca = null;
     
-    pi.forEach(p => {
-        const u = p.getAttribute('data-preview');
-        if (u) {
-            const i = document.createElement('img');
-            i.className = 'previewImage';
-            i.src = u;
-            i.style.opacity = '0';
-            i.style.position = 'absolute';
-            i.style.top = '0';
-            i.style.left = '0';
-            i.style.width = '100%';
-            i.style.height = '100%';
-            i.style.objectFit = 'cover';
-            i.style.transition = 'opacity 0.2s ease';
-            pp.appendChild(i);
-            im.set(p, i);
-        }
-    });
+    setTimeout(() => {
+        pi.forEach(p => {
+            const u = p.getAttribute('data-preview');
+            if (u) {
+                const i = document.createElement('img');
+                i.className = 'previewImage';
+                i.src = u;
+                i.style.opacity = '0';
+                i.style.position = 'absolute';
+                i.style.top = '0';
+                i.style.left = '0';
+                i.style.width = '100%';
+                i.style.height = '100%';
+                i.style.objectFit = 'cover';
+                i.style.transition = 'opacity 0.2s ease';
+                pp.appendChild(i);
+                im.set(p, i);
+            }
+        });
+    }, 2500);
 
     const lBtn = document.getElementById('openTreeBtn');
     const cBtn = document.getElementById('closeTreeBtn');
@@ -137,55 +139,50 @@ document.addEventListener('DOMContentLoaded', () => {
         f -= 0.02 + ((b || 0) * 0.01);
         if (f <= -50) f += 50;
         if (f > 0) f -= 50;
-        
-        const wh = window.innerHeight;
-        const isDesktop = window.innerWidth > 991;
 
-        const b1Rect = b1 ? b1.getBoundingClientRect() : null;
-        const b2Rect = b2 ? b2.getBoundingClientRect() : null;
-        const bsRect = bs ? bs.getBoundingClientRect() : null;
+        const wh = window.innerHeight;
+        const isD = window.innerWidth > 991;
+
+        const r1 = b1 ? b1.getBoundingClientRect() : null;
+        const r2 = b2 ? b2.getBoundingClientRect() : null;
+        const r3 = bs ? bs.getBoundingClientRect() : null;
         
-        const piData = [];
-        if (isDesktop) {
+        let cItem = null;
+        let mDist = Infinity;
+
+        if (isD) {
             pi.forEach(p => {
-                piData.push({ el: p, rect: p.getBoundingClientRect() });
+                const r = p.getBoundingClientRect();
+                const d = Math.abs((r.top + r.height / 2) - wh / 2);
+                if (d < mDist) {
+                    mDist = d;
+                    cItem = p;
+                }
             });
         }
+
+        const psRect = (pSec && pFol && pInit) ? pSec.getBoundingClientRect() : null;
 
         ts.forEach(t => t.style.transform = `translateX(${f}%)`);
         
-        if (b1Rect) {
-            let p1 = (b1Rect.top - 250) / (wh - 250);
-            p1 = Math.max(0, Math.min(1, p1));
+        if (r1) {
+            let p1 = Math.max(0, Math.min(1, (r1.top - 250) / (wh - 250)));
             b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
         
-        if (b2Rect) {
-            let p2 = b2Rect.top / wh;
-            p2 = Math.max(0, Math.min(1, p2));
+        if (r2) {
+            let p2 = Math.max(0, Math.min(1, r2.top / wh));
             b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
 
-        if (bsRect) {
-            let p = (wh - bsRect.top + 150) / (wh * 0.8);
-            p = Math.max(0, Math.min(1, p));
+        if (r3) {
+            let p3 = Math.max(0, Math.min(1, (wh - r3.top + 150) / (wh * 0.8)));
             crds.forEach((crd) => {
-                crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
+                crd.style.clipPath = `polygon(0 0, ${p3 * 100}% 0, ${p3 * 100}% 100%, 0 100%)`;
             });
         }
         
-        if (isDesktop) {
-            let cItem = null;
-            let mDist = Infinity;
-            
-            piData.forEach(data => {
-                const d = Math.abs((data.rect.top + data.rect.height / 2) - wh / 2);
-                if(d < mDist) {
-                    mDist = d;
-                    cItem = data.el;
-                }
-            });
-            
+        if (isD) {
             pi.forEach(p => {
                 if(p === cItem && mDist < 200) {
                     p.classList.add('isActive');
@@ -211,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (pSec && pFol && pInit) {
+        if (psRect) {
             pCurrX += (pMouseX - pCurrX) * 0.015;
             pCurrY += (pMouseY - pCurrY) * 0.015;
             pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
