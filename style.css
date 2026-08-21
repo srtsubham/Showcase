@@ -2353,3 +2353,7 @@ body::-webkit-scrollbar {
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
+
+[data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
