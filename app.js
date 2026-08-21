@@ -23,13 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const bs = document.querySelector('.bentoSection');
     
     const pi = document.querySelectorAll('.scrollInteractive');
-    const pp = document.createElement('div');
-    pp.className = 'projectPreview';
-    const pim = document.createElement('img');
-    pim.className = 'previewImage';
-    pim.src = 'assets/avatar.png';
-    pp.appendChild(pim);
-    document.body.appendChild(pp);
+        const pp = document.createElement('div');
+        pp.className = 'projectPreview';
+        document.body.appendChild(pp);
+    
+        const im = new Map();
+        let ca = null;
+    
+        pi.forEach(p => {
+            const u = p.getAttribute('data-preview');
+            if (u) {
+                const i = document.createElement('img');
+                i.className = 'previewImage';
+                i.src = u;
+                i.style.opacity = '0';
+                i.style.position = 'absolute';
+                i.style.top = '0';
+                i.style.left = '0';
+                i.style.width = '100%';
+                i.style.height = '100%';
+                i.style.objectFit = 'cover';
+                i.style.transition = 'opacity 0.2s ease';
+                pp.appendChild(i);
+                im.set(p, i);
+            }
+        });
 
     const lBtn = document.getElementById('openTreeBtn');
     const cBtn = document.getElementById('closeTreeBtn');
@@ -148,33 +166,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         if (window.innerWidth > 991) {
-            let cItem = null;
-            let mDist = Infinity;
-            pi.forEach(p => {
-                const r = p.getBoundingClientRect();
-                const d = Math.abs((r.top + r.height/2) - wh/2);
-                if(d < mDist) {
-                    mDist = d;
-                    cItem = p;
+                    let cItem = null;
+                    let mDist = Infinity;
+                    
+                    pi.forEach(p => {
+                        const r = p.getBoundingClientRect();
+                        const d = Math.abs((r.top + r.height / 2) - wh / 2);
+                        if(d < mDist) {
+                            mDist = d;
+                            cItem = p;
+                        }
+                    });
+                    
+                    pi.forEach(p => {
+                        if(p === cItem && mDist < 150) {
+                            p.classList.add('isActive');
+                            const ti = im.get(p);
+                            if (ca !== ti) {
+                                if (ca) ca.style.opacity = '0';
+                                if (ti) ti.style.opacity = '1';
+                                ca = ti;
+                            }
+                        } else {
+                            p.classList.remove('isActive');
+                        }
+                    });
+                    
+                    if (mDist < 150) {
+                        pp.classList.add('isVisible');
+                    } else {
+                        pp.classList.remove('isVisible');
+                        if (ca) {
+                            ca.style.opacity = '0';
+                            ca = null;
+                        }
+                    }
                 }
-            });
-            
-            pi.forEach(p => {
-                if(p === cItem && mDist < 150) {
-                    p.classList.add('isActive');
-                    const pLink = p.getAttribute('data-preview');
-                    if(pLink) pim.src = pLink;
-                } else {
-                    p.classList.remove('isActive');
-                }
-            });
-            
-            if (mDist < 150) {
-                pp.classList.add('isVisible');
-            } else {
-                pp.classList.remove('isVisible');
-            }
-        }
 
         if (pSec && pFol && pInit) {
             pCurrX += (pMouseX - pCurrX) * 0.015;
@@ -476,12 +503,3 @@ if (resumeModalTarget && closeResumeTrigger) {
         }
     });
 }
-
-const previewLinks = document.querySelectorAll('.scrollInteractive');
-previewLinks.forEach(link => {
-    const imageUrl = link.getAttribute('data-preview');
-    if (imageUrl) {
-        const img = new Image();
-        img.src = imageUrl;
-    }
-});
