@@ -171,9 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </nav>
 
-<a href="https://drive.google.com/file/d/1C2oBuPj7osgnAFVoPom7EvBZOf9D7Brt/view?usp=drive_link" target="_blank" class="feedbackButton">
-<span class="feedbackLogo">SR.</span>
-<span class="feedbackText">RESUME</span>
+<a href="#" class="feedbackButton openResumeTrigger">
+    <span class="feedbackLogo">SR.</span>
+    <span class="feedbackText">RESUME</span>
 </a>
 
 <section class="heroSection" id="heroSection">
@@ -871,5 +871,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
 <script src="app.js" defer></script>
+
+<div id="resumeModal" class="resumeModalOverlay">
+    <div class="resumeModalContainer">
+        <div class="resumeModalHeader">
+            <a href="assets/resume.pdf" download="Somya_Ranjan_Tripathi_Resume.pdf" class="resumeDownloadBtn">Download PDF</a>
+            <button id="closeResumeBtn" class="resumeCloseBtn">Close</button>
+        </div>
+        <iframe src="assets/resume.pdf" class="resumeIframe"></iframe>
+    </div>
+</div>
+
 </body>
 </html>

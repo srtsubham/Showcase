@@ -360,3 +360,29 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+const resumeModalTarget = document.getElementById('resumeModal');
+const closeResumeTrigger = document.getElementById('closeResumeBtn');
+const triggerElements = document.querySelectorAll('.openResumeTrigger');
+
+if (resumeModalTarget && closeResumeTrigger) {
+    triggerElements.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            resumeModalTarget.classList.add('activeMode');
+            document.body.style.overflow = 'hidden'; 
+        });
+    });
+
+    closeResumeTrigger.addEventListener('click', () => {
+        resumeModalTarget.classList.remove('activeMode');
+        document.body.style.overflow = 'auto'; 
+    });
+
+    resumeModalTarget.addEventListener('click', (e) => {
+        if (e.target === resumeModalTarget) {
+            resumeModalTarget.classList.remove('activeMode');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
