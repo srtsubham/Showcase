@@ -502,10 +502,3 @@ if (resumeModalTarget && closeResumeTrigger) {
         }
     });
 }
-
-.marqueeTrackSync {
-    will-change: transform;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-}

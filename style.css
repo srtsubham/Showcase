@@ -2346,3 +2346,10 @@ body::-webkit-scrollbar {
     border: none;
     background-color: #111111;
 }
+
+.marqueeTrackSync {
+    will-change: transform;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
