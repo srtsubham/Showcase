@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let b = 0;
     if (a) {
         a.on('scroll', (e) => {
-            b = e.velocity;
+            b = e.velocity || 0;
         });
     }
 
@@ -30,26 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const im = new Map();
     let ca = null;
     
-    setTimeout(() => {
-        pi.forEach(p => {
-            const u = p.getAttribute('data-preview');
-            if (u) {
-                const i = document.createElement('img');
-                i.className = 'previewImage';
-                i.src = u;
-                i.style.opacity = '0';
-                i.style.position = 'absolute';
-                i.style.top = '0';
-                i.style.left = '0';
-                i.style.width = '100%';
-                i.style.height = '100%';
-                i.style.objectFit = 'cover';
-                i.style.transition = 'opacity 0.2s ease';
-                pp.appendChild(i);
-                im.set(p, i);
-            }
-        });
-    }, 1200);
+    pi.forEach(p => {
+        const u = p.getAttribute('data-preview');
+        if (u) {
+            const i = document.createElement('img');
+            i.className = 'previewImage';
+            i.src = u;
+            i.style.opacity = '0';
+            i.style.position = 'absolute';
+            i.style.top = '0';
+            i.style.left = '0';
+            i.style.width = '100%';
+            i.style.height = '100%';
+            i.style.objectFit = 'cover';
+            i.style.transition = 'opacity 0.2s ease';
+            pp.appendChild(i);
+            im.set(p, i);
+        }
+    });
 
     const lBtn = document.getElementById('openTreeBtn');
     const cBtn = document.getElementById('closeTreeBtn');
@@ -136,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function g(h) {
         if (a) a.raf(h);
 
-        f -= 0.02 + (b * 0.01);
+        f -= 0.02 + ((b || 0) * 0.01);
         if (f <= -50) f += 50;
         if (f > 0) f -= 50;
         
@@ -154,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
+        ts.forEach(t => t.style.transform = `translateX(${f}%)`);
         
         if (b1Rect) {
             let p1 = (b1Rect.top - 250) / (wh - 250);
