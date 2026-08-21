@@ -212,7 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(g);
     }
-    requestAnimationFrame(g);
+
+    setTimeout(() => {
+            requestAnimationFrame(g);
+        }, 2500);
 
     const ee = document.querySelectorAll('.animTarget');
     const ff = new IntersectionObserver((gg) => {
