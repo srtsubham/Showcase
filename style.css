@@ -112,7 +112,7 @@ overflow: hidden;
     border-radius: 50%;
     background-color: #ff3e3e;
     
-    animation: dotColorProgression 0.6s linear forwards;
+    animation: dotColorProgression 0.7s linear forwards;
 }
 
 @keyframes dotColorProgression {
