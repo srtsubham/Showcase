@@ -2151,12 +2151,29 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 1.5rem; 
+    scrollbar-width: thin; 
+    scrollbar-color: #333333 transparent; 
 }
 
-.certList li::marker {
-    color: #888888;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.9rem;
+.certList::-webkit-scrollbar {
+    width: 6px;
+    display: block; 
+}
+
+.certList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.certList::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 10px;
+}
+
+.certList::-webkit-scrollbar-thumb:hover {
+    background: #555555;
 }
 
 .certItem {
@@ -2217,17 +2234,43 @@ body::-webkit-scrollbar {
 #certModal .modalBox {
     width: 80vw;
     height: 80vh;
-    max-width: none;
+    max-width: none; 
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modalBox {
+    background: #050505;
+    color: #ffffff;
+    width: 90%;
+    max-width: 440px;
+    border-radius: 16px;
+    position: relative;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.15);
+    overflow: hidden; 
 }
 
 .modalBox::-webkit-scrollbar {
-    display: none !important;
+    width: 8px;
+    display: block; 
 }
 
-.modalBox {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.modalBox::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+.modalBox::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+}
+
+.modalBox::-webkit-scrollbar-thumb:hover {
+    background: #555555;
 }
 
 .resumeModalOverlay {

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 2.5,
             smoothWheel: true
         });
+        window.lns = a;
     }
 
     let b = 0;
@@ -263,36 +264,84 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const credentialLedger = {
-    'cardOne': {
-        title: 'SYSTEM ARCHITECTURE',
+    cardOne: {
+        title: 'FOUNDATIONAL LOGIC',
         certs: [
-            { name: 'Java Programming Fundamentals', issuer: 'BY INFOSYS SPRINGBOARD', link: 'https://linkedin.com' },
-            { name: 'Core Backend System Logic', issuer: 'BY FREECODECAMP', link: '' }
+            { name: 'Python Backend Developer', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'Relational Database', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'A2 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'Responsive Web Design', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'B1 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'JavaScript Developer Full Course', issuer: 'BY FREECODECAMP', link: 'index.html' },
+            { name: 'Career Essentials in Software Development', issuer: 'BY MICROSOFT AND LINKEDIN', link: 'index.html' }
         ]
     },
-    'cardTwo': {
-        title: 'MACHINE LEARNING',
+    cardTwo: {
+        title: 'APPLIED AI LOGIC',
         certs: [
-            { name: 'Model Context Protocol Engineering', issuer: 'BY ANTHROPIC', link: 'https://linkedin.com' },
-            { name: 'Fundamentals of Deep Learning', issuer: 'BY NVIDIA', link: '' }
+            { name: 'Getting Started with AI on Jetson Nano', issuer: 'BY NVIDIA', link: 'index.html' },
+            { name: 'Claude with Amazon Bedrock', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Claude Code 101', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Claude 101', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Introduction to Claude Cowork', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Introduction to subagents', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Introduction to agent skills', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'AI Fluency for Nonprofits', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'AI Fluency: AI Capabilities and Limitations', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'AI Fluency for Students', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'AI Fluency: Framework & Foundations', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Claude with Google Vertex AI', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Claude Code in Action', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Model Context Protocol: Advanced Topics', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Introduction to Model Context Protocol', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Building with the Claude API', issuer: 'BY ANTHROPIC', link: 'index.html' },
+            { name: 'Introduction to Agent Observability and Evaluations', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Foundation: Monitoring Production Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Quickstart: LangSmith Fleet', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Quickstart: LangSmith Essentials', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Project: Deep Research with LangGraph', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Quickstart: LangGraph Essentials Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Foundation: Introduction to LangGraph Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Quickstart: LangChain Essentials Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Project: Ambient Agents with LangGraph', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Foundation: Building Reliable Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'Projects: Deep Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
+            { name: 'AI Agents Course', issuer: 'BY HUGGING FACE', link: 'index.html' },
+            { name: 'Fundamentals of Agents', issuer: 'BY HUGGING FACE', link: 'index.html' }
         ]
     },
-    'cardThree': {
+    cardThree: {
         title: 'CLOUD INFRASTRUCTURE',
         certs: [
-            { name: 'AWS Cloud Essentials', issuer: 'BY AWS', link: 'https://linkedin.com' }
+            { name: 'AWS Identity and Access Management Basics', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Getting Started with the AWS Cloud Essentials', issuer: 'BY AWS', link: 'index.html' }
         ]
     },
-    'cardFour': {
-        title: 'AI ETHICS & LOGIC',
+    cardFour: {
+        title: 'ENTERPRISE EXECUTION',
         certs: [
-            { name: 'AI Safety and Alignment', issuer: 'BY ANTHROPIC', link: '' }
+            { name: 'Developing BPM Applications Using RHPAM', issuer: 'BY INFOSYS', link: 'index.html' },
+            { name: 'Logistic Regression Using Python', issuer: 'BY INFOSYS', link: 'index.html' },
+            { name: 'API Modelling and Design', issuer: 'BY INFOSYS', link: 'index.html' },
+            { name: 'JavaScript Specialist Certification', issuer: 'BY INFOSYS', link: 'index.html' },
+            { name: 'Java Programming Fundamentals', issuer: 'BY INFOSYS', link: 'index.html' },
+            { name: 'Business Etiquette', issuer: 'BY TCS ION', link: 'index.html' },
+            { name: 'Generative AI Essentials AI for All', issuer: 'BY TCS ION', link: 'index.html' },
+            { name: 'Write Effective Resume and Cover Letter', issuer: 'BY TCS ION', link: 'index.html' },
+            { name: 'Lifelong Professional Skills', issuer: 'BY IBM', link: 'index.html' }
         ]
     },
-    'cardFive': {
-        title: 'SPECIALIZED METRICS',
+    cardFive: {
+        title: 'PROFESSIONAL GROWTH',
         certs: [
-            { name: 'AI Prediction Model on Extreme Weather', issuer: 'BY IJFMR JOURNAL', link: 'https://linkedin.com' }
+            { name: 'AWS and Cloud Computing Intern', issuer: 'BY GRASTECH', link: 'index.html' },
+            { name: 'Soft Skill Program', issuer: 'BY LEARNOVATE ENTERPRISES', link: 'index.html' },
+            { name: 'Artificial Intelligence and Machine Learning', issuer: 'BY YBI FOUNDATION', link: 'index.html' },
+            { name: 'Practical GitHub Code Search', issuer: 'BY LINKEDIN', link: 'index.html' },
+            { name: 'Practical GitHub Actions', issuer: 'BY LINKEDIN', link: 'index.html' },
+            { name: 'Programming Foundations: Beyond the Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' },
+            { name: 'Introduction to Career Skills in Software Development', issuer: 'BY LINKEDIN', link: 'index.html' },
+            { name: 'Programming Foundations: Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' },
         ]
     }
 };
@@ -306,6 +355,8 @@ window.openCertModal = function(e, cardId) {
     
     const listContainer = document.getElementById('certModalList');
     listContainer.innerHTML = '';
+    
+    listContainer.setAttribute('data-lenis-prevent', 'true');
 
     data.certs.forEach(cert => {
         const li = document.createElement('li');
@@ -323,8 +374,41 @@ window.openCertModal = function(e, cardId) {
         listContainer.appendChild(li);
     });
 
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    if (window.lns) window.lns.stop();
+
     document.getElementById('certModal').classList.add('isActive');
 };
+
+window.closeCertModal = function() {
+
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    
+    if (window.lns) window.lns.start();
+
+    const modal = document.getElementById('certModal');
+    if (modal) modal.classList.remove('isActive');
+};
+
+const certModalElement = document.getElementById('certModal');
+if (certModalElement) {
+    certModalElement.addEventListener('click', (e) => {
+        
+        if (e.target === certModalElement) {
+            closeCertModal();
+        }
+    });
+
+    const closeBtn = certModalElement.querySelector('.modalCloseBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeCertModal();
+        });
+    }
+}
 
 function deployFooterReveal() {
     const footer = document.querySelector('.footerComponent');
@@ -370,19 +454,26 @@ if (resumeModalTarget && closeResumeTrigger) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             resumeModalTarget.classList.add('activeMode');
+            document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden'; 
+            if (window.lns) window.lns.stop();
         });
     });
 
     closeResumeTrigger.addEventListener('click', () => {
         resumeModalTarget.classList.remove('activeMode');
-        document.body.style.overflow = 'auto'; 
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = ''; 
+        if (window.lns) window.lns.start();
     });
 
     resumeModalTarget.addEventListener('click', (e) => {
         if (e.target === resumeModalTarget) {
             resumeModalTarget.classList.remove('activeMode');
-            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            if (window.lns) window.lns.start();
         }
     });
 }
+
