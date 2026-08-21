@@ -477,3 +477,11 @@ if (resumeModalTarget && closeResumeTrigger) {
     });
 }
 
+const previewLinks = document.querySelectorAll('.scrollInteractive');
+previewLinks.forEach(link => {
+    const imageUrl = link.getAttribute('data-preview');
+    if (imageUrl) {
+        const img = new Image();
+        img.src = imageUrl;
+    }
+});
