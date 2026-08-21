@@ -138,8 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (f <= -50) f += 50;
         if (f > 0) f -= 50;
         
-        ts.forEach(t => t.style.transform = `translateX(${f}%)`);
-
+        ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
         const wh = window.innerHeight;
 
         if (b1) {
@@ -502,4 +501,11 @@ if (resumeModalTarget && closeResumeTrigger) {
             if (window.lns) window.lns.start();
         }
     });
+}
+
+.marqueeTrackSync {
+    will-change: transform;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
