@@ -23,33 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const bs = document.querySelector('.bentoSection');
     
     const pi = document.querySelectorAll('.scrollInteractive');
-        const pp = document.createElement('div');
-        pp.className = 'projectPreview';
-        document.body.appendChild(pp);
+    const pp = document.createElement('div');
+    pp.className = 'projectPreview';
+    document.body.appendChild(pp);
     
-        const im = new Map();
-        let ca = null;
+    const im = new Map();
+    let ca = null;
     
-        setTimeout(() => {
-            pi.forEach(p => {
-                const u = p.getAttribute('data-preview');
-                if (u) {
-                    const i = document.createElement('img');
-                    i.className = 'previewImage';
-                    i.src = u;
-                    i.style.opacity = '0';
-                    i.style.position = 'absolute';
-                    i.style.top = '0';
-                    i.style.left = '0';
-                    i.style.width = '100%';
-                    i.style.height = '100%';
-                    i.style.objectFit = 'cover';
-                    i.style.transition = 'opacity 0.2s ease';
-                    pp.appendChild(i);
-                    im.set(p, i);
-                }
-            });
-        }, 1200);
+    setTimeout(() => {
+        pi.forEach(p => {
+            const u = p.getAttribute('data-preview');
+            if (u) {
+                const i = document.createElement('img');
+                i.className = 'previewImage';
+                i.src = u;
+                i.style.opacity = '0';
+                i.style.position = 'absolute';
+                i.style.top = '0';
+                i.style.left = '0';
+                i.style.width = '100%';
+                i.style.height = '100%';
+                i.style.objectFit = 'cover';
+                i.style.transition = 'opacity 0.2s ease';
+                pp.appendChild(i);
+                im.set(p, i);
+            }
+        });
+    }, 1200);
 
     const lBtn = document.getElementById('openTreeBtn');
     const cBtn = document.getElementById('closeTreeBtn');
@@ -140,69 +140,78 @@ document.addEventListener('DOMContentLoaded', () => {
         if (f <= -50) f += 50;
         if (f > 0) f -= 50;
         
-        ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
         const wh = window.innerHeight;
+        const isDesktop = window.innerWidth > 991;
 
-        if (b1) {
-            const r1 = b1.getBoundingClientRect();
-            let p1 = (r1.top - 250) / (wh - 250);
+        const b1Rect = b1 ? b1.getBoundingClientRect() : null;
+        const b2Rect = b2 ? b2.getBoundingClientRect() : null;
+        const bsRect = bs ? bs.getBoundingClientRect() : null;
+        
+        const piData = [];
+        if (isDesktop) {
+            pi.forEach(p => {
+                piData.push({ el: p, rect: p.getBoundingClientRect() });
+            });
+        }
+
+        ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
+        
+        if (b1Rect) {
+            let p1 = (b1Rect.top - 250) / (wh - 250);
             p1 = Math.max(0, Math.min(1, p1));
             b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
         
-        if (b2) {
-            const r2 = b2.getBoundingClientRect();
-            let p2 = r2.top / wh;
+        if (b2Rect) {
+            let p2 = b2Rect.top / wh;
             p2 = Math.max(0, Math.min(1, p2));
             b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
         }
 
-        if (bs) {
-            const r = bs.getBoundingClientRect();
-            let p = (wh - r.top + 150) / (wh * 0.8);
+        if (bsRect) {
+            let p = (wh - bsRect.top + 150) / (wh * 0.8);
             p = Math.max(0, Math.min(1, p));
             crds.forEach((crd) => {
                 crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
             });
         }
         
-        if (window.innerWidth > 991) {
-                    let cItem = null;
-                    let mDist = Infinity;
-                    
-                    pi.forEach(p => {
-                        const r = p.getBoundingClientRect();
-                        const d = Math.abs((r.top + r.height / 2) - wh / 2);
-                        if(d < mDist) {
-                            mDist = d;
-                            cItem = p;
-                        }
-                    });
-                    
-                    pi.forEach(p => {
-                        if(p === cItem && mDist < 150) {
-                            p.classList.add('isActive');
-                            const ti = im.get(p);
-                            if (ca !== ti) {
-                                if (ca) ca.style.opacity = '0';
-                                if (ti) ti.style.opacity = '1';
-                                ca = ti;
-                            }
-                        } else {
-                            p.classList.remove('isActive');
-                        }
-                    });
-                    
-                    if (mDist < 150) {
-                        pp.classList.add('isVisible');
-                    } else {
-                        pp.classList.remove('isVisible');
-                        if (ca) {
-                            ca.style.opacity = '0';
-                            ca = null;
-                        }
-                    }
+        if (isDesktop) {
+            let cItem = null;
+            let mDist = Infinity;
+            
+            piData.forEach(data => {
+                const d = Math.abs((data.rect.top + data.rect.height / 2) - wh / 2);
+                if(d < mDist) {
+                    mDist = d;
+                    cItem = data.el;
                 }
+            });
+            
+            pi.forEach(p => {
+                if(p === cItem && mDist < 200) {
+                    p.classList.add('isActive');
+                    const ti = im.get(p);
+                    if (ca !== ti) {
+                        if (ca) ca.style.opacity = '0';
+                        if (ti) ti.style.opacity = '1';
+                        ca = ti;
+                    }
+                } else {
+                    p.classList.remove('isActive');
+                }
+            });
+            
+            if (mDist < 200) {
+                pp.classList.add('isVisible');
+            } else {
+                pp.classList.remove('isVisible');
+                if (ca) {
+                    ca.style.opacity = '0';
+                    ca = null;
+                }
+            }
+        }
 
         if (pSec && pFol && pInit) {
             pCurrX += (pMouseX - pCurrX) * 0.015;
@@ -369,7 +378,7 @@ const credentialLedger = {
             { name: 'Practical GitHub Actions', issuer: 'BY LINKEDIN', link: 'index.html' },
             { name: 'Programming Foundations: Beyond the Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' },
             { name: 'Introduction to Career Skills in Software Development', issuer: 'BY LINKEDIN', link: 'index.html' },
-            { name: 'Programming Foundations: Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' },
+            { name: 'Programming Foundations: Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' }
         ]
     }
 };
@@ -410,7 +419,6 @@ window.openCertModal = function(e, cardId) {
 };
 
 window.closeCertModal = function() {
-
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
     
@@ -423,7 +431,6 @@ window.closeCertModal = function() {
 const certModalElement = document.getElementById('certModal');
 if (certModalElement) {
     certModalElement.addEventListener('click', (e) => {
-        
         if (e.target === certModalElement) {
             closeCertModal();
         }
@@ -443,10 +450,7 @@ function deployFooterReveal() {
     const finalSection = document.querySelector('.honoursSectionWrapper');
     
     if (footer && finalSection) {
-        
         const footerHeight = footer.offsetHeight;
-        
-        
         finalSection.style.marginBottom = `${footerHeight}px`;
     }
 }
@@ -456,17 +460,13 @@ window.addEventListener('resize', deployFooterReveal);
 
 setTimeout(deployFooterReveal, 500);
 
-
-
 window.addEventListener('scroll', () => {
     const fixedFooter = document.querySelector('.footerComponent');
     if (fixedFooter) {
-        
         if (window.scrollY < window.innerHeight * 1.1) {
             fixedFooter.style.opacity = '0';
             fixedFooter.style.visibility = 'hidden';
         } else {
-            
             fixedFooter.style.opacity = '1';
             fixedFooter.style.visibility = 'visible';
         }
