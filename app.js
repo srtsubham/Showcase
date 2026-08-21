@@ -450,7 +450,17 @@ function deployFooterReveal() {
     }
 }
 
-window.addEventListener('load', deployFooterReveal);
+window.addEventListener('load', () => {
+    deployFooterReveal();
+    setTimeout(() => {
+        const lw = document.querySelector('.loaderWrapper');
+        if (lw) {
+            lw.style.opacity = '0';
+            setTimeout(() => lw.remove(), 800);
+        }
+    }, 2000);
+});
+
 window.addEventListener('resize', deployFooterReveal);
 
 setTimeout(deployFooterReveal, 500);

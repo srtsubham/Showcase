@@ -17,6 +17,13 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, H
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 overflow-x: hidden;
+-ms-overflow-style: none;  
+scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+display: none !important;
 }
 
 html.lenis, html.lenis body {
@@ -32,106 +39,57 @@ overflow: hidden;
 }
 
 .loaderWrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #050505;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: #050505;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+transition: opacity 0.8s cubic-bezier(0.165, 0.840, 0.440, 1);
+overflow: hidden;
 }
 
 .loaderBackgroundMarquee {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100vw;
-    transform: translateY(-50%);
-    display: flex;
-    overflow: hidden;
-    opacity: 0.12; 
-    filter: blur(8px); 
-    pointer-events: none;
-    z-index: 1;
+position: absolute;
+top: 50%;
+left: 0;
+width: 100vw;
+transform: translateY(-50%);
+display: flex;
+overflow: hidden;
+opacity: 1; 
+pointer-events: none;
+z-index: 1;
 }
 
 .loaderMarqueeTrack {
-    display: flex;
-    flex-shrink: 0;
-    white-space: nowrap;
-    animation: scrollLoaderMarquee 30s linear infinite;
+display: flex;
+flex-shrink: 0;
+white-space: nowrap;
+animation: scrollLoaderMarquee 20s linear infinite;
 }
 
 .loaderMarqueeItem {
-    font-size: 144vw;
-    font-family: 'Great Vibes', cursive;
-    color: #ffffff;
-    font-weight: 400;
-    padding-right: 5vw;
-    text-transform: none;
-    letter-spacing: normal;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
+font-size: 25vw;
+font-family: 'Great Vibes', cursive;
+color: #ffffff;
+font-weight: 400;
+padding-right: 5vw;
+text-transform: none;
+letter-spacing: normal;
+text-rendering: optimizeSpeed;
+-webkit-font-smoothing: antialiased;
+transform: translateZ(0);
+backface-visibility: hidden;
 }
 
 @keyframes scrollLoaderMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-.loaderBox {
-    background-color: #ffffff;
-    color: #111111;
-    padding: 28px 56px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    z-index: 2; 
-    box-shadow: 0 20px 80px rgba(0,0,0,0.8);
-}
-
-.loaderText {
-    font-size: 1.7rem;
-}
-
-.loaderDot {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #ff3e3e;
-    
-    animation: dotColorProgression 0.7s linear forwards;
-}
-
-@keyframes dotColorProgression {
-    0%   { 
-        background-color: #ff3e3e; 
-        box-shadow: 0 0 16px rgba(255, 62, 62, 0.9); 
-    }
-    33%  { 
-        background-color: #ff9f0a; 
-        box-shadow: 0 0 16px rgba(255, 159, 10, 0.9); 
-    }
-    66%  { 
-        background-color: #ffd60a; 
-        box-shadow: 0 0 16px rgba(255, 214, 10, 0.9); 
-    }
-    100% { 
-        background-color: #32d74b; 
-        box-shadow: 0 0 16px rgba(50, 215, 75, 0.9); 
-    }
+0% { transform: translateX(0); }
+100% { transform: translateX(-100%); }
 }
 
 .linkTreePanel {
@@ -2124,18 +2082,6 @@ transform: translateY(-2px);
     padding-left: 0;
 }
 
-
-html, body {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;     /* Firefox */
-}
-
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    display: none !important;
-}
-
 .certDivider {
     width: 100%;
     height: 1px;
@@ -2240,21 +2186,6 @@ body::-webkit-scrollbar {
     flex-direction: column;
 }
 
-
-.modalBox {
-    background: #050505;
-    color: #ffffff;
-    width: 90%;
-    max-width: 440px;
-    border-radius: 16px;
-    position: relative;
-    transform: translateY(30px) scale(0.95);
-    transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 0 30px rgba(255,255,255,0.15);
-    overflow: hidden; 
-}
-
 .modalBox::-webkit-scrollbar {
     width: 8px;
     display: block; 
@@ -2345,11 +2276,6 @@ body::-webkit-scrollbar {
     flex-grow: 1;
     border: none;
     background-color: #111111;
-}
-
-.marqueeTrackSync {
-    will-change: transform;
-
 }
 
 [data-lenis-prevent] {
