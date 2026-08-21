@@ -132,97 +132,98 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let f = 0;
-        let initialLoadComplete = false;
+
+    function g(h) {
+        if (a) a.raf(h);
+
+        f -= 0.02 + (b * 0.01);
+        if (f <= -50) f += 50;
+        if (f > 0) f -= 50;
         
-        setTimeout(() => {
-            initialLoadComplete = true;
-        }, 2000); 
-    
-        function g(h) {
-            if (a) a.raf(h);
-    
-            f -= 0.02 + (b * 0.01);
-            if (f <= -50) f += 50;
-            if (f > 0) f -= 50;
-            ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
-    
-            if (!initialLoadComplete) {
-                requestAnimationFrame(g);
-                return;
-            }
-    
-            const wh = window.innerHeight;
-    
-            if (b1) {
-                const r1 = b1.getBoundingClientRect();
-                let p1 = (r1.top - 250) / (wh - 250);
-                p1 = Math.max(0, Math.min(1, p1));
-                b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
-            }
-            
-            if (b2) {
-                const r2 = b2.getBoundingClientRect();
-                let p2 = r2.top / wh;
-                p2 = Math.max(0, Math.min(1, p2));
-                b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
-            }
-    
-            if (bs) {
-                const r = bs.getBoundingClientRect();
-                let p = (wh - r.top + 150) / (wh * 0.8);
-                p = Math.max(0, Math.min(1, p));
-                crds.forEach((crd) => {
-                    crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
-                });
-            }
-            
-            if (window.innerWidth > 991) {
-                let cItem = null;
-                let mDist = Infinity;
-                
-                pi.forEach(p => {
-                    const r = p.getBoundingClientRect();
-                    const d = Math.abs((r.top + r.height / 2) - wh / 2);
-                    if(d < mDist) {
-                        mDist = d;
-                        cItem = p;
-                    }
-                });
-                
-                pi.forEach(p => {
-                    if(p === cItem && mDist < 150) {
-                        p.classList.add('isActive');
-                        const ti = im.get(p);
-                        if (ca !== ti) {
-                            if (ca) ca.style.opacity = '0';
-                            if (ti) ti.style.opacity = '1';
-                            ca = ti;
+        ts.forEach(t => t.style.transform = `translate3d(${f}%, 0, 0)`);
+        const wh = window.innerHeight;
+
+        if (b1) {
+            const r1 = b1.getBoundingClientRect();
+            let p1 = (r1.top - 250) / (wh - 250);
+            p1 = Math.max(0, Math.min(1, p1));
+            b1.style.clipPath = `inset(calc(${p1 * 100}% - 2px) -2px -2px -2px round 6px)`;
+        }
+        
+        if (b2) {
+            const r2 = b2.getBoundingClientRect();
+            let p2 = r2.top / wh;
+            p2 = Math.max(0, Math.min(1, p2));
+            b2.style.clipPath = `inset(calc(${p2 * 100}% - 2px) -2px -2px -2px round 6px)`;
+        }
+
+        if (bs) {
+            const r = bs.getBoundingClientRect();
+            let p = (wh - r.top + 150) / (wh * 0.8);
+            p = Math.max(0, Math.min(1, p));
+            crds.forEach((crd) => {
+                crd.style.clipPath = `polygon(0 0, ${p * 100}% 0, ${p * 100}% 100%, 0 100%)`;
+            });
+        }
+        
+        if (window.innerWidth > 991) {
+                    let cItem = null;
+                    let mDist = Infinity;
+                    
+                    pi.forEach(p => {
+                        const r = p.getBoundingClientRect();
+                        const d = Math.abs((r.top + r.height / 2) - wh / 2);
+                        if(d < mDist) {
+                            mDist = d;
+                            cItem = p;
                         }
+                    });
+                    
+                    pi.forEach(p => {
+                        if(p === cItem && mDist < 150) {
+                            p.classList.add('isActive');
+                            const ti = im.get(p);
+                            if (ca !== ti) {
+                                if (ca) ca.style.opacity = '0';
+                                if (ti) ti.style.opacity = '1';
+                                ca = ti;
+                            }
+                        } else {
+                            p.classList.remove('isActive');
+                        }
+                    });
+                    
+                    if (mDist < 150) {
+                        pp.classList.add('isVisible');
                     } else {
-                        p.classList.remove('isActive');
-                    }
-                });
-                
-                if (mDist < 150) {
-                    pp.classList.add('isVisible');
-                } else {
-                    pp.classList.remove('isVisible');
-                    if (ca) {
-                        ca.style.opacity = '0';
-                        ca = null;
+                        pp.classList.remove('isVisible');
+                        if (ca) {
+                            ca.style.opacity = '0';
+                            ca = null;
+                        }
                     }
                 }
-            }
-    
-            if (pSec && pFol && pInit) {
-                pCurrX += (pMouseX - pCurrX) * 0.015;
-                pCurrY += (pMouseY - pCurrY) * 0.015;
-                pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
-            }
-    
-            requestAnimationFrame(g);
+
+        if (pSec && pFol && pInit) {
+            pCurrX += (pMouseX - pCurrX) * 0.015;
+            pCurrY += (pMouseY - pCurrY) * 0.015;
+            pFol.style.transform = `translate(calc(${pCurrX}px - 50%), calc(${pCurrY}px - 50%))`;
         }
+
         requestAnimationFrame(g);
+    }
+    requestAnimationFrame(g);
+
+    const ee = document.querySelectorAll('.animTarget');
+    const ff = new IntersectionObserver((gg) => {
+        gg.forEach((hh) => {
+            if (hh.isIntersecting) {
+                hh.target.classList.add('isVisible');
+            } else {
+                hh.target.classList.remove('isVisible');
+            }
+        });
+    }, { threshold: 0.1 });
 
     ee.forEach((hh) => {
         ff.observe(hh);
