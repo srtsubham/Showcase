@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 2.5,
             smoothWheel: true
         });
-        window.lns = a; //verson 4.9
+        window.lns = a; //verson 5.0
     }
 
     let b = 0;
