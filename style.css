@@ -2315,3 +2315,65 @@ transform: translateY(-2px);
 [data-lenis-prevent] {
     overscroll-behavior: contain;
 }
+
+html {
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.sc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100vh;
+    z-index: 890;
+    cursor: pointer;
+}
+
+.st {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(145deg, #ff6b6b 0%, #dc143c 45%, #8b0000 100%);
+    border-radius: 8px 0 0 8px;
+    transition: width 0.3s cubic-bezier(0.165, 0.840, 0.440, 1), box-shadow 0.3s ease;
+    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5), 
+                inset -1px -1px 2px rgba(0, 0, 0, 0.6), 
+                0 0 10px rgba(220, 20, 60, 0.5);
+    will-change: transform, height, width;
+}
+
+.sc:hover .st, .sc:active .st {
+    width: 14px;
+    background: linear-gradient(145deg, #a3b86c 0%, #6b8e23 45%, #4a6317 100%);
+    box-shadow: inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.5), 
+                inset -1.5px -1.5px 4px rgba(0, 0, 0, 0.6), 
+                0 0 15px rgba(107, 142, 35, 0.5);
+}
+
+
+.feedbackButton {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #050505;
+    color: #ffffff;
+    width: 44px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    text-decoration: none;
+    z-index: 900;
+    border-radius: 0;
+}
