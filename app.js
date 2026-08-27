@@ -307,6 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scContainer = document.getElementById('sc');
     const scThumb = document.getElementById('st');
+    const scTopContainer = document.getElementById('sc-top');
+    const scTopThumb = document.getElementById('st-top');
+    const resumeBtn = document.querySelector('.feedbackButton');
     let isDraggingThumb = false;
     let dragStartY = 0;
     let startScrollY = 0;
@@ -323,9 +326,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const pct = currS / maxS;
             
             let thumbH = Math.max(winH * (winH / docH), 40);
+            let thumbY = pct * (winH - thumbH);
             
             scThumb.style.height = thumbH + 'px';
-            scThumb.style.transform = `translateY(${pct * (winH - thumbH)}px)`;
+            scThumb.style.transform = `translateY(${thumbY}px)`;
+            
+            if (scTopThumb) {
+                scTopThumb.style.height = thumbH + 'px';
+                scTopThumb.style.transform = `translateY(${thumbY}px)`;
+            }
+            
+            if (scTopContainer && resumeBtn) {
+                const rRect = resumeBtn.getBoundingClientRect();
+                scTopContainer.style.clipPath = `inset(${rRect.top}px 0px ${winH - rRect.bottom}px 0px)`;
+            }
         };
 
         window.addEventListener('scroll', updateThumb);
@@ -342,11 +356,13 @@ document.addEventListener('DOMContentLoaded', () => {
             dragStartY = e.clientY;
             startScrollY = window.scrollY;
             document.body.style.userSelect = 'none';
+            scContainer.classList.add('is-dragging');
         });
 
         window.addEventListener('mouseup', () => {
             isDraggingThumb = false;
             document.body.style.userSelect = '';
+            scContainer.classList.remove('is-dragging');
         });
 
         window.addEventListener('mousemove', (e) => {
