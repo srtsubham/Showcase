@@ -2343,7 +2343,7 @@ html {
     height: 50px;
     background: linear-gradient(145deg, #ff6b6b 0%, #dc143c 45%, #8b0000 100%);
     border-radius: 8px 0 0 8px;
-    transition: width 0.3s cubic-bezier(0.165, 0.840, 0.440, 1), box-shadow 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.165, 0.840, 0.440, 1), box-shadow 0.3s ease, background 0.3s ease;
     box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5), 
                 inset -1px -1px 2px rgba(0, 0, 0, 0.6), 
                 0 0 10px rgba(220, 20, 60, 0.5);
@@ -2357,7 +2357,6 @@ html {
                 inset -1.5px -1.5px 4px rgba(0, 0, 0, 0.6), 
                 0 0 15px rgba(107, 142, 35, 0.5);
 }
-
 
 .feedbackButton {
     position: fixed;
