@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 2.5,
             smoothWheel: true
         });
-        window.lns = a; //Update version 9.8
+        window.lns = a; //Update version 9.9
     }
 
     let b = 0;
