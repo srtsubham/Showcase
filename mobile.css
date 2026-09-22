@@ -173,7 +173,9 @@ gap: 12px;
 font-size: 0.75rem;
 }
 .heroPortrait {
-width: 85vw;
+width: 145vw;
+left: 50%;
+transform: translateX(-50%);
 }
 .expPopup {
 display: none;

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 2.5,
             smoothWheel: true
         });
-        window.lns = a ; //Update version 12.7
+        window.lns = a; //Update version 12.7
     }
 
     let b = 0;
@@ -305,11 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- CUSTOM SCROLLBAR ENGINE ---
     const scContainer = document.getElementById('sc');
     const scThumb = document.getElementById('st');
-    const scTopContainer = document.getElementById('sc-top');
-    const scTopThumb = document.getElementById('st-top');
-    const resumeBtn = document.querySelector('.feedbackButton');
     let isDraggingThumb = false;
     let dragStartY = 0;
     let startScrollY = 0;
@@ -330,16 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             scThumb.style.height = thumbH + 'px';
             scThumb.style.transform = `translateY(${thumbY}px)`;
-            
-            if (scTopThumb) {
-                scTopThumb.style.height = thumbH + 'px';
-                scTopThumb.style.transform = `translateY(${thumbY}px)`;
-            }
-            
-            if (scTopContainer && resumeBtn) {
-                const rRect = resumeBtn.getBoundingClientRect();
-                scTopContainer.style.clipPath = `inset(${rRect.top}px 0px ${winH - rRect.bottom}px 0px)`;
-            }
         };
 
         window.addEventListener('scroll', updateThumb);
