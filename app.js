@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wheelMultiplier: 2.5,
             smoothWheel: true
         });
-        window.lns = a; //Update version 14.0
+        window.lns = a;
     }
 
     let b = 0;
@@ -305,7 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- CUSTOM SCROLLBAR ENGINE ---
     const scContainer = document.getElementById('sc');
     const scThumb = document.getElementById('st');
     let isDraggingThumb = false;
@@ -367,6 +366,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const scrollChange = pctChange * maxS;
                 
                 window.scrollTo(0, startScrollY + scrollChange);
+            }
+        });
+    }
+
+    const mobileAvatar = document.querySelector('.heroPortrait');
+    if (mobileAvatar) {
+        mobileAvatar.addEventListener('click', () => {
+            if (window.innerWidth <= 991) {
+                mobileAvatar.classList.toggle('isActiveMobile');
             }
         });
     }

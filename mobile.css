@@ -22,6 +22,13 @@ flex-direction: column;
 width: 100%;
 padding: 12px;
 }
+.treeLinkItem::before {
+transform: translateY(0) !important;
+}
+.treeLinkItem .treeLinkText, 
+.treeLinkItem .treeLinkArrow {
+color: #ffffff !important;
+}
 .aboutSection {
 padding: 8rem 1.5rem 10rem;
 border-top-left-radius: 1.5rem;
@@ -173,14 +180,162 @@ gap: 12px;
 font-size: 0.75rem;
 }
 .heroPortrait {
-width: 145vw;
-left: 50%;
-transform: translateX(-50%);
+width: 100vw;
+height: 100vh;
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+cursor: pointer;
+z-index: 2;
+overflow: hidden;
+}
+.avatarImage {
+position: absolute;
+bottom: 0;
+left: 0;
+height: 92vh;
+width: auto;
+max-width: none;
+object-fit: contain;
+object-position: left bottom;
+transform-origin: left bottom;
+transform: translateX(-48%);
+transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
+}
+.heroPortrait:hover .avatarImage {
+animation: none;
+transform: translateX(-48%);
+filter: drop-shadow(0px 0px 0px transparent);
+}
+.heroPortrait.isActiveMobile .avatarImage {
+transform: scale(1.03) translateX(-48%);
+filter: drop-shadow(0px 0px 20px rgba(255,255,255,0.6));
+animation: none;
+}
+.heroPortrait::after {
+content: '← CLICK ON ME';
+position: absolute;
+right: 8vw;
+bottom: 12vh;
+top: auto;
+transform: none;
+font-family: 'Space Mono', monospace;
+font-size: 0.75rem;
+font-weight: 700;
+color: #111111;
+letter-spacing: 1px;
+animation: mobileBlink 1.5s infinite ease-in-out;
+pointer-events: none;
+z-index: 10;
+}
+@keyframes mobileBlink {
+0%, 100% { opacity: 0.2; }
+50% { opacity: 0.8; }
+}
+.heroPortrait.isActiveMobile::after {
+display: none;
 }
 .expPopup {
-display: none;
+display: block;
+width: 220px;
+height: auto;
+max-height: none;
+overflow: visible;
+padding: 1rem;
+left: auto;
+right: 5vw;
+opacity: 0;
+pointer-events: none;
+transform: translateX(20px) !important;
+transition: opacity 0.4s ease, transform 0.4s ease;
+z-index: 20;
+}
+.expLeft {
+top: 22%;
+}
+.expRight {
+top: 62%;
+}
+.expTitle {
+font-size: 0.85rem !important;
+}
+.expSub {
+font-size: 0.65rem !important;
+margin-bottom: 0.5rem !important;
+}
+.expList li {
+font-size: 0.65rem !important;
+line-height: 1.3 !important;
+margin-bottom: 0.3rem !important;
+}
+.expLeft::after, .expRight::after {
+display: block !important;
+left: auto !important;
+right: 100% !important;
+width: 0 !important;
+background-color: #ffffff !important;
+box-shadow: 0 0 6px rgba(255, 255, 255, 0.8) !important;
+position: absolute;
+top: 25px;
+height: 2px;
+content: '';
+transition: width 0.6s cubic-bezier(0.165, 0.840, 0.440, 1) 0.1s !important;
+}
+.expLeft::before, .expRight::before {
+display: block !important;
+left: auto !important;
+right: calc(100% + 12vw) !important;
+border-radius: 50% !important;
+width: 6px !important;
+height: 6px !important;
+opacity: 0 !important;
+box-shadow: 0 0 8px #ffffff !important;
+background-color: #ffffff;
+position: absolute;
+top: 23px;
+content: '';
+transition: opacity 0.2s ease 0.6s !important;
+}
+.heroPortrait:hover .expLeft, 
+.heroPortrait:hover .expRight {
+opacity: 0;
+transform: translateX(20px) !important;
+}
+.heroPortrait.isActiveMobile .expLeft,
+.heroPortrait.isActiveMobile .expRight {
+opacity: 1;
+transform: translateX(0) !important;
+pointer-events: auto;
+}
+.heroPortrait.isActiveMobile .expLeft::after,
+.heroPortrait.isActiveMobile .expRight::after {
+width: 12vw !important;
+}
+.heroPortrait.isActiveMobile .expLeft::before,
+.heroPortrait.isActiveMobile .expRight::before {
+opacity: 1 !important;
 }
 .feedbackButton {
 display: none;
+}
+.scrollDown {
+bottom: auto;
+left: auto;
+top: 80px;
+right: 15px;
+gap: 6px;
+font-size: 0.55rem;
+}
+.scrollBox {
+width: 18px;
+height: 18px;
+}
+.scrollArrow {
+width: 10px;
+height: 10px;
+}
+.marqueeItem {
+font-size: 120vw;
 }
 }
