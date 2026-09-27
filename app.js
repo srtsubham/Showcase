@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (f > 0) f -= 50;
 
         const wh = window.innerHeight;
-        const isD = window.innerWidth > 991;
 
         const r1 = b1 ? b1.getBoundingClientRect() : null;
         const r2 = b2 ? b2.getBoundingClientRect() : null;
@@ -150,16 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let cItem = null;
         let mDist = Infinity;
 
-        if (isD) {
-            pi.forEach(p => {
-                const r = p.getBoundingClientRect();
-                const d = Math.abs((r.top + r.height / 2) - wh / 2);
-                if (d < mDist) {
-                    mDist = d;
-                    cItem = p;
-                }
-            });
-        }
+        pi.forEach(p => {
+            const r = p.getBoundingClientRect();
+            const d = Math.abs((r.top + r.height / 2) - wh / 2);
+            if (d < mDist) {
+                mDist = d;
+                cItem = p;
+            }
+        });
 
         const psRect = (pSec && pFol && pInit) ? pSec.getBoundingClientRect() : null;
 
@@ -182,29 +179,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        if (isD) {
-            pi.forEach(p => {
-                if(p === cItem && mDist < 150) {
-                    p.classList.add('isActive');
-                    const ti = im.get(p);
-                    if (ca !== ti) {
-                        if (ca) ca.style.opacity = '0';
-                        if (ti) ti.style.opacity = '1';
-                        ca = ti;
-                    }
-                } else {
-                    p.classList.remove('isActive');
+        pi.forEach(p => {
+            if(p === cItem && mDist < 150) {
+                p.classList.add('isActive');
+                const ti = im.get(p);
+                if (ca !== ti) {
+                    if (ca) ca.style.opacity = '0';
+                    if (ti) ti.style.opacity = '1';
+                    ca = ti;
                 }
-            });
-            
-            if (mDist < 150) {
-                pp.classList.add('isVisible');
             } else {
-                pp.classList.remove('isVisible');
-                if (ca) {
-                    ca.style.opacity = '0';
-                    ca = null;
-                }
+                p.classList.remove('isActive');
+            }
+        });
+        
+        if (mDist < 150) {
+            pp.classList.add('isVisible');
+        } else {
+            pp.classList.remove('isVisible');
+            if (ca) {
+                ca.style.opacity = '0';
+                ca = null;
             }
         }
 
