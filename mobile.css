@@ -2304,19 +2304,19 @@ transform: translateY(-2px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 30px;
+    padding: 12px 16px !important;
     background-color: #ffffff;
 }
 
 .resumeDownloadBtn {
     background-color: #111111;
     color: #ffffff;
-    padding: 12px 24px;
+    padding: 8px 16px !important;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-size: 0.7rem !important;
+    letter-spacing: 1px !important;
     transition: background-color 0.2s ease;
 }
 
@@ -2330,9 +2330,9 @@ transform: translateY(-2px);
     border: none;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.7rem !important;
     cursor: pointer;
-    letter-spacing: 2px;
+    letter-spacing: 1px !important;
 }
 
 .resumeIframe {
