@@ -11,7 +11,7 @@ cursor: url('assets/linkcursor.png'), pointer !important;
 
 html, body {
 width: 100%;
-background-color: #ebebeb;
+background-color: #ffffff;
 color: #111111;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 -webkit-font-smoothing: antialiased;
@@ -465,13 +465,13 @@ top: 50%;
 transform: translateY(-50%);
 background-color: #050505;
 color: #ffffff;
-width: 22px; 
-height: 75px; 
+width: 26px; 
+height: 90px; 
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
-padding: 7px 0; 
+padding: 8px 0; 
 text-decoration: none;
 z-index: 900;
 border-radius: 0;
@@ -479,7 +479,7 @@ border-radius: 0;
 
 .feedbackLogo {
 font-weight: 800;
-font-size: 7px;
+font-size: 8.5px;
 margin-bottom: 0;
 }
 
@@ -487,7 +487,7 @@ margin-bottom: 0;
 writing-mode: vertical-rl;
 transform: rotate(180deg);
 font-weight: 600;
-font-size: 5.5px;
+font-size: 6.5px;
 letter-spacing: 1px;
 color: #aaaaaa;
 text-transform: uppercase;
@@ -1716,13 +1716,14 @@ min-width: 0;
 .quoteAuthor {
 font-size: 1.2rem;
 color: #888888;
+margin-bottom: 50rem; 
 }
 
 .honoursMarquee {
 width: 100%;
 overflow: hidden;
-margin-top: auto;
-display: flex;
+margin-top: 2rem !important;;
+display: flex; 
 }
 
 .honoursMarqueeTrack {
@@ -1867,7 +1868,7 @@ transform: translateY(0);
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #050505;
+    background-color: #ffffff;
     z-index: -1;
     pointer-events: none;
 }
@@ -2384,10 +2385,10 @@ html {
 .st::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: -10px;
     left: -20px;
-    width: 40px;
-    height: 100%;
+    width: 50px;
+    height: calc(100% + 20px);
     cursor: pointer;
 }
 
@@ -2487,7 +2488,7 @@ height: 100% !important;
 color: #ffffff !important;
 }
 .aboutSection {
-padding: 8rem 1.5rem 10rem;
+padding: 6rem 1.5rem 2rem !important;
 border-top-left-radius: 1.5rem;
 border-top-right-radius: 1.5rem;
 }
@@ -2519,10 +2520,10 @@ text-align: center;
 }
 .timelineContainer {
 overflow: visible !important;
-padding: 40px 20px !important;
+padding: 20px 20px 0 !important;
 scrollbar-width: none;
 -ms-overflow-style: none;
-margin-top: 2rem;
+margin-top: 1rem;
 }
 .timelineContainer::-webkit-scrollbar {
 display: none;
@@ -2549,7 +2550,8 @@ font-size: 0.6rem;
 .nodePopup {
 width: 220px;
 padding: 1.2rem;
-background: #111111 !important;
+background: #050505 !important;
+background-color: #050505 !important;
 backdrop-filter: none !important;
 -webkit-backdrop-filter: none !important;
 border: 1px solid rgba(255, 255, 255, 0.8) !important;
@@ -2589,7 +2591,7 @@ padding: 1.5rem;
 font-size: 8vw !important;
 }
 .sectionTitle {
-font-size: 10vw !important;
+font-size: 12vw !important;
 justify-content: center;
 text-align: center;
 width: 100%;
@@ -2981,6 +2983,13 @@ bottom: 15vh;
 }
 
 @media screen and (max-width: 767px) {
+.aboutSection {
+padding: 5rem 1.2rem 5rem !important;
+}
+.timelineContainer {
+padding: 20px 10px 0 !important;
+margin-top: 1rem !important;
+}
 .aboutWrapper {
 display: flex;
 flex-direction: column;
@@ -3103,7 +3112,7 @@ white-space: normal !important;
 line-height: 1.2 !important;
 margin: 0 !important;
 width: 100% !important;
-padding-left: 1.2rem !important;
+padding-left: 0.5rem !important;
 }
 .projectDetailsStack {
 grid-area: details !important;
@@ -3112,10 +3121,10 @@ flex-direction: column !important;
 gap: 0.4rem !important;
 min-width: 0 !important;
 width: 100% !important;
-padding-right: 1rem !important;
+padding-right: 0.5rem !important;
 }
 .projectDesc {
-font-size: 0.55rem !important;
+font-size: 0.6rem !important;
 white-space: normal !important;
 word-wrap: break-word !important;
 overflow-wrap: break-word !important;
@@ -3123,10 +3132,10 @@ display: block !important;
 width: 100% !important;
 max-width: 100% !important;
 margin: 0 !important;
-line-height: 1.3 !important;
+line-height: 1.4 !important;
 }
 .projectTools {
-font-size: 0.45rem !important;
+font-size: 0.5rem !important;
 color: #888888 !important;
 white-space: normal !important;
 word-wrap: break-word !important;
@@ -3135,13 +3144,13 @@ display: block !important;
 width: 100% !important;
 max-width: 100% !important;
 margin: 0 !important;
-line-height: 1.3 !important;
+line-height: 1.4 !important;
 }
 .contactBtn {
 grid-area: button !important;
-font-size: 0.5rem !important;
-padding: 0.4rem 0.6rem !important;
-margin: 0 0 0 1.2rem !important;
+font-size: 0.55rem !important;
+padding: 0.4rem 0.5rem !important;
+margin: 0 0 0 0.5rem !important;
 width: fit-content !important;
 position: static !important;
 }
@@ -3162,7 +3171,7 @@ padding: 2rem 1.5rem 0 !important;
 margin-bottom: 1.5rem !important;
 }
 .footerBigName {
-font-size: 7.5vw !important;
+font-size: 9.5vw !important;
 padding: 0.8rem 0 !important;
 }
 .footerBottomGrid {
@@ -3174,29 +3183,8 @@ font-size: 0.75rem !important;
 gap: 0.3rem !important;
 }
 .timeDisplay {
-font-size: 0.75rem !important;
+font-size: 0.9rem !important;
 }
-.treeLinkItem {
-background: linear-gradient(135deg, #3a3a3a 0%, #111111 100%) !important;
-border: none !important;
-}
-.treeLinkItem:nth-child(1) { background: linear-gradient(135deg, #0077b5 0%, #004471 100%) !important; }
-.treeLinkItem:nth-child(2) { background: linear-gradient(135deg, #3a3a3a 0%, #111111 100%) !important; }
-.treeLinkItem:nth-child(3) { background: linear-gradient(135deg, #4a5d23 0%, #2b331f 100%) !important; }
-.treeLinkItem:nth-child(4) { background: linear-gradient(135deg, #c72c2c 0%, #7a1313 100%) !important; }
-.treeLinkItem::before { display: none !important; }
-.gridLink {
-border: none !important;
-padding: 0.6rem 0.8rem !important;
-font-size: 0.55rem !important;
-border-radius: 4px !important;
-background: linear-gradient(135deg, #3a3a3a 0%, #111111 100%) !important;
-}
-.gridLink:nth-child(1) { background: linear-gradient(135deg, #0077b5 0%, #004471 100%) !important; }
-.gridLink:nth-child(2) { background: linear-gradient(135deg, #3a3a3a 0%, #111111 100%) !important; }
-.gridLink:nth-child(3) { background: linear-gradient(135deg, #4a5d23 0%, #2b331f 100%) !important; }
-.gridLink:nth-child(4) { background: linear-gradient(135deg, #c72c2c 0%, #7a1313 100%) !important; }
-.gridLink::before { display: none !important; }
 #certModal .modalBox {
 width: 95vw !important;
 height: 85vh !important;
@@ -3243,15 +3231,15 @@ padding: 0.3rem 0.5rem !important;
 flex-shrink: 0 !important;
 }
 .feedbackButton {
-width: 17px !important;
-height: 60px !important;
-padding: 6px 0 !important;
+width: 20px !important;
+height: 72px !important;
+padding: 7px 0 !important;
 }
 .feedbackLogo {
-font-size: 6px !important;
+font-size: 7px !important;
 }
 .feedbackText {
-font-size: 5px !important;
-letter-spacing: 0.6px !important;
+font-size: 6px !important;
+letter-spacing: 0.8px !important;
 }
 }
