@@ -1,6 +1,10 @@
 @media screen and (max-width: 991px) {
 .topHeader {
 padding: 8px 12px;
+transition: transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1);
+}
+.topHeader.isHidden {
+transform: translateY(-150%) !important;
 }
 .headerSubtext {
 display: none;
@@ -22,8 +26,19 @@ flex-direction: column;
 width: 100%;
 padding: 12px;
 }
+.treeLinkItem {
+border: none !important;
+padding: 13px 15px !important;
+border-radius: 4px !important;
+overflow: hidden !important;
+}
 .treeLinkItem::before {
 transform: translateY(0) !important;
+border-radius: 0 !important;
+top: 0 !important;
+left: 0 !important;
+width: 100% !important;
+height: 100% !important;
 }
 .treeLinkItem .treeLinkText, 
 .treeLinkItem .treeLinkArrow {
@@ -287,6 +302,24 @@ font-size: 2.2rem;
 .footerLinksGrid {
 grid-template-columns: 1fr;
 }
+.gridLink {
+border: none !important;
+padding: 0.6rem 0.8rem !important;
+font-size: 0.6rem !important;
+border-radius: 4px !important;
+overflow: hidden !important;
+}
+.gridLink::before {
+transform: scaleY(1) !important;
+border-radius: 0 !important;
+top: 0 !important;
+left: 0 !important;
+width: 100% !important;
+height: 100% !important;
+}
+.gridLinkText, .gridLinkArrow {
+color: #ffffff !important;
+}
 .modalBox {
 padding: 2rem 1.5rem;
 width: 95%;
@@ -511,6 +544,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 }
+.aboutBio {
+font-size: 0.85rem !important;
+text-align: justify;
+text-justify: inter-word;
+width: 100%;
+}
 .aboutRight {
 padding-right: 0;
 display: flex;
@@ -529,6 +568,51 @@ justify-content: center;
 display: flex;
 flex-direction: column;
 align-items: center;
+}
+.honoursQuote {
+font-size: 0.85rem !important;
+text-align: justify !important;
+text-justify: inter-word !important;
+line-height: 1.5 !important;
+}
+.honoursDesc {
+font-size: 0.75rem !important;
+line-height: 1.4 !important;
+}
+.honoursAuthor {
+font-size: 0.75rem !important;
+}
+.honoursRole {
+font-size: 0.55rem !important;
+}
+.honoursIcon {
+width: 36px !important;
+height: 36px !important;
+font-size: 0.8rem !important;
+}
+.logoStripSection {
+padding: 2rem 1rem 0 !important;
+}
+.logoStripText {
+font-size: 0.6rem !important;
+margin-bottom: 1rem !important;
+text-align: center;
+}
+.logoStripRow {
+flex-wrap: nowrap !important;
+justify-content: space-between !important;
+gap: 0.5rem !important;
+overflow-x: auto;
+padding-bottom: 0.5rem;
+}
+.logoText {
+font-size: 0.5rem !important;
+}
+.marqueeItemSmall {
+font-size: 8vw !important;
+}
+.sectionTitle {
+font-size: 8vw !important;
 }
 .projectsSubHeader {
 gap: 1rem;
@@ -618,5 +702,71 @@ transform: translateY(-50%) !important;
 }
 .previewImage {
 object-fit: cover !important;
+}
+.footerComponent {
+padding: 2rem 1.5rem 0 !important;
+}
+.footerBigNameWrapper {
+margin-bottom: 1.5rem !important;
+}
+.footerBigName {
+font-size: 9.5vw !important;
+padding: 0.8rem 0 !important;
+}
+.footerBottomGrid {
+gap: 1rem !important;
+margin-bottom: 1.5rem !important;
+}
+.footerInfo {
+font-size: 0.75rem !important;
+gap: 0.3rem !important;
+}
+.timeDisplay {
+font-size: 0.9rem !important;
+}
+#certModal .modalBox {
+width: 95vw !important;
+height: 85vh !important;
+padding: 1.2rem 1rem !important;
+}
+.modalTitle {
+font-size: 1rem !important;
+margin-bottom: 0.8rem !important;
+}
+.modalCloseBtn {
+top: 1rem !important;
+right: 1rem !important;
+padding: 0 !important;
+}
+.certDivider {
+margin-bottom: 0.8rem !important;
+}
+.certList {
+gap: 0.8rem !important;
+padding-right: 0.2rem !important;
+}
+.certItem {
+padding-bottom: 0.8rem !important;
+gap: 0.5rem !important;
+flex-wrap: nowrap !important;
+align-items: center !important;
+}
+.certDetails {
+flex: 1 !important;
+min-width: 0 !important;
+}
+.certName {
+font-size: 0.7rem !important;
+line-height: 1.2 !important;
+word-wrap: break-word !important;
+}
+.certIssuer {
+font-size: 0.5rem !important;
+margin-top: 0.2rem !important;
+}
+.certLink {
+font-size: 0.5rem !important;
+padding: 0.3rem 0.5rem !important;
+flex-shrink: 0 !important;
 }
 }
