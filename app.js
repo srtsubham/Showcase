@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         a = new Lenis({
             lerp: 0.05,
             wheelMultiplier: 2.5,
-            smoothWheel: true //Version 17.8
+            smoothWheel: true //Version 17.9
         });
         window.lns = a;
     }
