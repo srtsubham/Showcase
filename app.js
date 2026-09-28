@@ -241,21 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mm = document.getElementById('bottomDock');
     window.addEventListener('scroll', () => {
         if (!mm) return;
-        
-        const winH = window.innerHeight;
-        const heroS = document.querySelector('.heroSection');
-        const heroP = document.querySelector('.heroPortrait');
-        
-        if (window.scrollY > winH * 0.8) {
-            document.body.style.backgroundColor = '#ffffff';
-            if(heroS) heroS.style.visibility = 'hidden';
-            if(heroP) heroP.style.visibility = 'hidden';
-        } else {
-            document.body.style.backgroundColor = '#ebebeb';
-            if(heroS) heroS.style.visibility = 'visible';
-            if(heroP) heroP.style.visibility = 'visible';
-        }
-        
         if (window.scrollY > 5) {
             mm.classList.add('isVisible');
         } else {
@@ -266,15 +251,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const topHeader = document.querySelector('.topHeader');
         
         if (fixedFooter) {
-            const docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            if (window.scrollY >= docH - winH - 200) {
-                fixedFooter.style.opacity = '1';
-                fixedFooter.style.visibility = 'visible';
-                if(topHeader) topHeader.classList.add('isHidden');
-            } else {
+            if (window.scrollY < window.innerHeight * 1.1) {
                 fixedFooter.style.opacity = '0';
                 fixedFooter.style.visibility = 'hidden';
                 if(topHeader) topHeader.classList.remove('isHidden');
+            } else {
+                fixedFooter.style.opacity = '1';
+                fixedFooter.style.visibility = 'visible';
+                if(topHeader) topHeader.classList.add('isHidden');
             }
         }
     });
@@ -353,73 +337,68 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(updateThumb, 500);
         updateThumb();
 
-        const onDragStart = (clientY) => {
+        scThumb.addEventListener('mousedown', (e) => {
             isDraggingThumb = true;
-            dragStartY = clientY;
+            dragStartY = e.clientY;
             startScrollY = window.scrollY;
             document.body.style.userSelect = 'none';
             scContainer.classList.add('is-dragging');
-        };
+        });
 
-        const onDragMove = (clientY) => {
-            if (!isDraggingThumb) return;
-            const docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            const winH = window.innerHeight;
-            const maxS = docH - winH;
-            
-            if (maxS <= 0) return;
-
-            const thumbH = scThumb.offsetHeight;
-            const maxThumbY = winH - thumbH;
-            const deltaY = clientY - dragStartY;
-            
-            const pctChange = deltaY / maxThumbY;
-            let targetScrollY = startScrollY + (pctChange * maxS);
-            
-            targetScrollY = Math.max(0, Math.min(targetScrollY, maxS));
-
-            if (window.lns) {
-                window.lns.scrollTo(targetScrollY, { immediate: true });
-            } else {
-                window.scrollTo(0, targetScrollY);
-            }
-        };
-
-        const onDragEnd = () => {
-            if (isDraggingThumb) {
-                isDraggingThumb = false;
-                document.body.style.userSelect = '';
-                scContainer.classList.remove('is-dragging');
-            }
-        };
-
-        scThumb.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            onDragStart(e.clientY);
+        window.addEventListener('mouseup', () => {
+            isDraggingThumb = false;
+            document.body.style.userSelect = '';
+            scContainer.classList.remove('is-dragging');
         });
 
         window.addEventListener('mousemove', (e) => {
             if (isDraggingThumb) {
-                e.preventDefault();
-                onDragMove(e.clientY);
+                const docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                const winH = window.innerHeight;
+                const maxS = docH - winH;
+                const thumbH = scThumb.offsetHeight;
+                
+                const maxThumbY = winH - thumbH;
+                const deltaY = e.clientY - dragStartY;
+                
+                const pctChange = deltaY / maxThumbY;
+                const scrollChange = pctChange * maxS;
+                
+                window.scrollTo(0, startScrollY + scrollChange);
             }
         });
 
-        window.addEventListener('mouseup', onDragEnd);
-
         scThumb.addEventListener('touchstart', (e) => {
-            onDragStart(e.touches[0].clientY);
+            isDraggingThumb = true;
+            dragStartY = e.touches[0].clientY;
+            startScrollY = window.scrollY;
+            document.body.style.userSelect = 'none';
+            scContainer.classList.add('is-dragging');
         }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            isDraggingThumb = false;
+            document.body.style.userSelect = '';
+            scContainer.classList.remove('is-dragging');
+        });
 
         window.addEventListener('touchmove', (e) => {
             if (isDraggingThumb) {
                 if (e.cancelable) e.preventDefault();
-                onDragMove(e.touches[0].clientY);
+                const docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                const winH = window.innerHeight;
+                const maxS = docH - winH;
+                const thumbH = scThumb.offsetHeight;
+                
+                const maxThumbY = winH - thumbH;
+                const deltaY = e.touches[0].clientY - dragStartY;
+                
+                const pctChange = deltaY / maxThumbY;
+                const scrollChange = pctChange * maxS;
+                
+                window.scrollTo(0, startScrollY + scrollChange);
             }
         }, { passive: false });
-
-        window.addEventListener('touchend', onDragEnd);
-        window.addEventListener('touchcancel', onDragEnd);
     }
 
     const mobileAvatar = document.querySelector('.heroPortrait');
