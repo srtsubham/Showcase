@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
         a = new Lenis({
             lerp: 0.05,
             wheelMultiplier: 2.5,
-            smoothWheel: true //Version 17.9
+            smoothWheel: true 
         });
         window.lns = a;
     }
 
     let b = 0;
     if (a) {
-        a.on('scroll', (e) => {
+        a.on('scroll', (e) => {   //Version 18.0
             b = e.velocity || 0;
         });
     }
@@ -415,81 +415,138 @@ const credentialLedger = {
     cardOne: {
         title: 'FOUNDATIONAL LOGIC',
         certs: [
-            { name: 'Python Backend Developer', issuer: 'BY FREECODECAMP', link: 'https://www.freecodecamp.org/certification/subh_sr/python-v9' },
-            { name: 'Relational Database', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'A2 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'Responsive Web Design', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'B1 English for Developers', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'JavaScript Developer Full Course', issuer: 'BY FREECODECAMP', link: 'index.html' },
-            { name: 'Career Essentials in Software Development', issuer: 'BY MICROSOFT AND LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/f5a78db61d38521853f26bd7251d55b1c9b724d0f89484b4acec3aa860927aa4' }
+            { name: 'Python Backend Developer', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Fpython-v9&urlhash=g024&mt=pyfACUFD4WGBDXV5re869mczvhSfXQOkEf5Fz7_kI1kz5mWjvtaCIDs3aVLtrAqwuRQRkNFEvHqCVBOBlCkGcCmJbctp&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Relational Database', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Frelational-databases-v9&urlhash=TkW8&mt=V39defQmwxgGnpgC7C_UvosTugPL5RunMHOZDJttlx8wGk1U13pXL0bx9oVA1pewU69ieU-j9T5X6x9i_1yDuSoOdpcR&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'A2 English for Developers', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Fa2-english-for-developers&urlhash=MuNB&mt=9zygjHjjSMYM7mrT_8lOS4FsZU1LCx8OxfQ1EbOtukvykpTM4e_5Gr465rdx_BIia2OcJZMLO9DhVMN448dByiaK1SWF&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Responsive Web Design', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Fresponsive-web-design-v9&urlhash=beoA&mt=yfji-tBjCT5ZltvMBhaISoTV_XIHlB-Hz3UCIz5ujDHr_FObXuDAitKRoZXfWOWNCQjet_7GwjXa3T7euKDVMXIXf3E4&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'B1 English for Developers', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Fb1-english-for-developers&urlhash=Om8Y&mt=LadxjHzcCjyhaaIKuVp1MRD8hPqrOZLm_s51iG6kqAclB_OX_nZRZs1n8W-2GZsf79AXaap0TgeVEZ_7kMgmjtwwudoY&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'JavaScript Developer Full Course', issuer: 'BY FREECODECAMP', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Ffreecodecamp.org%2Fcertification%2Fsubh_sr%2Fjavascript-v9&urlhash=4kva&mt=JSsZpobFd8lKwL_eAO0J77o_QW657e1dpQteQ3QbWGwO0T0H8Rflk8OeJCstFu4ijRp5LHC8l1vaai7oyyHGYnAvOqKk&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Career Essentials in Software Development', issuer: 'BY MICROSOFT AND LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/f5a78db61d38521853f26bd7251d55b1c9b724d0f89484b4acec3aa860927aa4/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' }
         ]
     },
     cardTwo: {
         title: 'APPLIED AI LOGIC',
         certs: [
-            { name: 'Getting Started with AI on Jetson Nano', issuer: 'BY NVIDIA', link: 'index.html' },
-            { name: 'Claude with Amazon Bedrock', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Claude Code 101', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Claude 101', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Introduction to Claude Cowork', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Introduction to subagents', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Introduction to agent skills', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'AI Fluency for Nonprofits', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'AI Fluency: AI Capabilities and Limitations', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'AI Fluency for Students', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'AI Fluency: Framework & Foundations', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Claude with Google Vertex AI', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Claude Code in Action', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Model Context Protocol: Advanced Topics', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Introduction to Model Context Protocol', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Building with the Claude API', issuer: 'BY ANTHROPIC', link: 'index.html' },
-            { name: 'Introduction to Agent Observability and Evaluations', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Foundation: Monitoring Production Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Quickstart: LangSmith Fleet', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Quickstart: LangSmith Essentials', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Project: Deep Research with LangGraph', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Quickstart: LangGraph Essentials Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Foundation: Introduction to LangGraph Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Quickstart: LangChain Essentials Python', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Project: Ambient Agents with LangGraph', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Foundation: Building Reliable Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'Projects: Deep Agents', issuer: 'BY LANGCHAIN', link: 'index.html' },
-            { name: 'AI Agents Course', issuer: 'BY HUGGING FACE', link: 'index.html' },
-            { name: 'Fundamentals of Agents', issuer: 'BY HUGGING FACE', link: 'index.html' }
+            
+            { name: 'Getting Started with AI on Jetson Nano', issuer: 'BY NVIDIA', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flearn.Nvidia.com%2Fcertificates%3Fid%3DIzDdHGBPRqak96cdsynsFA&urlhash=pZ3l&mt=19Kfzr1rZ53s0E6fqhncLN6bTd9b5QkGZbRWvYA1OjTHoDObEWwoZUcZBplDQIE5TJKJ6DWiAwmeQkTXCqTVm8YeOsGI&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'AI Agents Course', issuer: 'BY HUGGING FACE', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2Fsrtsubham%2FFinal_Assignment_Template&urlhash=Nnf6&mt=KGrGjG18-Qg2foNMMINe7vBSVbh4kKBqCzZl4780tNRFdwLtcggOcymc4OvRqaLuMluQJQIqsyIXbznK6FTS9DsHxoH5&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Fundamentals of Agents', issuer: 'BY HUGGING FACE', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2Fsrtsubham%2FFinal_Assignment_Template&urlhash=Nnf6&mt=r_koVVAY16rmM1VXN_3jBvTpgKdYlf34MdJJfi6Pr7pa8M4o8yr2cDIa5QrEOspl7ab51hXwG-7Mq82hTL14172VhzxW&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Claude with Amazon Bedrock', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2F5batiutw487t&urlhash=3IZm&mt=UyxrOrabal5Rl-mMjHGTzS-zqj33mxlOs8QqQDihpJHAP3JF7RigbxVjfHRsyR7NAyCzIVTpNHRqoGZyMjyOPMhTRE76&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Claude Code 101', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fu4xwdsgmkjvb&urlhash=QHf1&mt=kNbdkH4nqakMS6VABHaDn1TUC4uUhN2sywEJ3T7nlk4S11fzNA3m3iUcz4kQZxnWfq5t2k3thK_3QJKRipsOkTJVYdEi&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Claude 101', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fr55e6vuvzx6c&urlhash=2XLG&mt=akpMaPH1zu0Q32JqF_78vtdP2f3DmUG-0j-DKrVyhcIJQa4b3RC9108Ci-HPwbK9L8bvf3GD7tCK8Pn_eVDP2VfRpG3a&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to Claude Cowork', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Frvjvdyz3j6e2&urlhash=TSQP&mt=8RMBVqt7F9FmvNnu9Otd9zUzm5pZFEhELV13-RSZ1Y_kYFLVOvhnWohwaEv0uS6Qj2E85xsgdmX6WH6Dq6giqhzqt373&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to subagents', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fw6okrtko4vdm&urlhash=qZsg&mt=37nZnlT42h65gZ4xewqmaH4WFtCpVQhXc657RDL4k5tZO6F_jjZgn8s-5k2IawcbBfhrtT4AbDYTFKu1yBbDLh_odfeT&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to agent skills', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fx53zfg9zkzep&urlhash=P8wh&mt=b-uZXIsRl8FOdtALlBu0DrMRgi4wEXQrLjrzTimO1Gn6NdXlw6f2PsD0kjh6QRFh_-0NjTYgzWiJ1KJ_SjzOrkeFp1B8&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'AI Fluency for Nonprofits', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fepfkbyzis3jy&urlhash=dDBs&mt=J7iHF6RmJpBthErN2nI18EI_xcLWONdPHZN_vGwjKHDPNX-w_BpPGMgXLt5qmQJROlbGzQMqH0_wHRBtlntzR0Nvb86D&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'AI Fluency: AI Capabilities and Limitations', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2F6dp36cew8w44&urlhash=N7we&mt=hEXkl2AqKD_Ie--qMdG_h3nn9lGOpd3w3lYv5okcYi3stpPRIKen6ZX-0UZ8G6DOZVSs2uiXmtRQjCAhSdEaw5AcwLr-&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'AI Fluency for Students', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fe9wgydk36qmv&urlhash=_ZO8&mt=s3iXD58vuQOGyfUohwRkHRuWBMmYEw3-RDeLGVtsIBvviIIzLpA-9YwULGiOX4KxbSoBB_yeBiY6m-gcJtuz1WEXRjaL&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'AI Fluency: Framework & Foundations', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fc6z468asw4g3&urlhash=LCKf&mt=VnshZYbae-9Z965u2z-vXdM22Oq_hrhmnAG9VXHcpxEHBHnc2r7oD4msRO5sb8VOnXMbhnYA-CrcdH1uABiC7BXz_1dB&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Claude with Google Vertex AI', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2F8asbbcgtunfe&urlhash=21WR&mt=wbS-RF5A7XtWyCQ0I6l5CWY0Jryz1l50iIps1TuxNq6Ot55VC0zISZaHa-RDk6G3xpy9WVCVvpReCxcb67HyWal08MIO&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Claude Code in Action', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fd25wmxw9n4xr&urlhash=p6xh&mt=4dbDU9vVmZGGEogszJI1ju19ChCZCWS9xUqrsQX443d0lHGL9_zapW48FM7AFLAahZjlunewdz3-PBBknptnle-cmR2f&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Model Context Protocol: Advanced Topics', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fwrrwm5dfczub&urlhash=xQBI&mt=ZnAu1cCDOmBl86lL2D6ar0DmSSMem17wiZRawOjCUwuMp5y7nmDUrAC_gQLkCr5I5wUt6FlKZgFE5qWrFssILW3bRnq0&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to Model Context Protocol', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2F8e3orbpv2d4a&urlhash=5p_J&mt=8bKcWk3vSFFpwPXIe51rbx4YDxzE9BvahlIdJm_yOZwfaa-R6mr7LkSTNTmQlOSl-OMrb_BanEjP2b5cZD54JKKBlrC0&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Building with the Claude API', issuer: 'BY ANTHROPIC', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fverify.skilljar.com%2Fc%2Fahsgo4otnbup&urlhash=1Lwk&mt=ZoPkgA_dkhW1fe78_mgPzZ2UwtyX-NIyl3RPl0Xp5C8Djm82l8XdUihtHx6RspHO2N_GGgz9MBAWrYsaiBy2v9B22svd&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to Agent Observability and Evaluations', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Ftrrhidtqsk&urlhash=5HeA&mt=06Bz7BojWg2zu7QtVwP2RSsdIz0Rcct1mtluu7LQW9oR6C4bDxNdXwu64rl23OOelUmLuNLtPazwKPR1O4ZkpzeVFQXr&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Foundation: Monitoring Production Agents', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fatifx3oreg&urlhash=BhSI&mt=ttQNze19OMYknzULLUvquMzt9p69SFseL7IDAhRa8krMWMBafLTeMdojRXRn2SPgeCA-g4OtX4pKX41ZnWjLD7SwixBG&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Quickstart: LangSmith Fleet', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fxqb5vlpxze&urlhash=JWiD&mt=14qLfI_3Zr4ygEBHj3vPRZf8GWHUlaewOSGuMlKVbQAccjih9Xlp7TEfO7I4kM02ieEP0GOS7uAB7cl6jkeJNwg_6aWb&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Quickstart: LangSmith Essentials', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fxu2tblnqkm&urlhash=lBA_&mt=633wCcX0ohkazGl6CbjeOShq2phvfUZWW3lTcsqL88T-2vZMjFqoZ4ayrwRHkb5LdBloCHOhEjN0uyTAuBpLMy4lM79D&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Project: Deep Research with LangGraph', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2F5hhcpcr0ns&urlhash=WMwH&mt=k-FH2zQOIpdJHCqzfkTrxp2_ErhY5Oa1CexXWKxDb4hWPlEQaPv38XGrVVBPvfuuceCWiDhOsyj-7sa_d_eiIBv0hJzZ&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Quickstart: LangGraph Essentials Python', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Ffpw3weanep&urlhash=9adh&mt=-UrCzpQfFt_CkxbTXQWxrJPapQjIsJtu-cUgTcnLqh8BArjDRR0PY5BqkMyEFac6kuNpkaGpTHlaEpw-F800gMGt62P3&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Foundation: Introduction to LangGraph Python', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fyqch9kubrm&urlhash=b7V7&mt=UYSGtks6lIXdmFnmhK6xKyyAwnJDwkVfBadjqMOmfECiTvbTZpmR-XfR_dlIvAnpmOmHG-hbuxUVUAymB3KM57klyN0A&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Quickstart: LangChain Essentials Python', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fajyvqenzdk&urlhash=lzsZ&mt=OLX-eGoK_MT4PUWjXS3EtGWkdEpWTRUM9Ch6sroR2OMXxQF8BBVoE4McPWSPaglt_b8FSNQdzfPEfw3N9ehmzM_gavOm&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Project: Ambient Agents with LangGraph', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fmczgpohndi&urlhash=V27z&mt=xaNQs3R7ZES043dnU6IyANxTsZdmSU9SmMnyatlPzcEBCTebmPDdYtDG_zgCSVLzDg6k7mV7tgvaJl3wFkuN5p9NKRpf&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Foundation: Building Reliable Agents', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dhttps%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fznb3xj2fiv&urlhash=PeUw&mt=BOBvFvdFbVsS3DyAn2KAHTEOMywrqMVAP1sZ8JpRCQtG7E9PlibfF2BVebciql4OSuBDJ9au6p_ruFuJQK_873ncseH_&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Projects: Deep Agents', issuer: 'BY LANGCHAIN', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Facademy.langchain.com%2Fcertificates%2Fqf5sy4j2ql&urlhash=Hnl9&mt=lZbLqK6jVQtuJyVSyw74V6InOmxHP2R5cr7wyvkix_MIHbldKGimHFHKj_-V1UgLTcdKPEzfUThHV_YDIom3kvNt3RDA&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
         ]
     },
     cardThree: {
         title: 'CLOUD INFRASTRUCTURE',
         certs: [
-            { name: 'AWS Identity and Access Management Basics', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Getting Started with the AWS Cloud Essentials', issuer: 'BY AWS', link: 'index.html' }
+            { name: 'AWS Identity and Access Management Basics', issuer: 'BY AWS', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fskillsprofile.skillbuilder.aws%2Fuser%2Fsrtsubham%2Fcertification-badges&urlhash=0hw2&mt=6K1hb9BzFpkNbdgdYmS_TbebyJOajMzw0J4p5PVQzaKEi9cg-Y-M1g6SVYHec2O6z-97zhPcJF9G5S2ugoWJKazkf_lx&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Getting Started with the AWS Cloud Essentials', issuer: 'BY AWS', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fskillsprofile.skillbuilder.aws%2Fuser%2Fsrtsubham%2Fcertification-badges&urlhash=0hw2&mt=CTIPE-qskERvMOwhM4M1zY5CvbmKNg9irGktZIt_OgRngOy0AuhLpYeLlzqEdkjNqcGYcAgh-y_n9V5mcSEWveK4dho9&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' }
         ]
     },
     cardFour: {
         title: 'ENTERPRISE EXECUTION',
         certs: [
-            { name: 'Developing BPM Applications Using RHPAM', issuer: 'BY INFOSYS', link: 'index.html' },
-            { name: 'Logistic Regression Using Python', issuer: 'BY INFOSYS', link: 'index.html' },
-            { name: 'API Modelling and Design', issuer: 'BY INFOSYS', link: 'index.html' },
-            { name: 'JavaScript Specialist Certification', issuer: 'BY INFOSYS', link: 'index.html' },
-            { name: 'Java Programming Fundamentals', issuer: 'BY INFOSYS', link: 'index.html' },
-            { name: 'Business Etiquette', issuer: 'BY TCS ION', link: 'index.html' },
-            { name: 'Generative AI Essentials AI for All', issuer: 'BY TCS ION', link: 'index.html' },
-            { name: 'Write Effective Resume and Cover Letter', issuer: 'BY TCS ION', link: 'index.html' },
-            { name: 'Lifelong Professional Skills', issuer: 'BY IBM', link: 'index.html' }
+            { name: 'Getting Started with the AWS Cloud Essentials', issuer: 'BY AWS', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fskillsprofile.skillbuilder.aws%2Fuser%2Fsrtsubham%2Fcertification-badges&urlhash=0hw2&mt=AxPNmxV-IJxMtiPdO7Jr-Mje_eN3laHbWLH1McYUHcadipCiiugV9GxuYxCGD3aR2nVD5iqD7qA3BlKNonPwUbMQ3ZVr&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bhr5BimQ2SbKjZy1jQuohUw%3D%3D' },
+            { name: 'AWS Identity and Access Management Basics', issuer: 'BY AWS', link: 'https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fskillsprofile.skillbuilder.aws%2Fuser%2Fsrtsubham%2Fcertification-badges&urlhash=0hw2&mt=XGMImh0AmUEZg_pulj4QxE15RwcwKI6TweETPns9NJviaCQefvxFEugVft6leu3rKKQAeWVgd9uJmYQlQNJiX-KUi1tr&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bhr5BimQ2SbKjZy1jQuohUw%3D%3D' },
+            { name: 'Introduction to Amazon API Gateway', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Amazon CloudWatch', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Amazon CloudWatch Logs', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Lab Introduction to Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Amazon Simple Storage Service S3', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Amazon Virtual Private Cloud VPC', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to AWS Auto Scaling', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to AWS Identity and Access Management', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to AWS Lambda', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to AWS Solutions', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to AWS Trusted Advisor', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to Building with AWS', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Introduction to EC2 Auto Scaling', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Networking Basics', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon EC2 Basics', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Lambda Foundations', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Identity and Access Management Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon CloudWatch Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon EBS Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon EC2 Auto Scaling Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon EC2 Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon RDS for MySQL Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon RDS for SQL Server Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon Relational Database Service RDS Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon Simple Storage Service S3 Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'API Gateway Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Block Storage Services Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS CloudFormation Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS CloudTrail Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Config Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Lambda Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Step Functions Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Systems Manager Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Gateway Load Balancer Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Network Load Balancer NLB Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Trails for AWS CloudTrail Getting Started', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Getting Started with AWS Auto Scaling', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Getting Started with AWS Storage', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB Service Primer', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB for Serverless Architectures', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB Learning Path', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Build with Amazon API Gateway', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Build with Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Design Patterns for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Developer Tooling for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'How AWS Step Functions Work', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Observability for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Protecting Your Instance with Security Groups', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Differences Between Security Groups', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS for Games Cloud Game Development', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS SimuLearn Highly Available Web App', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Monitor Python applications using Amazon CloudWatch', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Deep Dive Architecting with Amazon', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Advanced CloudFormation Macros', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon API Gateway Troubleshooting', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon CloudWatch Troubleshooting', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB Data Modeling', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'Amazon DynamoDB Troubleshooting', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS CloudFormation Stacks Troubleshooting', issuer: 'BY AWS', link: 'index.html' },
+            { name: 'AWS Lambda Troubleshooting', issuer: 'BY AWS', link: 'index.html' }
         ]
     },
     cardFive: {
         title: 'PROFESSIONAL GROWTH',
         certs: [
-            { name: 'AWS and Cloud Computing Intern', issuer: 'BY GRASTECH', link: 'index.html' },
-            { name: 'Soft Skill Program', issuer: 'BY LEARNOVATE ENTERPRISES', link: 'index.html' },
-            { name: 'Artificial Intelligence and Machine Learning', issuer: 'BY YBI FOUNDATION', link: 'index.html' },
-            { name: 'Practical GitHub Code Search', issuer: 'BY LINKEDIN', link: 'index.html' },
-            { name: 'Practical GitHub Actions', issuer: 'BY LINKEDIN', link: 'index.html' },
-            { name: 'Programming Foundations: Beyond the Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' },
-            { name: 'Introduction to Career Skills in Software Development', issuer: 'BY LINKEDIN', link: 'index.html' },
-            { name: 'Programming Foundations: Fundamentals', issuer: 'BY LINKEDIN', link: 'index.html' }
+            { name: 'AWS and Cloud Computing Intern', issuer: 'BY GRASTECH', link: 'https://www.linkedin.com/in/srtsubham/overlay/Certifications/1620851000/treasury/?profileId=ACoAAEluIx8BVHjCs1MMW9AcK5uCaw2DIqnwShE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Technical Training Program', issuer: 'BY LEARNOVATE ENTERPRISES', link: 'https://www.linkedin.com/in/srtsubham/overlay/Certifications/178660389/treasury/?profileId=ACoAAEluIx8BVHjCs1MMW9AcK5uCaw2DIqnwShE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Soft Skill Program', issuer: 'BY LEARNOVATE ENTERPRISES', link: 'https://www.linkedin.com/in/srtsubham/overlay/Certifications/178660389/treasury/?profileId=ACoAAEluIx8BVHjCs1MMW9AcK5uCaw2DIqnwShE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Artificial Intelligence and Machine Learning', issuer: 'BY YBI FOUNDATION', link: 'https://www.linkedin.com/safety/go/?url=http%3A%2F%2Fwww.ybifoundation.org&urlhash=dzAy&mt=LvoXcfGSRSqgsdRFeHc_kGErOd4w-K2bpKMskpuPasro05Z-rllKGLSxoURW8oWmQ8gMw_xJ0TrNGnFS3UXJumVJwQe_&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Practical GitHub Code Search', issuer: 'BY LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/a68da2bbaacd71d9ce5a68fe5efff359db053546f459a1861c14d1a373c8d1d3/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Practical GitHub Actions', issuer: 'BY LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/1507000cb68ac5fa0ddb8deb10a7c5b6e22ff34cd05d65ec9f53332e532ff1c0/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Programming Foundations: Beyond the Fundamentals', issuer: 'BY LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/72e8f7f5fa36eeca30a428d3ca6bca6db647d6d3f03adcb1c61c78912d2df89f/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Introduction to Career Skills in Software Development', issuer: 'BY LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/fe505a62d3155ce5fddc6f6b36c4ed3663c20dabe875fc6c0f8cda1a1019f385/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' },
+            { name: 'Programming Foundations: Fundamentals', issuer: 'BY LINKEDIN', link: 'https://www.linkedin.com/learning/certificates/69272b95837c324a292290d267467509dd39b644fc8c71b7dfca8ec6bacb8d46/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BJjbbtx39TTGC1EVxk6JdSg%3D%3D' }
         ]
     }
 };
