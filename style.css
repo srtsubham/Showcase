@@ -3141,10 +3141,7 @@ padding: 0.3rem 0.5rem !important;
 flex-shrink: 0 !important;
 }
 
-
-
 }
-
 :root {
     --resume-btn-width: 35px;  
     --resume-btn-height: 130px; 
