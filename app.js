@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let b = 0;
     if (a) {
-        a.on('scroll', (e) => {   //Version 18.2
+        a.on('scroll', (e) => {   //Version 18.3
             b = e.velocity || 0;
         });
     }
@@ -469,12 +469,9 @@ const credentialLedger = {
             { name: 'Introduction to Amazon CloudWatch', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to Amazon CloudWatch Logs', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Lab Introduction to Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to Amazon Simple Storage Service S3', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to Amazon Virtual Private Cloud VPC', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to AWS Auto Scaling', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Introduction to AWS Identity and Access Management', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Introduction to AWS Lambda', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to AWS Solutions', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to AWS Trusted Advisor', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Introduction to Building with AWS', issuer: 'BY AWS', link: 'index.html' },
@@ -507,17 +504,12 @@ const credentialLedger = {
             { name: 'Getting Started with AWS Storage', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Amazon DynamoDB Service Primer', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Amazon DynamoDB for Serverless Architectures', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Amazon DynamoDB Learning Path', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Build with Amazon API Gateway', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'Build with Amazon EC2', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Design Patterns for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Developer Tooling for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
             { name: 'How AWS Step Functions Work', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Observability for AWS Step Functions', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Protecting Your Instance with Security Groups', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Differences Between Security Groups', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'AWS for Games Cloud Game Development', issuer: 'BY AWS', link: 'index.html' },
-            { name: 'AWS SimuLearn Highly Available Web App', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Monitor Python applications using Amazon CloudWatch', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Deep Dive Architecting with Amazon', issuer: 'BY AWS', link: 'index.html' },
             { name: 'Advanced CloudFormation Macros', issuer: 'BY AWS', link: 'index.html' },
