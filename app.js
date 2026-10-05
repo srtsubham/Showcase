@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let b = 0;
     if (a) {
         a.on('scroll', (e) => {   //Version 19.2
+        3
             b = e.velocity || 0;
         });
     }
