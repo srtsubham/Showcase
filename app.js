@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let b = 0;
     if (a) {
-        a.on('scroll', (e) => {   //Version 20.1
+        a.on('scroll', (e) => {   //Version 20.2
         3
             b = e.velocity || 0;
         });
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    const ta = ["CREATIVE DEVELOPER,", "AI SYSTEMS ENGINEER,", "FULL STACK DEVELOPER,", "DEVOPS ASSOCIATE,"];
+    const ta = ["SOFTWARE DEVELOPER ENGINEER,", "BACKEND DEVELOPMENT,", "APPLIED AI SYSTEMS,", "DEVOPS ASSOCIATE,"];
     let tb = 0;
     let tc = ta[0].length;
     let td = true;
