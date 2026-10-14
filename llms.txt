@@ -1,0 +1,25 @@
+# Somya Ranjan Tripathi - Tech Portfolio
+
+> A Software Development Engineer (HE/HIM) specializing in production-grade infrastructure. I bridge high-performance Java backends with neural models to power agentic AI workflows. Utilizing robust CI/CD and AWS, I anchor my stack in Spring Boot, PyTorch, and Kubernetes to execute scalable blueprints and ensure absolute reliability.
+
+## Professional Identity
+- Current Role: Software Development Engineer (SDE)
+- Core Pillars: Backend Development | Neural Modeling
+- Operating Tagline: Architecting scalable systems & agentic AI integrations.
+- Location: Lucknow, India
+
+## Tech Stack & Ecosystems
+- Core Languages: Java, Python, Kotlin, Swift, JavaScript
+- Infrastructure & Cloud: AWS, Docker, Kubernetes
+- Backend & AI Frameworks: Spring Boot, Django, PyTorch, LangChain, Anthropic API
+
+## Flagship Projects
+- [Project Doris](https://github.com/srtsubham/Project_Doris): Full stack deployment engineered for dynamic data pipelines using Java, Python, Docker, AWS, and MongoDB.
+- [CampusSync](https://github.com/srtsubham/Campus-Sync): Cloud-native synchronization platform engineered for institutional data flow using FastAPI, AWS, Docker, and React.js.
+- [LekhaBit](https://github.com/srtsubham/LekhaBit/tree/main): Multi-platform GST and MSME product management ecosystem built on Java, Python, and AWS.
+- [Ambaram Sentinel](https://github.com/srtsubham/Minor_Project_Ambaram_Sentinel): Predictive machine learning model specialized in extreme weather event forecasting using PyTorch and PostgreSQL.
+
+## Contact & Links
+- [LinkedIn Profile](https://www.linkedin.com/in/srtsubham/)
+- [GitHub Profile](https://github.com/srtsubham)
+- Email: somyar.tripathi@gmail.com
