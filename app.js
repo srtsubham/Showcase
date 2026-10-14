@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    const ta = ["SOFTWARE DEVELOPER ENGINEER,", "BACKEND DEVELOPMENT,", "APPLIED AI SYSTEMS,", "DEVOPS ASSOCIATE,"];
+    const ta = ["SOFTWARE ENGINEER,", "BACKEND DEVELOPER,", "NEURAL MODELER,"];
     let tb = 0;
     let tc = ta[0].length;
     let td = true;
